@@ -2,7 +2,7 @@
 	<view class="top_a">
 		<view class="top_c">
 			<view class="top_e"><image src="../img/f002.png"></image></view>
-			<view class="top_d"><input placeholder="搜索产品、商家或关键词" /></view>
+			<view class="top_d"><input placeholder="搜索产品、商家或关键词" bindfocus="focus" /></view>
 		</view>
 	</view>
 
@@ -121,6 +121,8 @@
 		</view>
 	</view>
 </view>
+<change isShow="{{isShow}}"></change>
+
 
 
 

@@ -1,20 +1,40 @@
 // pages/index/index.js
+const app = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isShow: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (this.data.isShow) {
+      var that=this
+      app.http({
+        url:'/oauth/get-user-identity-list',
+        method:'POST',
+        // dengl:true,
+        data:{},
+        success(res){
+          console.log(res)
+    console.log(getApp().globalData.isShow)
+          that.setData({
+            carList:res.data.data
+          })
+        }
+      })
+    }
   },
-
+  focus() {
+    wx.navigateTo({
+      url: '../one-h-sousuo/one-h-sousuo',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

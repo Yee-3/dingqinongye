@@ -34,6 +34,57 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    isShow:false,
+    http(obj) {
+      // console.log(getApp().globalData.isShow)
+      // getApp().globalData.isShow=true
+      // var webUrl='http://192.168.100.144:8089'
+      var webUrl = 'http://192.168.101.1:8889',
+      that=this
+      if (obj.dengl) {
+        if (wx.getStorageSync('Authorization')) {
+          wx.request({
+            url: webUrl + obj.url,
+            data: obj.data,
+            method: obj.method ? obj.method : 'GET',
+            header: {
+              'content-type': obj.header ? 'application/json' : 'application/x-www-form-urlencoded',
+              // 'maijiToken': 'abc494548414c8d8abc14541abc84cc1',
+              'Authorization': wx.getStorageSync('Authorization')
+            },
+            success: function (res) {
+              if (res.data.code == 401) {
+                wx.showToast({
+                  title: '您未登录请登录后重试',
+                  icon: 'none'
+                })
+              console.log(globalData.isShow)
+              }
+              obj.success(res)
+            }
+          })
+        } else {
+          // wx.showToast({
+          //   title: '您未登录请登录后重试',
+          //   icon: 'none'
+          // })
+          
+        }
+      } else {
+        wx.request({
+          url: webUrl + obj.url,
+          data: obj.data,
+          method: obj.method ? obj.method : 'GET',
+          header: {
+            'content-type': obj.header ? "application/json" : 'application/x-www-form-urlencoded',
+          },
+          success: function (res) {
+            obj.success(res)
+            // console.log(wx.getStorageSync('Authorization'))
+          }
+        })
+      }
+    },
   }
 })
