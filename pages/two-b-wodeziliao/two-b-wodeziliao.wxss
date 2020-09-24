@@ -1,0 +1,12 @@
+page{ background: #f4f4f4;}
+
+
+
+.v_5{ width: 100%; height: 100rpx; margin-top: 10rpx; background: #fff; padding: 0 28rpx; box-sizing: border-box; }
+.v_5:first-child{ border-top: none;}
+.v_6{ font-size: 28rpx; color: #333; line-height: 100rpx;}
+.v_7{ padding-top: 35rpx; padding-left: 20rpx;}
+.v_7 image{ width: 16rpx; height: 30rpx;}
+.v_8{ font-size: 28rpx; color: #999; line-height: 100rpx;}
+.v_9{ padding-top: 32rpx; padding-left: 20rpx;}
+.v_9 image{ width: 26rpx; height: 26rpx;}

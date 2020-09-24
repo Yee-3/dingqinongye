@@ -1,0 +1,177 @@
+<view class="te_1">
+	订单编号：21354123647
+</view>
+
+<view class="top">
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+		<block class="top_img">
+			<swiper-item>
+				<image class="banner" src="../img/f013.png"></image>
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../img/f013.png"></image>
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../img/f013.png"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+
+<view class="e_04">
+	<view class="e_05">小麦飞防植保</view>
+	<view class="e_06">
+		<view class="e_07 fl">
+			<p>100.0亩</p><span>作业面积</span>
+		</view>
+		<view class="e_08 fl">
+			<p>50元</p><span>价格/亩</span>
+		</view>
+		<view class="e_07 fr">
+			<p>2台</p><span>机器台数</span>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+<view class="e_09">
+	<view class="e_10">
+		<view class="fl e_11">作业日期</view>
+		<view class="fr e_12">2020.02.02</view>
+	</view>
+	<view class="e_10">
+		<view class="fl e_11">作业周期</view>
+		<view class="fr e_12">1天</view>
+	</view>
+	<view class="e_10">
+		<view class="fl e_11">地理位置</view>
+		<view class="fr e_12">山东省济南市槐荫区报业大厦</view>
+	</view>
+	<view class="e_10">
+		<view class="fl e_11">结款方式</view>
+		<view class="fr e_12">完活完结 / 种植户结款</view>
+	</view>
+	
+</view>
+
+
+<view class="e_15">
+	<view class="e_16 fl">
+		<view class="fl e_17"><image src="../img/f014.png"></image></view>
+		<view class="fl e_18">联系种植户</view>
+	</view>
+	<view class="e_19 fl" bindtap="tanchuanga">
+		<view class="fl e_17"><image src="../img/f049.png"></image></view>
+		<view class="fl e_18">取消订单</view>
+	</view>
+	<view class="e_20 fr" bindtap="tanchuang">
+		<view class="fl e_17"><image src="../img/f051.png"></image></view>
+		<view class="fl e_21">开始作业</view>
+	</view>
+</view>
+
+<view class="f_08" style="{{style}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>完成时请提示种植户点击确认</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="quxiao">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+
+<view class="f_081" style="{{stylea}}">
+	<view class="f_071">
+		<view class="e_221">
+			<p>取消原因</p>
+		</view>
+		<view class="te_2">
+			<view class="te_3">
+				<view class="fl">
+					<radio-group name="radio">
+					    <label><radio value="checkbox1"/></label>
+					</radio-group>
+				</view>
+				<view class="fl te_4">没看清楚内容</view>
+				<view class="w-clear"></view>
+			</view>
+			<view class="te_3">
+				<view class="fl">
+					<radio-group name="radio">
+					    <label><radio value="checkbox1"/></label>
+					</radio-group>
+				</view>
+				<view class="fl te_4">机器坏了</view>
+				<view class="w-clear"></view>
+			</view>
+			<view class="te_3">
+				<view class="fl">
+					<radio-group name="radio">
+					    <label><radio value="checkbox1"/></label>
+					</radio-group>
+				</view>
+				<view class="fl te_4">时间待确定</view>
+				<view class="w-clear"></view>
+			</view>
+			<view class="te_3">
+				<view class="fl">
+					<radio-group name="radio">
+					    <label><radio value="checkbox1"/></label>
+					</radio-group>
+				</view>
+				<view class="fl te_4">对方不需要</view>
+				<view class="w-clear"></view>
+			</view>
+			<view class="te_3">
+				<view class="fl">
+					<radio-group name="radio">
+					    <label><radio value="checkbox1"/></label>
+					</radio-group>
+				</view>
+				<view class="fl te_4">赶不上时间</view>
+				<view class="w-clear"></view>
+			</view>
+			<view class="te_3">
+				<view class="fl">
+					<radio-group name="radio">
+					    <label><radio value="checkbox1"/></label>
+					</radio-group>
+				</view>
+				<view class="fl te_4">其他原因</view>
+				<view class="w-clear"></view>
+			</view>
+		</view>
+		<view class="te_5">
+			<view class="te_6">取消说明</view>
+			<view class="te_7"><input placeholder="请简要描述取消任务的原因" /></view>
+		</view>
+		<view class="e_231">
+			<ul>
+				<li bindtap="quxiaoa">取消</li>
+				<li bindtap="tanchuangb">确定</li>
+				<view class="w-clear"></view>
+			</ul>
+		</view>
+	</view>
+</view>
+
+
+<view class="f_08" style="{{styleb}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>取消订单成功</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="quxiaob">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+
+

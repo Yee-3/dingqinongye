@@ -1,0 +1,34 @@
+page{ background: #f4f4f4;}
+
+.w_1{ width: 690rpx; height: 170rpx; margin: 0 auto; padding-top: 30rpx; box-sizing: border-box;}
+.w_3{ width: 110rpx; height: 110rpx; border-radius: 60rpx; background: #fff;}
+.w_3 image{ width: 102rpx; height: 102rpx; padding: 4rpx 0 0 4rpx;}
+.w_4{ padding-left: 20rpx; box-sizing: border-box;}
+.w_41{ font-size: 30rpx; color: #333; padding-top: 14rpx;}
+.w_42{ font-size: 30rpx; font-weight: 200; padding-top: 6rpx;}
+.w_5{ padding-left: 30rpx; padding-top: 36rpx;}
+.w_5 image{ width: 16rpx; height: 30rpx;}
+.w_6{ text-align: center; padding-top: 30rpx;}
+.w_7 image{ width: 39rpx; height: 36rpx;}
+.w_8{ font-size: 22rpx; color: #444;}
+
+.w_9{ width: 694rpx; margin: 0 auto; border-radius: 20rpx; padding: 0 20rpx; background: #fff; box-sizing: border-box;}
+.w_10{ width: 100%; text-align: center; font-size: 30rpx; color: #333; line-height: 80rpx; border-bottom: 1rpx solid #e4e4e4;}
+.w_11{ width: 100%; padding: 25rpx 0;}
+.w_12{ width: 48%; text-align: center;}
+.w_14{ font-size: 26rpx; color: #333;}
+.w_15 image{ width: 52rpx; height: 52rpx;}
+.w_13{ width: 2rpx; height: 55rpx; background: #bfbfbf; margin: 0 auto; margin-top: 19rpx;}
+.w_17{ width: 20%; text-align: center;}
+.w_18{ width: 694rpx; margin: 0 auto; border-radius: 20rpx; padding: 0 20rpx; background: #fff; box-sizing: border-box; margin-top: 20rpx;}
+
+.v_5{ width: 100%; height: 100rpx; border-top: 1rpx solid #eee;}
+.v_5:first-child{ border-top: none;}
+.v_6{ font-size: 28rpx; color: #333; line-height: 100rpx;}
+.v_7{ padding-top: 35rpx; padding-left: 20rpx;}
+.v_7 image{ width: 16rpx; height: 30rpx;}
+.v_8{ font-size: 28rpx; color: #999; line-height: 100rpx;}
+
+
+
+

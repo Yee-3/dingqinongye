@@ -1,0 +1,89 @@
+<view class="o_1">
+	<view class="fl o_2">
+		<image src="../img/f029.png"></image>
+	</view>
+	<view class="fl o_3">
+		<view class="o_4">姓名<view class="o_5">12345213645</view></view>
+		<view class="o_6">
+			<view class="o_7">默认</view>山东省济南市槐荫区腊山河西交叉口报业大厦20层
+		</view>
+	</view>
+	<view class="fr o_8">
+		<image src="../img/f021.png"></image>
+	</view>
+	<view class="w-clear"></view>
+</view>
+
+<view class="o_9">
+	<view class="o_10">报业大厦供销社</view>
+	<view class="">
+		<view class="n_04 fl"><image src="../img/f027.png"></image></view>
+		<view class="n_05 fl">
+			<view class="n_08">70%吡虫啉20g杀虫剂农药</view>
+			<view class="n_09">
+				<view class="section">
+					<picker value="{{index}}" range="{{array}}">
+						<view class="n_10 fl">规格1</view>
+						<view class="n_11 fr"><image src="../img/f028.png"></image></view>
+					</picker>
+				</view>
+			</view>
+			<view class="n_12">
+				<view class="fl">
+					<view class="c_06">
+						<p><em>￥</em>88.00</p>
+					</view>
+				</view>
+				<view class="fr">
+					<view class="m_23 fr">
+						<view class="fl m_24">-</view>
+						<view class="fl m_25">5</view>
+						<view class="fr m_24">+</view>
+						<view class="w-clear"></view>
+					</view>
+				</view>
+				<view class="w-clear"></view>
+			</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="o_11">
+		<view class="fl o_12">订单备注</view>
+		<view class="fl o_13">请先与商家协商一致</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="o_11">
+		<view class="fl o_12">商品金额</view>
+		<view class="fr">
+			<view class="fl o_13">共1件丨</view>
+			<view class="o_14 fr">
+				<p><span>合计：</span><em>￥</em>88.00</p>
+			</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+<view class="e_15">
+	<view class="f_01 fl">
+		<view class="n_15 fl">
+			<view class="n_16 fl">共1件</view>
+		</view>
+		<view class="fl">
+			<view class="n_17">
+				<p><span>合计：</span><em>￥</em>88.00</p>
+			</view>
+		</view>
+	</view>
+	<view class="e_20 fr">
+		<view class="e_21">提交订单</view>
+	</view>
+</view>
+
+
+
+
+
+
+
+

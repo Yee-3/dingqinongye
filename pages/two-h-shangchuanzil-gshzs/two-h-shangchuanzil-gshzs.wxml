@@ -1,0 +1,23 @@
+<view class="j_01">
+	<view class="j_02">
+		<p>我是个人</p>
+	</view>
+	<view class="j_02 on">
+		<p>我是公司/合作社</p>
+	</view>
+</view>
+
+<view class="tg_1">
+	<view class="o_20">请上传营业执照</view>
+	<view class="tg_2">
+		<view class="tg_3">
+			<image src="../img/f055.png"></image>
+		</view>
+		<view class="th_1">
+			<view class="fl th_2">营业执照名称</view>
+			<view class="fl th_3"><input placeholder="请输入营业执照名称" /></view>
+			<view class="w-clear"></view>
+		</view>
+	</view>
+	<view class="c_4">提交审核</view>
+</view>

@@ -1,0 +1,14 @@
+.v_1{ width: 694rpx; margin: 0 auto;}
+
+.v_2{ text-align: center; margin-top: 30rpx;}
+.v_2 image{ width: 148rpx; height: 148rpx;}
+.v_3{ text-align: center; font-size: 28rpx; color: #333; margin-top: 16rpx;}
+
+.v_4{ width: 694rpx; margin: 0 auto; margin-top: 50rpx;}
+.v_5{ width: 100%; height: 100rpx; border-bottom: 1rpx solid #e4e4e4;}
+.v_6{ font-size: 28rpx; color: #333; line-height: 100rpx;}
+.v_7{ padding-top: 35rpx; padding-left: 20rpx;}
+.v_7 image{ width: 16rpx; height: 30rpx;}
+.v_8{ font-size: 28rpx; color: #999; line-height: 100rpx;}
+
+

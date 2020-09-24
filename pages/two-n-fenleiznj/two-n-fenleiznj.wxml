@@ -1,0 +1,13 @@
+<view class="tn_1">
+	<image src="../img/f056.png"></image>
+</view>
+
+<view class="v_5">
+	<view class="fl v_6">樱田2bd-8</view>
+	<view class="fr v_7">
+		<image src="../img/f021.png"></image>
+	</view>
+	<view class="fr v_8">一台</view>
+</view>
+
+<view class="c_4">添加新农机</view>

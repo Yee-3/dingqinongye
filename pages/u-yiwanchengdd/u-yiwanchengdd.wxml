@@ -1,0 +1,80 @@
+<view class="d_1">
+	<view class="d_2">订单编号：21354123647</view>
+	<view class="o_1">
+		<view class="fl o_2">
+			<image src="../img/f029.png"></image>
+		</view>
+		<view class="fl o_3">
+			<view class="o_4">姓名<view class="o_5">12345213645</view></view>
+			<view class="o_6">山东省济南市槐荫区腊山河西交叉口报业大厦20层</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+
+<view class="o_9">
+	<view class="o_10">报业大厦供销社</view>
+	<view class="">
+		<view class="n_04 fl"><image src="../img/f027.png"></image></view>
+		<view class="n_05 fl">
+			<view class="n_08">
+				<view class="fl o_15">70%吡虫啉20g杀虫剂农药</view>
+				<view class="fr o_16">×2</view>
+				<view class="w-clear"></view>
+			</view>
+			<view class="n_12">
+				<view class="fl o_16">实付款：</view>
+				<view class="fr">
+					<view class="c_06">
+						<p><em>￥</em>88.00</p>
+					</view>
+				</view>
+				<view class="w-clear"></view>
+			</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="zt_1 fr">送货上门</view>
+	<view class="w-clear"></view>
+</view>
+
+<view class="o_17">
+	<view class="o_20">订单信息</view>
+	<view class="o_19">
+		<view class="o_18">创建时间：2020-2-13 09:43:25</view>
+		<view class="o_18">创建时间：2020-2-13 09:43:25</view>
+		<view class="o_18">创建时间：2020-2-13 09:43:25</view>
+		<view class="o_18">创建时间：2020-2-13 09:43:25</view>
+	</view>
+	<view class="o_21">
+		<view class="fl o_22">
+			<view class="o_23 fl"><image src="../img/f046.png"></image></view>
+			<view class="o_24 fl">联系客服</view>
+			<view class="w-clear"></view>
+		</view>
+		<view class="fl o_22">
+			<view class="o_23 fl"><image src="../img/f047.png"></image></view>
+			<view class="o_24 fl">拨打电话</view>
+			<view class="w-clear"></view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+
+
+
+<view class="e_15">
+	<view class="f_01 fl">
+		<p>如有疑问请<span>联系客服</span></p>
+	</view>
+	<view class="e_20 fr">
+		<view class="fl e_17"><image src="../img/f018.png"></image></view>
+		<view class="fl e_21">已完成</view>
+	</view>
+</view>
+
+
+
+

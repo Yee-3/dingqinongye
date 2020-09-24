@@ -1,0 +1,78 @@
+<view class="top">
+	<!-- <view class="e_01">
+		<view class="e_02 fl">
+			<image src="../img/f012.png"></image>
+		</view>
+		<view class="e_03 fl">###机手正在查看这个农活</view>
+	</view> -->
+
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+		<block class="top_img">
+			<swiper-item>
+				<image class="banner" src="../img/f013.png"></image>
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../img/f013.png"></image>
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../img/f013.png"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+
+<view class="e_04">
+	<view class="e_05">小麦飞防植保</view>
+	<view class="e_06">
+		<view class="e_07 fl">
+			<p>100.0亩</p><span>作业面积</span>
+		</view>
+		<view class="e_08 fl">
+			<p>50元</p><span>价格/亩</span>
+		</view>
+		<view class="e_07 fr">
+			<p>2台</p><span>机器台数</span>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+<view class="e_09">
+	<view class="e_10">
+		<view class="fl e_11">作业日期</view>
+		<view class="fr e_12">2020.02.02</view>
+	</view>
+	<view class="e_10">
+		<view class="fl e_11">作业周期</view>
+		<view class="fr e_12">1天</view>
+	</view>
+	<view class="e_10">
+		<view class="fl e_11">地理位置</view>
+		<view class="fr e_12">山东省济南市槐荫区报业大厦</view>
+	</view>
+	<view class="e_10">
+		<view class="fl e_11">结款方式</view>
+		<view class="fr e_12">完活完结 / 种植户结款</view>
+	</view>
+	<view class="e_13">
+		<view class="e_11">地块描述</view>
+		<view class="e_14">Lorem ipsum dolor sit amet, consectetu
+			r adipiscing elit. Aenean euismod bibendu
+			m laoreet. Proin gravida dolor sit amet
+			lacus accumsan et viverra justo commo
+			do. Proin sodales pulvinar tempor. Cum
+			sociis natoque penatibus et</view>
+	</view>
+</view>
+
+
+<view class="e_15">
+	<view class="f_01 fl">
+		<p>如有疑问请<span>联系客服</span></p>
+	</view>
+	<view class="e_20 fr">
+		<view class="fl e_17"><image src="../img/f018.png"></image></view>
+		<view class="fl e_21">已完成</view>
+	</view>
+</view>
+

@@ -1,0 +1,29 @@
+<view class="tj_1">
+	<view class="tj_2"><input placeholder="收货人" /></view>
+	<view class="tj_2"><input placeholder="手机号" /></view>
+	<view class="tj_2">
+		<view class="section">
+			<picker value="{{index}}" range="{{array}}">
+				<view class="tj_6 fl">选择地址</view>
+				<view class="tj_7 fr">
+					<image src="../img/f021.png"></image>
+				</view>
+			</picker>
+		</view>
+	</view>
+	
+	<view class="tj_2"><input placeholder="详细地址：如街道、门牌号、小区、单元室等" /></view>
+	
+	<view class="tj_10">
+		<view class="fl tj_11">设为默认地址</view>
+		<view class="fr tj_12">
+			<view class="page-section page-section-gap">
+				<view class="page-section-title"></view>
+				<switch name="switch" />
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<view class="c_4">保存</view>

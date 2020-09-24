@@ -1,0 +1,8 @@
+.top_a{ width: 690rpx; height: 60rpx; position: absolute; top: 10px; left: 0; right: 0; margin: 0 auto; z-index: 10;}
+.top_c{ background: #eee; border-radius: 35rpx; width: 534rpx; height: 70rpx;}
+.top_d{ width: 474rpx; float: left;}
+.top_d input{ width: 474rpx; line-height: 70rpx; font-size: 24rpx; height: 70rpx; padding-left: 25rpx; box-sizing: border-box;}
+.top_e{ float: left; width: 60rpx; height: 32rpx; box-sizing: border-box; text-align: right; margin-top: 19rpx;}
+.top_e image{ width: 32rpx; height: 32rpx;}
+.h_01{ width: 130rpx; height: 70rpx; background: #008359; border-radius: 35rpx; line-height: 70rpx; text-align: center; font-size: 28rpx; color: #fff;}
+

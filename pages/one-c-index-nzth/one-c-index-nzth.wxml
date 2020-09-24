@@ -1,0 +1,152 @@
+<view class="top">
+	<view class="top_a">
+		<view class="top_c">
+			<view class="top_e"><image src="../img/f002.png"></image></view>
+			<view class="top_d"><input placeholder="搜索产品、商家或关键词" /></view>
+		</view>
+	</view>
+
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+		<block class="top_img">
+			<swiper-item>
+				<image class="banner" src="../img/f001.png"></image>
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../img/f001.png"></image>
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../img/f001.png"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="a_01">
+		<ul>
+			<li>
+				<image src="../img/f003.png"></image>
+				<p>水稻</p>
+			</li>
+			<li>
+				<image src="../img/f004.png"></image>
+				<p>水稻</p>
+			</li>
+			<li>
+				<image src="../img/f005.png"></image>
+				<p>水稻</p>
+			</li>
+			<li>
+				<image src="../img/f006.png"></image>
+				<p>水稻</p>
+			</li>
+			<li>
+				<image src="../img/f007.png"></image>
+				<p>水稻</p>
+			</li>
+			<view class="w-clear"></view>
+		</ul>
+	</view>
+</view>
+
+<view class="a_02"><image src="../img/f008.png"></image></view>
+
+<view class="a_03">
+	<view class="a_04">
+		<view class="fl a_05">热门资讯</view>
+		<view class="fr a_06">更多</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="a_07">
+		<view class="fl a_08"><image src="../img/f009.png"></image></view>
+		<view class="fr a_09">
+			<view class="a_10">2020年农业补贴政策</view>
+			<view class="a_11">关于2020年农业的补贴政策，政府已经...</view>
+			<view class="a_12">2020.01.20</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="a_07">
+		<view class="fl a_08"><image src="../img/f009.png"></image></view>
+		<view class="fr a_09">
+			<view class="a_10">2020年农业补贴政策</view>
+			<view class="a_11">关于2020年农业的补贴政策，政府已经...</view>
+			<view class="a_12">2020.01.20</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+<view class="a_13">
+	<view class="a_14">
+		<view class="a_15">
+			<view class="a_16 f-28 fl">热门订单</view>
+			<view class="a_16 f-34 fl">优质供销社</view>
+			<view class="a_16 f-28 fl">农资特惠</view>
+		</view>
+		<view class="a_17">
+			<view class="f-26 fl a_18 on"><p>推荐</p></view>
+			<view class="f-26 fl a_18"><p>待接单</p></view>
+			<view class="f-26 fl a_18"><p>距离最近</p></view>
+			<view class="f-26 fl a_18"><p>最新发布</p></view>
+		</view>
+		<view class="c_01">
+			<view class="c_02 fl">
+				<view class="c_03"><image src="../img/f011.png"></image></view>
+				<view class="c_04">
+					<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
+					<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
+					<view class="c_07">
+						<view class="c_08 fl">送货上门</view>
+						<view class="c_09 fr">售出9999件</view>
+						<view class="w-clear"></view>
+					</view>
+				</view>
+			</view>
+			<view class="c_02 fr">
+				<view class="c_03"><image src="../img/f011.png"></image></view>
+				<view class="c_04">
+					<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
+					<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
+					<view class="c_07">
+						<view class="c_08 fl">送货上门</view>
+						<view class="c_09 fr">售出9999件</view>
+						<view class="w-clear"></view>
+					</view>
+				</view>
+			</view>
+			<view class="c_02 fl">
+				<view class="c_03"><image src="../img/f011.png"></image></view>
+				<view class="c_04">
+					<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
+					<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
+					<view class="c_07">
+						<view class="c_08 fl">送货上门</view>
+						<view class="c_09 fr">售出9999件</view>
+						<view class="w-clear"></view>
+					</view>
+				</view>
+			</view>
+			<view class="c_02 fr">
+				<view class="c_03"><image src="../img/f011.png"></image></view>
+				<view class="c_04">
+					<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
+					<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
+					<view class="c_07">
+						<view class="c_08 fl">送货上门</view>
+						<view class="c_09 fr">售出9999件</view>
+						<view class="w-clear"></view>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+	</view>
+</view>
+
+
+
+
+
+
+
+
+
+

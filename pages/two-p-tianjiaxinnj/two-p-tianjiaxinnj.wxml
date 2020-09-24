@@ -1,0 +1,31 @@
+<view class="tp_1">
+	<view class="tp_2"><image src="../img/f057.png"></image></view>
+	<view class="v_5">
+		<view class="fl v_6">农机类型</view>
+		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fr v_8">种肥同播机器</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_6">农机品牌</view>
+		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fr v_8">樱田</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_6">农机型号</view>
+		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fr v_8">2BD-8</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_6">农机数量</view>
+		<view class="fr v_9">台</view>
+		<view class="fr v_8"><input placeholder="请输入农机数量" /></view>
+	</view>
+</view>
+
+<view class="c_4">保存</view>
+
+
+
+
+
+

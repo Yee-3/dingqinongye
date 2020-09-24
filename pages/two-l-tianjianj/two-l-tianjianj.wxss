@@ -1,0 +1,22 @@
+
+page{ background: #f4f4f4;}
+
+.tl_1{ width: 694rpx; margin: 0 auto; margin-top: 20rpx;}
+.tl_2{ width: 220rpx; height: 174rpx; background: #fff; padding: 30rpx 0; box-sizing: border-box; margin-left: 17rpx; margin-bottom: 17rpx; position: relative; overflow: hidden;}
+.tl_2:nth-child(3n+1){ margin-left: 0;}
+
+.tl_3{ text-align: center;}
+.tl_3 image{ width: 150rpx; height: 100rpx;}
+.tl_4{ text-align: center; font-size: 26rpx; color: #333;}
+
+.tl_5{ position: absolute; top: -7rpx; right: -50rpx; font-size: 22rpx; color: #fff; line-height: 65rpx; text-align: center; width: 150rpx; height: 60rpx; background: #008359; transform:rotate(40deg);}
+
+.tl_6{ position: absolute; top: -7rpx; right: -50rpx; font-size: 22rpx; color: #999; line-height: 65rpx; text-align: center; width: 150rpx; height: 60rpx; background: #ddd; transform:rotate(40deg);}
+
+
+
+
+
+
+
+

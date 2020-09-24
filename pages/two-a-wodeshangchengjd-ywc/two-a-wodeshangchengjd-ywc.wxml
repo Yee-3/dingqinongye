@@ -1,0 +1,46 @@
+<view class="j_01">
+	<view class="j_02">
+		<p>待收货</p>
+	</view>
+	<view class="j_02 on">
+		<p>已完成</p>
+	</view>
+</view>
+
+
+<view class="x_1">
+	<view class="z_2">
+		<view class="n_04 fl"><image src="../img/f027.png"></image></view>
+		<view class="n_05 fl">
+			<view class="n_08">70%吡虫啉20g杀虫剂农药</view>
+			<view class="n_09">
+				<view class="fl z_1">500ml</view>
+				<view class="fr z_1">*2</view>
+				<view class="w-clear"></view>
+			</view>
+			<view class="n_12">
+				<view class="fr">
+					<view class="fl o_13">共1件丨</view>
+					<view class="o_14 fr">
+						<p><span>合计：</span><em>￥</em>88.00</p>
+					</view>
+				</view>
+				<view class="w-clear"></view>
+			</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="fr x_11">
+		<view class="fr x_12">交易成功</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="w-clear"></view>
+</view>
+
+
+
+
+
+
+
+

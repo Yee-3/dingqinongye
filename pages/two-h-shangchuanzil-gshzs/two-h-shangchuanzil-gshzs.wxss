@@ -1,0 +1,25 @@
+page{ background: #f4f4f4;}
+
+.j_01{ width: 750rpx; background: #fff; height: 70rpx;}
+.j_02{ float: left; text-align: center; width: 50%;}
+.j_02 p{ line-height: 70rpx; color: #333; font-size: 28rpx;}
+.j_02.on p{ color: #008359; border-bottom: 4rpx solid #008359; box-sizing: border-box; padding-bottom: 14rpx;}
+
+
+.c_4{ width: 694rpx; height: 80rpx; background: #008359; margin: 0 auto; margin-top: 100rpx; text-align: center; border-radius: 40rpx; line-height: 80rpx; color: #fff; font-size: 28rpx;}
+
+.o_20{ font-size: 28rpx; color: #333; line-height: 80rpx;}
+.tg_1{ width: 750rpx; padding: 0 28rpx; box-sizing: border-box; margin-top: 20rpx; background: #fff; padding-bottom: 30rpx;}
+
+
+
+.tg_2{ width: 320rpx;}
+
+
+.tg_3 image{ width: 694rpx; height: 603rpx;}
+.tg_4{ font-size: 24rpx; color: #666; text-align: center; margin-top: 14rpx;}
+
+.th_1{ height: 90rpx; width: 694rpx;}
+.th_2{ width: 190rpx; font-size: 30rpx; color: #333; line-height: 90rpx;}
+.th_3{ width: 500rpx; font-size: 30rpx; color: #333;}
+.th_3 input{ line-height: 90rpx; font-size: 30rpx; height: 90rpx;}

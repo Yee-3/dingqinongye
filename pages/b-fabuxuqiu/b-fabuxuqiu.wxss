@@ -1,0 +1,10 @@
+page{ background: #f4f4f4;}
+
+.zb_1{ width: 694rpx; margin: 0 auto; margin-top: 20rpx;}
+.zb_2{ font-size: 30rpx; color: #333;}
+.zb_3{ width: 100%; margin-top: 20rpx;}
+.zb_4{ width: 220rpx; margin-left: 17rpx; padding: 30rpx 0; text-align: center; background: #fff; float: left; margin-bottom: 17rpx;}
+.zb_4:nth-child(3n+1){ margin-left: 0;}
+.zb_5{ padding-bottom: 10rpx;}
+.zb_5 image{ width: 100rpx; height: 100rpx;}
+.zb_6{ font-size: 26rpx; color: #444;}

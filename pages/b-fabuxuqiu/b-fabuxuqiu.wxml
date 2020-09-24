@@ -1,0 +1,80 @@
+<view class="zb_1">
+	<view class="zb_2">小麦</view>
+	<view class="zb_3">
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x03.png"></image></view>
+			<view class="zb_6">小麦飞防植保</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x04.png"></image></view>
+			<view class="zb_6">小麦收割</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x05.png"></image></view>
+			<view class="zb_6">小麦地面植保</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x06.png"></image></view>
+			<view class="zb_6">小麦秸秆打捆</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x07.png"></image></view>
+			<view class="zb_6">小麦精量播种</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+<view class="zb_1">
+	<view class="zb_2">玉米</view>
+	<view class="zb_3">
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x03.png"></image></view>
+			<view class="zb_6">玉米飞防植保</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x04.png"></image></view>
+			<view class="zb_6">小麦收割</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x05.png"></image></view>
+			<view class="zb_6">小麦地面植保</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x06.png"></image></view>
+			<view class="zb_6">小麦秸秆打捆</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x07.png"></image></view>
+			<view class="zb_6">小麦精量播种</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+<view class="zb_1">
+	<view class="zb_2">小麦</view>
+	<view class="zb_3">
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x03.png"></image></view>
+			<view class="zb_6">小麦飞防植保</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x04.png"></image></view>
+			<view class="zb_6">小麦收割</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x05.png"></image></view>
+			<view class="zb_6">小麦地面植保</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x06.png"></image></view>
+			<view class="zb_6">小麦秸秆打捆</view>
+		</view>
+		<view class="zb_4">
+			<view class="zb_5"><image src="../img/x07.png"></image></view>
+			<view class="zb_6">小麦精量播种</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+</view>

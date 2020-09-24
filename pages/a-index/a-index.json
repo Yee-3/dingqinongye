@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+   "tabBar":"../components/tabbar/tabbar"
+  },
+  "navigationBarTitleText": "鼎齐农业"
+}

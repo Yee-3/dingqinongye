@@ -1,0 +1,28 @@
+<view class="j_01">
+	<view class="j_02 on">
+		<p>我是个人</p>
+	</view>
+	<view class="j_02">
+		<p>我是公司/合作社</p>
+	</view>
+</view>
+
+<view class="tg_1">
+	<view class="o_20">请上传身份证正反面</view>
+	<view class="">
+		<view class="fl tg_2">
+			<view class="tg_3">
+				<image src="../img/f053.png"></image>
+			</view>
+			<view class="tg_4">请上传带头像的一面</view>
+		</view>
+		<view class="fr tg_2">
+			<view class="tg_3">
+				<image src="../img/f054.png"></image>
+			</view>
+			<view class="tg_4">请上传带国徽的一面</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="c_4">提交审核</view>
+</view>

@@ -1,0 +1,50 @@
+<view class="zc_1">
+	<view class="v_5">
+		<view class="section">
+			<picker value="{{index}}" range="{{array}}">
+		        <view class="v_8">请选择干活日期</view>
+			</picker>
+		</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_81"><input placeholder="请输入土地面积" /></view>
+		<view class="fr v_9">台</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_81"><input placeholder="请输入农机台数" /></view>
+		<view class="fr v_9">亩</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_81"><input placeholder="请输入作业价格" /></view>
+		<view class="fr v_9">元/亩</view>
+	</view>
+	<view class="v_5">
+		<view class="section">
+			<picker value="{{index}}" range="{{array}}">
+		        <view class="v_8">省/市/县/镇/村</view>
+			</picker>
+		</view>
+	</view>
+	<view class="v_5">
+		<view class="v_81"><input placeholder="请简要说明地块情况" /></view>
+	</view>
+	<view class="v_5">
+		<view class="v_81"><input placeholder="请输入手机号" /></view>
+	</view>
+	<view class="zc_2">
+		<view class="zc_3"><image src="../img/x14.png"></image></view>
+		<view class="zc_3"><image src="../img/x14.png"></image></view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="zc_5">
+		<view class="n_02 fl">
+			<radio-group name="radio">
+			    <label><radio value="checkbox1"/></label>
+			</radio-group>
+		</view>
+		<view class="n_03 fl">我已阅读并用同意《服务协议》</view>
+		<view class="w-clear"></view>
+	</view>
+</view>
+
+<view class="c_4">提交</view>

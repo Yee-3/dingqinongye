@@ -1,0 +1,6 @@
+.tk_1{ width: 694rpx; margin: 0 auto;} 
+
+.tk_2{ font-size: 32rpx; color: #333; text-align: center; margin-top: 20rpx;}
+.tf_2{ width: 694rpx; margin: 0 auto; font-size: 26rpx; line-height: 45rpx; text-align: justify; margin-top: 20rpx;}
+
+

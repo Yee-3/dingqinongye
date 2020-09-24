@@ -1,0 +1,83 @@
+<view class="w_1">
+	<view class="w_2 fl">
+		<view class="w_3 fl">
+			<image src="../img/f012.png"></image>
+		</view>
+		<view class="w_4 fl">
+			<view class="w_41">我是用户名</view>
+			<view class="w_42">15236412354</view>
+		</view>
+		<view class="w-clear"></view>
+	</view>
+	<view class="w-clear"></view>
+</view>
+
+<view class="zm_1">
+	<view class="w_9 fl">
+		<view class="w_10">我的需求订单</view>
+		<view class="w_11">
+			<view class="w_12 fl">
+				<view class="w_15">
+					<image src="../img/x15.png"></image>
+				</view>
+				<view class="w_14">待接单</view>
+			</view>
+			<view class="w_12 fl">
+				<view class="w_15">
+					<image src="../img/x16.png"></image>
+				</view>
+				<view class="w_14">已接单</view>
+			</view>
+			<view class="w_12 fr">
+				<view class="w_15">
+					<image src="../img/f037.png"></image>
+				</view>
+				<view class="w_14">已完成</view>
+			</view>
+			<view class="w-clear"></view>
+		</view>
+	</view>
+
+	<view class="w_18 fr">
+		<view class="w_10">我的商城订单</view>
+		<view class="w_11">
+			<view class="w_17 fl">
+				<view class="w_15">
+					<image src="../img/x17.png"></image>
+				</view>
+				<view class="w_14">待收货</view>
+			</view>
+			<view class="w_17 fl">
+				<view class="w_15">
+					<image src="../img/x18.png"></image>
+				</view>
+				<view class="w_14">已完成</view>
+			</view>
+			<view class="w-clear"></view>
+		</view>
+	</view>
+<view class="w-clear"></view>
+</view>
+
+<view class="zm_2">
+	<view class="v_5">
+		<view class="fl v_6">修改身份</view>
+		<view class="fr v_7">
+			<image src="../img/f021.png"></image>
+		</view>
+		<view class="fr v_8">手机</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_6">地址管理</view>
+		<view class="fr v_7">
+			<image src="../img/f021.png"></image>
+		</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_6">关于我们</view>
+		<view class="fr v_7">
+			<image src="../img/f021.png"></image>
+		</view>
+	</view>
+</view>
+<tabBar></tabBar>

@@ -1,0 +1,47 @@
+<view class="q_01">
+	<view class="fl q_02"><image src="../img/f030.png"></image></view>
+	<view class="fl q_03">
+		<view class="q_04">2020年农业补贴政策</view>
+		<view class="q_05">关于2020年农业的补贴政策，政府已经...</view>
+		<view class="q_06">2020.01.20</view>
+	</view>
+	<view class="w-clear"></view>
+</view>
+<view class="q_01">
+	<view class="fl q_02"><image src="../img/f030.png"></image></view>
+	<view class="fl q_03">
+		<view class="q_04">2020年农业补贴政策</view>
+		<view class="q_05">关于2020年农业的补贴政策，政府已经...</view>
+		<view class="q_06">2020.01.20</view>
+	</view>
+	<view class="w-clear"></view>
+</view>
+<view class="q_01">
+	<view class="fl q_02"><image src="../img/f030.png"></image></view>
+	<view class="fl q_03">
+		<view class="q_04">2020年农业补贴政策</view>
+		<view class="q_05">关于2020年农业的补贴政策，政府已经...</view>
+		<view class="q_06">2020.01.20</view>
+	</view>
+	<view class="w-clear"></view>
+</view>
+<view class="q_01">
+	<view class="fl q_02"><image src="../img/f030.png"></image></view>
+	<view class="fl q_03">
+		<view class="q_04">2020年农业补贴政策</view>
+		<view class="q_05">关于2020年农业的补贴政策，政府已经...</view>
+		<view class="q_06">2020.01.20</view>
+	</view>
+	<view class="w-clear"></view>
+</view>
+<tabBar></tabBar>
+
+
+
+
+
+
+
+
+
+

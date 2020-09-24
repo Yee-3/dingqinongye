@@ -1,0 +1,30 @@
+page{ background: #f4f4f4;}
+
+
+.d_01{ line-height: 70rpx; padding: 0 30rpx; font-size: 30rpx; color: #666;}
+.d_02{ line-height: 70rpx; padding: 0 30rpx; font-size: 34rpx; color: #333;}
+
+.d_03{ width: 694rpx; margin: 0 auto;}
+
+.a_19{ width: 100%; background: #fff; border-radius: 20rpx; margin-top: 25rpx; position: relative; overflow: hidden;}
+.a_20{ border-radius: 20rpx; height: 312rpx; overflow: hidden;}
+.a_20 image{ width: 694rpx; height: 312rpx; display: block;}
+.a_21{ width: 180rpx; height: 40rpx; line-height: 40rpx; color: #fff; display: block; text-align: center; background: #ffa900; position: absolute; left: -45rpx; top: 20rpx; transform:rotate(-40deg);}
+
+.a_22{ padding: 16rpx 30rpx;}
+.a_23{ height: 50rpx;}
+.a_24{ line-height: 50rpx;}
+.a_24_1{ line-height: 50rpx; font-weight: bold;}
+.a_25{ height: 45rpx;}
+.a_26{ padding-right: 40rpx; line-height: 45rpx; font-weight: 200;}
+.a_27{ line-height: 45rpx; font-weight: 200;}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+/* pages/components/tabbar/tab.wxss */
+.content {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 98rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid #e5e5e5;
+  text-align: center;
+  font-size: 22rpx;
+  background-color: #fff;
+
+}
+
+.content .tabbarItem {
+  flex: 1;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+ .tabbarItem image {
+  width: 55rpx;
+  height: 55rpx;
+}

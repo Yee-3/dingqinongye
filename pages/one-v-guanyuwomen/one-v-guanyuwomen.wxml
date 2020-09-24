@@ -1,0 +1,29 @@
+<view class="v_1">
+	<view class="v_2"><image src="../img/f034.png"></image></view>
+	<view class="v_3">鼎齐农业</view>
+</view>
+<view class="v_4">
+	<view class="v_5">
+		<view class="fl v_6">关于鼎齐农业</view>
+		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_6">联系我们</view>
+		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fr v_8">电话客服</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_6">当前版本</view>
+		<view class="fr v_8">0.0.1</view>
+	</view>
+</view>
+
+
+
+
+
+
+
+
+
+
