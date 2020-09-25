@@ -1,4 +1,5 @@
 // pages/a-index/a-index.js
+const app = getApp().globalData;
 Page({
 
   /**
@@ -12,7 +13,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.http({
+      url:'/oauth/index-growers-info',
+      dengl:false,
+      data:{},
+      method:'POST',
+      success(res){
+        console.log(res)
+      }
+    })
   },
 
   /**
@@ -26,7 +35,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.hideHomeButton({
+      success: function () {},
+      fail: function () {},
+      complete: function () {},
+    });
   },
 
   /**

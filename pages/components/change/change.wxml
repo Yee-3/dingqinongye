@@ -2,11 +2,7 @@
 <view class="m_01" wx:if="{{isShow}}">
   <view class="m_02">
     <view class="m_03">选择身份</view>
-    <button class="m_05" bindtap="tap"> <image class="m_04" src="../../img/jshou.png"></image></button>
-    <button class="m_05" bindtap="tap">  <image src="../../img/zhongzhihu.png"></image></button>
-    <!-- <button></button> -->
-    <!-- <image class="m_04" src="../../img/jshou.png"></image> -->
-    <!-- <image src="../../img/zhongzhihu.png"></image> -->
-    <button class="m_06" size="mini">确认</button>
+    <button wx:for="{{content}}" class="m_05" bindtap="tap" data-code="{{item.code}}"> <image class="m_04" src="{{item.backgroundImg}}"></image></button>
+    <button class="m_06" size="mini" bindtap="confirm">确认</button>
   </view>
 </view>

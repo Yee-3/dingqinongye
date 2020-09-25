@@ -6,13 +6,13 @@
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 		<block class="top_img">
 			<swiper-item>
-				<image class="banner" src="../img/f013.png"></image>
+				<image class="banner" src="../img/f013.jpg"></image>
 			</swiper-item>
 			<swiper-item>
-				<image class="banner" src="../img/f013.png"></image>
+				<image class="banner" src="../img/f013.jpg"></image>
 			</swiper-item>
 			<swiper-item>
-				<image class="banner" src="../img/f013.png"></image>
+				<image class="banner" src="../img/f013.jpg"></image>
 			</swiper-item>
 		</block>
 	</swiper>

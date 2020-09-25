@@ -1,11 +1,17 @@
 //app.js
+
 App({
+  
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    console.log("app.onLaunch");
+    wx.reLaunch({
+        url: '/pages/index/index',
+    })
+    
     // 登录
     wx.login({
       success: res => {
@@ -33,15 +39,35 @@ App({
       }
     })
   },
+  onShow : function(){
+    console.log("app.onShow",this.globalData.code);
+    // console.log('this.globalData.scence :' + this.globalData.scence);
+    // 判断变量，选择跳转位置
+    if (this.globalData.code == 'robot') {
+      console.log('机手端')
+      wx.redirectTo({
+        url: '../../pages/index/index',
+    })
+    } else if (this.globalData.code == 'growers') {
+      console.log('种植户')
+      wx.reLaunch({
+        url: '/pages/a-index/a-index',
+      })
+    }
+    
+  },
+  onHide : function(){
+    this.globalData.scence = 1;
+    console.log("app.onHide");
+    // console.log(this.globalData.scence);
+  },
   globalData: {
     userInfo: null,
+    code :wx.getStorageSync('code'),
     isShow:false,
     http(obj) {
-      // console.log(getApp().globalData.isShow)
-      // getApp().globalData.isShow=true
       // var webUrl='http://192.168.100.144:8089'
-      var webUrl = 'http://192.168.101.1:8889',
-      that=this
+      var webUrl = 'http://192.168.101.1:8889'
       if (obj.dengl) {
         if (wx.getStorageSync('Authorization')) {
           wx.request({
@@ -59,17 +85,17 @@ App({
                   title: '您未登录请登录后重试',
                   icon: 'none'
                 })
-              console.log(globalData.isShow)
+                getApp().globalData.isShow=true
               }
               obj.success(res)
             }
           })
         } else {
-          // wx.showToast({
-          //   title: '您未登录请登录后重试',
-          //   icon: 'none'
-          // })
-          
+          wx.showToast({
+            title: '您未登录请登录后重试',
+            icon: 'none'
+          })
+          getApp().globalData.isShow=true
         }
       } else {
         wx.request({
@@ -81,7 +107,6 @@ App({
           },
           success: function (res) {
             obj.success(res)
-            // console.log(wx.getStorageSync('Authorization'))
           }
         })
       }

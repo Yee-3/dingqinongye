@@ -1,7 +1,9 @@
 <view class="top">
 	<view class="top_a">
 		<view class="top_c">
-			<view class="top_e"><image src="../img/f002.png"></image></view>
+			<view class="top_e">
+				<image src="../img/f002.png"></image>
+			</view>
 			<view class="top_d"><input placeholder="搜索产品、商家或关键词" bindfocus="focus" /></view>
 		</view>
 	</view>
@@ -21,7 +23,7 @@
 	</swiper>
 	<view class="a_01">
 		<ul>
-			<li>
+			<li bindtap="listIn">
 				<image src="../img/f003.png"></image>
 				<p>水稻</p>
 			</li>
@@ -46,16 +48,20 @@
 	</view>
 </view>
 
-<view class="a_02"><image src="../img/f008.png"></image></view>
+<view class="a_02">
+	<image src="../img/f008.png"></image>
+</view>
 
 <view class="a_03">
 	<view class="a_04">
 		<view class="fl a_05">热门资讯</view>
-		<view class="fr a_06">更多</view>
+		<view class="fr a_06" bindtap="moreIn">更多</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="a_07">
-		<view class="fl a_08"><image src="../img/f009.png"></image></view>
+	<view class="a_07" bindtap="infoDetail">
+		<view class="fl a_08">
+			<image src="../img/f009.png"></image>
+		</view>
 		<view class="fr a_09">
 			<view class="a_10">2020年农业补贴政策</view>
 			<view class="a_11">关于2020年农业的补贴政策，政府已经...</view>
@@ -64,7 +70,9 @@
 		<view class="w-clear"></view>
 	</view>
 	<view class="a_07">
-		<view class="fl a_08"><image src="../img/f009.png"></image></view>
+		<view class="fl a_08">
+			<image src="../img/f009.png"></image>
+		</view>
 		<view class="fr a_09">
 			<view class="a_10">2020年农业补贴政策</view>
 			<view class="a_11">关于2020年农业的补贴政策，政府已经...</view>
@@ -77,18 +85,28 @@
 <view class="a_13">
 	<view class="a_14">
 		<view class="a_15">
-			<view class="a_16 f-34 fl">热门订单</view>
-			<view class="a_16 f-28 fl">优质供销社</view>
-			<view class="a_16 f-28 fl">农资特惠</view>
+			<view class="{{title1_index==1?'a_16 fl f-34':'a_16 f-28 fl'}}" data-index="1" bindtap="title_1">热门订单</view>
+			<view class="{{title1_index==2?'a_16 fl f-34':'a_16 f-28 fl'}}" data-index="2" bindtap="title_1">优质供销社</view>
+			<view class="{{title1_index==3?'a_16 fl f-34':'a_16 f-28 fl'}}" data-index="3" bindtap="title_1">农资特惠</view>
 		</view>
 		<view class="a_17">
-			<view class="f-26 fl a_18 on"><p>推荐</p></view>
-			<view class="f-26 fl a_18"><p>待接单</p></view>
-			<view class="f-26 fl a_18"><p>距离最近</p></view>
-			<view class="f-26 fl a_18"><p>最新发布</p></view>
+			<view class="{{title2_index==1?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="1" bindtap="title_2">
+				<p>推荐</p>
+			</view>
+			<view class="{{title2_index==2?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="2" bindtap="title_2">
+				<p>待接单</p>
+			</view>
+			<view class="{{title2_index==3?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="3" bindtap="title_2">
+				<p>距离最近</p>
+			</view>
+			<view class="{{title2_index==4?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="4" bindtap="title_2">
+				<p>最新发布</p>
+			</view>
 		</view>
-		<view class="a_19">
-			<view class="a_20"><image src="../img/f010.png"></image></view>
+		<view class="a_19" bindtap="proDetail">
+			<view class="a_20">
+				<image src="../img/f010.png"></image>
+			</view>
 			<view class="a_21 f-22">待接单</view>
 			<view class="a_22">
 				<view class="a_23">
@@ -104,7 +122,9 @@
 			</view>
 		</view>
 		<view class="a_19">
-			<view class="a_20"><image src="../img/f010.png"></image></view>
+			<view class="a_20">
+				<image src="../img/f010.png"></image>
+			</view>
 			<view class="a_21 f-22">待接单</view>
 			<view class="a_22">
 				<view class="a_23">
@@ -121,15 +141,12 @@
 		</view>
 	</view>
 </view>
-<change isShow="{{isShow}}"></change>
-
-
-
-
-
-
-
-
-
-
-
+<change isShow="{{isChange}}" bindconfirm="chanConfirm" content="{{carList}}"></change>
+<view class="dl_01" wx:if="{{isShow}}">
+	<view class="dl_02">
+		<view class="dl_03">登录/注册会员信息</view>
+		<button style="padding:0" size="mini" open-type="getUserInfo" withCredentials="true" bindgetuserinfo="bindGetUserInfo">
+			<image src="../img/weixinBut.png"></image>
+		</button>
+	</view>
+</view>

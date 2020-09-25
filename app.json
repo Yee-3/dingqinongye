@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/one-a-index/one-a-index",
+    "pages/index/index",
     "pages/two-q-nongjixq/two-q-nongjixq",
     "pages/two-p-tianjiaxinnj/two-p-tianjiaxinnj",
     "pages/two-o-yiwancddcq/two-o-yiwancddcq",
@@ -82,7 +82,7 @@
     "color": "#999999",
     "selectedColor": "#008359",
     "list": [{
-        "pagePath": "pages/one-a-index/one-a-index",
+        "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "pages/img/d_1.png",
         "selectedIconPath": "pages/img/d_11.png"
