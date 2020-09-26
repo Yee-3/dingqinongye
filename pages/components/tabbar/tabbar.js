@@ -27,7 +27,7 @@ Component({
         },
         {
           pagePath: "pages/k-zixun/k-zixun",
-          text: "咨询",
+          text: "资讯",
           iconPath: "../../img/d_3.png",
           selectedIconPath: "../../img/d_33.png"
         },

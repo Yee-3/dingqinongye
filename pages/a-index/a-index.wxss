@@ -45,7 +45,7 @@ page{ background: #f4f4f4; padding-bottom: 50rpx;}
 .a_18.on p{ color: #008359; border-bottom: 4rpx solid #008359; box-sizing: border-box; padding-bottom: 16rpx;}
 
 
-.c_01{ width: 100%; margin-top: 20rpx;}
+.c_01{ width: 100%; margin-top: 20rpx;overflow: hidden; margin-bottom: 98rpx;}
 .c_02{ width: 340rpx; border-radius: 20rpx; background: #fff; overflow: hidden; margin-bottom: 14rpx;}
 .c_03{ border-radius: 20rpx; overflow: hidden;}
 .c_03 image{ width: 330rpx; height: 240rpx;}

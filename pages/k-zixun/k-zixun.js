@@ -14,7 +14,12 @@ Page({
   onLoad: function (options) {
 
   },
-
+// 详情
+infoDetail(){
+  wx.navigateTo({
+    url: '../l-zixun-xq/l-zixun-xq',
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

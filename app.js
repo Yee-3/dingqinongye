@@ -57,7 +57,7 @@ App({
     
   },
   onHide : function(){
-    this.globalData.scence = 1;
+    // this.globalData.code =wx.getStorageSync('code');
     console.log("app.onHide");
     // console.log(this.globalData.scence);
   },

@@ -5,6 +5,6 @@
 		</view>
 		<view class="top_d"><input placeholder="搜索产品、商家或关键词" /></view>
 	</view>
-	<view class="h_01 fr">搜索</view>
+	<view class="h_01 fr" bindtap="searchIn">搜索</view>
 	<view class="w-clear"></view>
 </view>

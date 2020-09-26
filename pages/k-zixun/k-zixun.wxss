@@ -8,7 +8,9 @@ page{ background: #f4f4f4;}
 .q_04{ font-size: 30rpx; color: #333;}
 .q_05{ font-size: 26rpx; color: #666; margin: 6rpx 0 10rpx;}
 .q_06{ font-size: 22rpx; color: #666;}
-
+.content{
+  margin-bottom: 130rpx;
+}
 
 
 
