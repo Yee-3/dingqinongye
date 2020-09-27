@@ -1,11 +1,11 @@
-<view class="zb_1">
-	<view class="zb_2">小麦</view>
+<view class="zb_1" wx:for="{{list}}">
+	<view class="zb_2">{{item.cateTitle}}</view>
 	<view class="zb_3">
-		<view class="zb_4">
-			<view class="zb_5"><image src="../img/x03.png"></image></view>
-			<view class="zb_6">小麦飞防植保</view>
+		<view class="zb_4" wx:for="{{item.childsList}}" data-id="{{val.id}}" wx:for-index="i" wx:for-item="val" bindtap="xqDetail">
+			<view class="zb_5"><image src="{{val.img}}"></image></view>
+			<view class="zb_6">{{val.cateTitle}}</view>
 		</view>
-		<view class="zb_4">
+		<!-- <view class="zb_4">
 			<view class="zb_5"><image src="../img/x04.png"></image></view>
 			<view class="zb_6">小麦收割</view>
 		</view>
@@ -20,12 +20,12 @@
 		<view class="zb_4">
 			<view class="zb_5"><image src="../img/x07.png"></image></view>
 			<view class="zb_6">小麦精量播种</view>
-		</view>
+		</view> -->
 		<view class="w-clear"></view>
 	</view>
 </view>
 
-<view class="zb_1">
+<!-- <view class="zb_1">
 	<view class="zb_2">玉米</view>
 	<view class="zb_3">
 		<view class="zb_4">
@@ -77,4 +77,4 @@
 		</view>
 		<view class="w-clear"></view>
 	</view>
-</view>
+</view> -->

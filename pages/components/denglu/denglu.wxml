@@ -3,7 +3,7 @@
 	<view class="dl_02">
 		<view class="dl_03">登录/注册会员信息</view>
 		<button style="padding:0" size="mini" open-type="getUserInfo" withCredentials="true" bindgetuserinfo="bindGetUserInfo">
-			<image src="../img/weixinBut.png"></image>
+			<image src="../../img/weixinBut.png"></image>
 		</button>
 	</view>
 </view>

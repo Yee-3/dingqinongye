@@ -7,7 +7,8 @@ Page({
    */
   data: {
     titleIndex: 1,
-    content:{}
+    content:{},
+    width:''
   },
 
   /**
@@ -15,6 +16,13 @@ Page({
    */
   onLoad: function (options) {
     var that=this
+    wx.getSystemInfo({
+      success: function (res) {
+        let windowWidth = (res.windowWidth * (750 / res.windowWidth));
+       that.setData({
+         width:(windowWidth-694)/2+'rpx'
+       })
+    }})
     app.http({
       url: '/oauth/index-growers-info',
       dengl: false,
@@ -25,15 +33,14 @@ Page({
           var arr=res.data.data.newsHotList
           arr.map(function(val,i){
             val.createTime=val.createTime.substring(0,10)
-            console.log(val)
           })
-          console.log(res.data.data.newsHotList)
         }
         that.setData({
           content:res.data.data
         })
       }
     })
+    
   },
   // 热门农资切换
   titleFocus(e) {
@@ -45,6 +52,18 @@ Page({
   focusIn(){
     wx.navigateTo({
       url: '../one-h-sousuo/one-h-sousuo',
+    })
+  },
+  // 更多
+  moreIn(){
+    wx.reLaunch({
+      url: '../k-zixun/k-zixun',
+    })
+  },
+  // 发布需求
+  release(){
+    wx.navigateTo({
+      url: '../b-fabuxuqiu/b-fabuxuqiu',
     })
   },
   /**

@@ -11,7 +11,17 @@ App({
     wx.reLaunch({
         url: '/pages/index/index',
     })
-    
+    if (this.globalData.code == 'robot') {
+      console.log('机手端')
+      wx.redirectTo({
+        url: '../../pages/index/index',
+    })
+    } else if (this.globalData.code == 'growers') {
+      console.log('种植户')
+      wx.reLaunch({
+        url: '/pages/a-index/a-index',
+      })
+    }
     // 登录
     wx.login({
       success: res => {
@@ -39,23 +49,7 @@ App({
       }
     })
   },
-  onShow : function(){
-    console.log("app.onShow",this.globalData.code);
-    // console.log('this.globalData.scence :' + this.globalData.scence);
-    // 判断变量，选择跳转位置
-    if (this.globalData.code == 'robot') {
-      console.log('机手端')
-      wx.redirectTo({
-        url: '../../pages/index/index',
-    })
-    } else if (this.globalData.code == 'growers') {
-      console.log('种植户')
-      wx.reLaunch({
-        url: '/pages/a-index/a-index',
-      })
-    }
-    
-  },
+  
   onHide : function(){
     // this.globalData.code =wx.getStorageSync('code');
     console.log("app.onHide");
@@ -109,6 +103,13 @@ App({
             obj.success(res)
           }
         })
+      }
+    },
+    checkPhone(phone) {
+      if (!(/^1[3456789]\d{9}$/.test(phone))) {
+        return false;
+      } else {
+        return true
       }
     },
   }

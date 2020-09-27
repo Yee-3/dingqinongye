@@ -1,50 +1,92 @@
 <view class="zc_1">
 	<view class="v_5">
+		<view class="fl v_81">请输入联系人姓名</view>
+		<view class="fr v_9"><input placeholder="请输入" value="{{nameVal}}" data-type="1" bindblur="addValueTap" /></view>
+	</view>
+	<view class="v_5">
 		<view class="section">
-			<picker value="{{index}}" range="{{array}}">
-		        <view class="v_8">请选择干活日期</view>
+			<picker value="{{dateValue}}" mode="date" bindchange="bindDateChange">
+				<view class="v_81 fl">请选择干活日期</view>
+				<view class="v_Left">{{dateValue}}</view>
 			</picker>
 		</view>
 	</view>
 	<view class="v_5">
-		<view class="fl v_81"><input placeholder="请输入土地面积" /></view>
-		<view class="fr v_9">台</view>
+		<view class="fl v_81">请输入土地的面积</view>
+		<view class="fr v_9"><input placeholder="亩" value="{{mjVal}}" data-type="2" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
-		<view class="fl v_81"><input placeholder="请输入农机台数" /></view>
-		<view class="fr v_9">亩</view>
+		<view class="fl v_81">请输入农机台数</view>
+		<view class="fr v_9"><input placeholder="台" value="{{numVal}}" data-type="3" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
-		<view class="fl v_81"><input placeholder="请输入作业价格" /></view>
-		<view class="fr v_9">元/亩</view>
+		<view class="fl v_81">请输入作业价格</view>
+		<view class="fr v_9"><input placeholder="元/亩" value="{{monVal}}" data-type="4" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
+		<view class="fl v_81">请输入作业周期</view>
+		<view class="fr v_9"><input placeholder="天" value="{{dayVal}}" data-type="5" bindblur="addValueTap" /></view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_81">请选择地理位置</view>
 		<view class="section">
-			<picker value="{{index}}" range="{{array}}">
-		        <view class="v_8">省/市/县/镇/村</view>
+			<picker mode="region" bindchange="bindRegionChange" value="{{cityValue}}">
+				<view class="v_8">{{cityValue}}</view>
 			</picker>
 		</view>
 	</view>
 	<view class="v_5">
-		<view class="v_81"><input placeholder="请简要说明地块情况" /></view>
+		<view class="fl v_81">地块描述</view>
+		<view class="fr v_9"><input placeholder="请简要说明地块情况" value="{{disVal}}" data-type="6" bindblur="addValueTap" />
+		</view>
 	</view>
 	<view class="v_5">
-		<view class="v_81"><input placeholder="请输入手机号" /></view>
+		<view class="fl v_81">手机号码</view>
+		<view class="fr v_9"><input placeholder="请输入手机号" type="number" value="{{phonVal}}" data-type="7"
+				bindblur="addValueTap" /></view>
 	</view>
 	<view class="zc_2">
-		<view class="zc_3"><image src="../img/x14.png"></image></view>
-		<view class="zc_3"><image src="../img/x14.png"></image></view>
+		<view class="zc_3">土地图片</view>
+		<block>
+			<!-- <view class="del"></view> -->
+			<view class="zc_3" wx:for="{{imgList}}">
+				<image class="del" bindtap='imgDelete' style="width: 45rpx;height: 45rpx;" src="../img/del.png"></image>
+				<image src="{{item}}"></image>
+			</view>
+			<view class="zc_3" bindtap="changeImage" wx:if="{{imgList.length<9}}">
+				<image src="../img/x14.png"></image>
+			</view>
+		</block>
 		<view class="w-clear"></view>
 	</view>
+	<view class="v_5">
+		<view class="fl v_81">请选择结款方式</view>
+		<view class="fr v_9"><input placeholder="请选择" type="number" value="{{typeVal}}" disabled
+				bindtap="typeConfirm" /></view>
+	</view>
+
 	<view class="zc_5">
 		<view class="n_02 fl">
-			<radio-group name="radio">
-			    <label><radio value="checkbox1"/></label>
-			</radio-group>
+			<label class="radio">
+      <radio value="r1" bindtap="redio" color="#008359" checked="{{check}}"/>
+    </label>
 		</view>
 		<view class="n_03 fl">我已阅读并用同意《服务协议》</view>
 		<view class="w-clear"></view>
 	</view>
 </view>
-
-<view class="c_4">提交</view>
+		<!-- 结款方式弹框 -->
+		<view class="xz_01" wx:if="{{typeShow}}" >
+		<view class="xz_02">
+			<view class="xz_03">请选择结款方式</view>
+			<view class="xz_04">
+				<p class="{{typeIndex==0?'on':''}}" data-index="0" bindtap="typeTap">完活完结</p>
+				<p class="{{typeIndex==1?'on':''}}" data-index="1" bindtap="typeTap">种植户结款</p>
+			</view>
+			<view class="xz_05" >
+				<button style="font-size: 28rpx;line-height: 70rpx;" size="mini" bindtap="typeConfirm">确认</button>
+			</view>
+		</view>
+	</view>
+<dengl isShow="{{isShow}}"></dengl>
+<view class="c_4" bindtap="submit">提交</view>

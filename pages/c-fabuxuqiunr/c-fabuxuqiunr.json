@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "dengl":"../components/denglu/denglu"
+  }
 }

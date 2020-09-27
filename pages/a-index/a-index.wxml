@@ -23,7 +23,7 @@
 	</swiper>
 </view>
 
-<view class="a_01">
+<!-- <view class="a_01">
 	<ul>
 		<li>
 			<image src="../img/x01.png"></image>
@@ -33,7 +33,7 @@
 		</li>
 		<view class="w-clear"></view>
 	</ul>
-</view>
+</view> -->
 
 <view class="a_02">
 	<image src="../img/f008.png"></image>
@@ -42,7 +42,7 @@
 <view class="a_03">
 	<view class="a_04">
 		<view class="fl a_05">热门资讯</view>
-		<view class="fr a_06">更多</view>
+		<view class="fr a_06" bindtap="moreIn">更多</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="a_07" wx:for="{{content.newsHotList}}">
@@ -154,6 +154,7 @@
 					</view>
 				</view>
 			</view>
+			<view class="bot" style="right:{{width}}" bindtap="release">发布需求</view>
 		</view>
 	</view>
 </view>
