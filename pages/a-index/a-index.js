@@ -66,6 +66,12 @@ Page({
       url: '../b-fabuxuqiu/b-fabuxuqiu',
     })
   },
+  // 优质供销社
+  gxsIn(){
+    wx.navigateTo({
+      url: '../d-gongxiaoshelb/d-gongxiaoshelb',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

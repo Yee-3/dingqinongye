@@ -1,18 +1,35 @@
 // pages/e-gongxiaoshexq/e-gongxiaoshexq.js
+const app = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+content:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    var that=this
+    if (options.shopId) {
+      app.http({
+        url:'/oauth/shop/get-store-shop-detail',
+        dengl:false,
+        method:'POST',
+        data:{
+          shopId:options.shopId
+        },
+        success(res){
+          that.setData({
+            content:res.data.data
+          })
+        }
+      })
+    }
   },
 
   /**

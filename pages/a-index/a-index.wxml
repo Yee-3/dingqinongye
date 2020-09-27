@@ -35,7 +35,7 @@
 	</ul>
 </view> -->
 
-<view class="a_02">
+<view class="a_02" bindtap="gxsIn">
 	<image src="../img/f008.png"></image>
 </view>
 

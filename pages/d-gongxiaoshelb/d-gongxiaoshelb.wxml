@@ -1,42 +1,19 @@
 
 
 <view class="d_03">
-	<view class="a_19">
-		<view class="a_20"><image src="../img/f010.png"></image></view>
+	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
+		<view class="a_20"><image src="{{item.img}}"></image></view>
 		<view class="a_22">
 			<view class="a_23">
-				<view class="f-30 a_24_1">水稻收割</view>
+				<view class="f-30 a_24_1">{{item.name}}</view>
 			</view>
 			<view class="a_25">
-				<view class="f-26 a_26">农药 丨 化肥 丨 农机配件</view>
+				<view class="f-26 a_26">{{item.label}}</view>
 			</view>
-			<view class="f-26 a_27">位置：山东省济南市槐荫区汇金金融中心</view>
+			<view class="f-26 a_27">位置：{{item.area}}</view>
 		</view>
 	</view>
-	<view class="a_19">
-		<view class="a_20"><image src="../img/f010.png"></image></view>
-		<view class="a_22">
-			<view class="a_23">
-				<view class="f-30 a_24_1">水稻收割</view>
-			</view>
-			<view class="a_25">
-				<view class="f-26 a_26">农药 丨 化肥 丨 农机配件</view>
-			</view>
-			<view class="f-26 a_27">位置：山东省济南市槐荫区汇金金融中心</view>
-		</view>
-	</view>
-	<view class="a_19">
-		<view class="a_20"><image src="../img/f010.png"></image></view>
-		<view class="a_22">
-			<view class="a_23">
-				<view class="f-30 a_24_1">水稻收割</view>
-			</view>
-			<view class="a_25">
-				<view class="f-26 a_26">农药 丨 化肥 丨 农机配件</view>
-			</view>
-			<view class="f-26 a_27">位置：山东省济南市槐荫区汇金金融中心</view>
-		</view>
-	</view>
+	
 </view>
 
 

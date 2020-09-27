@@ -1,4 +1,4 @@
-<view class="k_01">我是店铺名称</view>
+<view class="k_01">{{content.namr}}</view>
 
 <view class="c_01">
 	<view class="c_02 fl">
