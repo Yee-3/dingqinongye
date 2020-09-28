@@ -1,20 +1,47 @@
 // pages/m-wode/m-wode.js
+const app = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isShow: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    if (!wx.getStorageSync('Authorization')) {
+      setTimeout(function () {
+        that.setData({
+          isShow: true
+        })
+      }, 500)
+    } else {
+      app.http({
+        url: '/growers/user/get-user-info',
+        dengl:true,
+        method:'POST',
+        data:{},
+        success(res){
+          console.log(res)
+        }
+      })
+    }
   },
-
+  userIn(){
+    wx.navigateTo({
+      url: '../a-wodesjh/wodesjh',
+    })
+  },
+  cordXiu(){
+    wx.navigateTo({
+      url: '../v-xiugaishengf/v-xiugaishengf',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

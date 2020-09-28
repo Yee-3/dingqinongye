@@ -78,9 +78,15 @@
         },
         {
           "id": -1,
-          "name": "pages/d-gongxiaoshelb/d-gongxiaoshelb",
-          "pathName": "pages/d-gongxiaoshelb/d-gongxiaoshelb",
+          "name": "pages/a-index/a-index",
+          "pathName": "pages/a-index/a-index",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/a-wodesjh/wodesjh",
+          "pathName": "pages/a-wodesjh/wodesjh",
           "scene": null
         }
       ]

@@ -6,34 +6,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: []
+    list: [],
+    currentPage: 1,
+    loadingType: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this
+    wx.showNavigationBarLoading()
+    var that = this
     app.http({
       url: '/oauth/shop/get-store-shop-list',
       data: {
-        limit: 10,
-        page: 1
+        limit: 1,
+        page: that.data.currentPage
       },
       method: 'POST',
       dengl: false,
       success(res) {
-      that.setData({
-        list:res.data.data
-      })
+        that.setData({
+          list: res.data.data
+        })
         console.log(res)
+        if (res.data.data.length < 10) {
+          that.setData({
+            loadingType: 2
+          })
+          wx.showToast({
+            title: '已加载全部数据',
+          })
+        }
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh()
       }
     })
   },
-  gxsDetail(e){
+  gxsDetail(e) {
     console.log(e)
     wx.navigateTo({
-      url: '../e-gongxiaoshexq/e-gongxiaoshexq?shopId='+e.currentTarget.dataset.id,
+      url: '../e-gongxiaoshexq/e-gongxiaoshexq?shopId=' + e.currentTarget.dataset.id,
     })
   },
   /**
@@ -75,7 +88,43 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var that = this
+    this.setData({
+      currentPage: that.data.currentPage + 1
+    })
+    if (this.data.loadingType != 0) {
+      //loadingType!=0;直接返回
+      return false;
+    }
+    this.setData({
+      loadingType: 1
+    })
+    wx.showNavigationBarLoading()
+    this.data.app.http({
+      url: '/oauth/shop/get-store-shop-list',
+      dengl: false,
+      method: 'POST',
+      data: {
+        limit: 10,
+        page: that.data.currentPage
+      },
+      success(res) {
+        that.setData({
+          list: that.data.recomList.concat(res.data.rdata)
+        })
+        if (res.data.rdata.length <= 10) {
+          that.setData({
+            loadingType: 2
+          })
+          wx.hideNavigationBarLoading()
+        } else {
+          that.setData({
+            loadingType: 0
+          })
+        }
+        wx.hideNavigationBarLoading()
+      }
+    })
   },
 
   /**

@@ -8,20 +8,20 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     console.log("app.onLaunch");
-    wx.reLaunch({
-        url: '/pages/index/index',
-    })
-    if (this.globalData.code == 'robot') {
-      console.log('机手端')
-      wx.redirectTo({
-        url: '../../pages/index/index',
-    })
-    } else if (this.globalData.code == 'growers') {
-      console.log('种植户')
-      wx.reLaunch({
-        url: '/pages/a-index/a-index',
-      })
-    }
+    // wx.reLaunch({
+    //     url: '/pages/index/index',
+    // })
+    // if (this.globalData.code == 'robot') {
+    //   console.log('机手端')
+    //   wx.redirectTo({
+    //     url: '../../pages/index/index',
+    // })
+    // } else if (this.globalData.code == 'growers') {
+    //   console.log('种植户')
+    //   wx.reLaunch({
+    //     url: '/pages/a-index/a-index',
+    //   })
+    // }
     // 登录
     wx.login({
       success: res => {

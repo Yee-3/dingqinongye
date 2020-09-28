@@ -10,7 +10,8 @@
 .v_7{ padding-top: 35rpx; padding-left: 20rpx;}
 .v_7 image{ width: 16rpx; height: 30rpx;}
 
-.v_8{ font-size: 28rpx; color: #999; line-height: 100rpx; width: 100%;text-align: right;}
+.v_8{ font-size: 28rpx; color: #999; line-height: 100rpx; width: 100%;text-align: right; padding-right: 15rpx;                                                                                                  
+  box-sizing: border-box;}
 
 .v_81{ font-size: 28rpx; color: #999; line-height: 100rpx; width: 40%;}
 .v_9 input{ font-size: 28rpx; color: #333; height: 100rpx; line-height: 100rpx; padding-right: 15rpx;text-align: right; }

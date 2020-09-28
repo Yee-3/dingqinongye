@@ -1,4 +1,7 @@
 {
-  "usingComponents": { "tabBar":"../components/tabbar/tabbar"},
+  "usingComponents": {
+    "tabBar": "../components/tabbar/tabbar",
+    "dengl": "../components/denglu/denglu"
+  },
   "navigationBarTitleText": "鼎齐农业"
 }

@@ -1,5 +1,11 @@
-<view class="k_01">{{content.namr}}</view>
-
+<view class="k_01">{{content.name}}</view>
+<view class="j_01">
+	<view class="j_02 on"><p>分类一</p></view>
+	<view class="j_02"><p>分类二</p></view>
+	<view class="j_02"><p>分类三</p></view>
+	<view class="j_02"><p>分类四</p></view>
+	<view class="j_02"><p>分类五</p></view>
+</view>
 <view class="c_01">
 	<view class="c_02 fl">
 		<view class="c_03">

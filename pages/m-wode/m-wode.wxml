@@ -1,4 +1,4 @@
-<view class="w_1">
+<view class="w_1" bindtap="userIn">
 	<view class="w_2 fl">
 		<view class="w_3 fl">
 			<image src="../img/f012.png"></image>
@@ -60,7 +60,7 @@
 </view>
 
 <view class="zm_2">
-	<view class="v_5">
+	<view class="v_5" bindtap="cordXiu">
 		<view class="fl v_6">修改身份</view>
 		<view class="fr v_7">
 			<image src="../img/f021.png"></image>
@@ -80,4 +80,5 @@
 		</view>
 	</view>
 </view>
+<dengl isShow="{{isShow}}"></dengl>
 <tabBar></tabBar>

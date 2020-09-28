@@ -56,7 +56,7 @@
 		</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="a_07">
+	<!-- <view class="a_07">
 		<view class="fl a_08">
 			<image src="../img/f009.png"></image>
 		</view>
@@ -66,7 +66,7 @@
 			<view class="a_12">2020.01.20</view>
 		</view>
 		<view class="w-clear"></view>
-	</view>
+	</view> -->
 </view>
 
 <view class="a_13">

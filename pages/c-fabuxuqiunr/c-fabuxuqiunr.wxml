@@ -1,7 +1,7 @@
 <view class="zc_1">
 	<view class="v_5">
 		<view class="fl v_81">请输入联系人姓名</view>
-		<view class="fr v_9"><input placeholder="请输入" value="{{nameVal}}" data-type="1" bindblur="addValueTap" /></view>
+		<view class="fr v_9"><input type="text" placeholder="请输入" value="{{nameVal}}" data-type="1" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
 		<view class="section">
@@ -13,27 +13,31 @@
 	</view>
 	<view class="v_5">
 		<view class="fl v_81">请输入土地的面积</view>
-		<view class="fr v_9"><input placeholder="亩" value="{{mjVal}}" data-type="2" bindblur="addValueTap" /></view>
+		<view class="fr v_9"><input type="number" placeholder="亩" value="{{mjVal}}" data-type="2" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
 		<view class="fl v_81">请输入农机台数</view>
-		<view class="fr v_9"><input placeholder="台" value="{{numVal}}" data-type="3" bindblur="addValueTap" /></view>
+		<view class="fr v_9"><input placeholder="台" type="number" value="{{numVal}}" data-type="3" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
 		<view class="fl v_81">请输入作业价格</view>
-		<view class="fr v_9"><input placeholder="元/亩" value="{{monVal}}" data-type="4" bindblur="addValueTap" /></view>
+		<view class="fr v_9"><input placeholder="元/亩" type="number" value="{{monVal}}" data-type="4" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
 		<view class="fl v_81">请输入作业周期</view>
-		<view class="fr v_9"><input placeholder="天" value="{{dayVal}}" data-type="5" bindblur="addValueTap" /></view>
+		<view class="fr v_9"><input placeholder="天" type="number" value="{{dayVal}}" data-type="5" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
 		<view class="fl v_81">请选择地理位置</view>
 		<view class="section">
-			<picker mode="region" bindchange="bindRegionChange" value="{{cityValue}}">
+			<picker mode="region" bindchange="bindRegionChange" value="{{cityList}}">
 				<view class="v_8">{{cityValue}}</view>
 			</picker>
 		</view>
+	</view>
+	<view class="v_5">
+		<view class="fl v_81">请输入作业位置</view>
+		<view class="fr v_9"><input placeholder="县/镇/村" value="{{adressVal}}" data-type="8" bindblur="addValueTap" /></view>
 	</view>
 	<view class="v_5">
 		<view class="fl v_81">地块描述</view>
@@ -45,6 +49,12 @@
 		<view class="fr v_9"><input placeholder="请输入手机号" type="number" value="{{phonVal}}" data-type="7"
 				bindblur="addValueTap" /></view>
 	</view>
+	<view class="v_5">
+		<view class="fl v_81">请选择结款方式</view>
+		<view class="fr v_9"><input placeholder="请选择" type="number" value="{{typeVal}}" disabled
+				bindtap="typeConfirm" /></view>
+	</view>
+
 	<view class="zc_2">
 		<view class="zc_3">土地图片</view>
 		<block>
@@ -59,12 +69,7 @@
 		</block>
 		<view class="w-clear"></view>
 	</view>
-	<view class="v_5">
-		<view class="fl v_81">请选择结款方式</view>
-		<view class="fr v_9"><input placeholder="请选择" type="number" value="{{typeVal}}" disabled
-				bindtap="typeConfirm" /></view>
-	</view>
-
+	
 	<view class="zc_5">
 		<view class="n_02 fl">
 			<label class="radio">

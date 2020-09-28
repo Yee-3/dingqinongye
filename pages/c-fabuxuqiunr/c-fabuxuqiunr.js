@@ -8,8 +8,8 @@ Page({
   data: {
     isShow: false,
     dateValue: '年-月-日',
-    cityValue: '省/市/县/镇/村',
-    cityList:[],
+    cityValue: '省/市/区',
+    cityList:['山东省', '济南市', '槐荫区'],
     imgList: [],
     mjVal: '',
     numVal: '',
@@ -19,16 +19,19 @@ Page({
     nameVal:'',
     dayVal:'',
     typeVal:'',
-    id:'',
+    cateId:'',
+    adressVal:'',
     typeIndex:'x',
     typeShow:false,
-    check:false
+    check:false,
+    title:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var that=this
     if (!wx.getStorageSync('Authorization')) {
       setTimeout( function(){
@@ -38,7 +41,8 @@ Page({
       },2000) 
     } 
     if(options.id){
-      this.setData({id:options.id})
+      this.setData({cateId:options.id,
+      title:options.title})
     }
     
   },
@@ -71,11 +75,15 @@ Page({
       this.setData({
         disVal: e.detail.value
       })
-    }else{
+    }else if(type == 7){
       this.setData({
         phonVal: e.detail.value
       })
-    } 
+    } else{
+      this.setData({
+        adressVal: e.detail.value
+      })
+    }
     console.log(this.data.numVal,this.data.phonVal)
   },
   // 提交
@@ -111,12 +119,18 @@ Page({
         title: '请输入作业周期',
         icon:"none"
       })
-    }else if(this.data.cityValue=='省/市/县/镇/村'){
+    }else if(this.data.cityValue=='省/市/区'){
       wx.showToast({
         title: '请选择地理位置',
         icon:"none"
       })
-    }else if(!this.data.disVal){
+    }else if(!this.data.adressVal){
+      wx.showToast({
+        title: '请输入详细地址',
+        icon:"none"
+      })
+    }
+    else if(!this.data.disVal){
       wx.showToast({
         title: '请说明地块情况',
         icon:"none"
@@ -146,12 +160,14 @@ Page({
       app.http({
         url: '/growers/publish-demand-info',
         dengl: true,
-        data:{
-          address:that.data.cityValue,
-          cateId:that.data.id,
+        method: 'POST',
+        header: true,
+        data:JSON.stringify({
+          address:that.data.adressVal,
+          cateId:that.data.cateId,
           description:that.data.disVal,
           farmPrice:that.data.monVal,
-          img:that.data.imgList,
+          img:that.data.imgList.join(),
           landArea:that.data.mjVal,
           machinesNum:that.data.numVal,
           name:that.data.nameVal,
@@ -162,14 +178,19 @@ Page({
           province:that.data.cityList[0],
           city:that.data.cityList[1],
           county:that.data.cityList[2],
-        },
-        method: 'POST',
-        header: true,
-        success(res) {c
-          
-          that.setData({
-            isShow: app.isShow
-          })
+          title:that.data.title,
+          id:that.data.id?that.data.id:0
+        }),
+        success(res) {
+      if(res.data.code==0){
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2]; //上一个页面
+        prevPage.onLoad()
+        wx.navigateBack({
+          delta: 1,
+        })
+       
+      }
         }
       })
     }
@@ -239,7 +260,7 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
-        console.log(12312312312)
+        // console.log(res)
         // tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
         if (imgbox.length == 0) {
@@ -249,6 +270,7 @@ Page({
         } else {
           imgbox[picid] = tempFilePaths[0];
         }
+        // console.log(imgbox.join())
         that.setData({
           imgList: imgbox
         })
