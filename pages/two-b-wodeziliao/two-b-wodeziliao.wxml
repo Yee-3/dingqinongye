@@ -4,9 +4,9 @@
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
 		<view class="fr v_8">12345671266</view>
 	</view>
-	<view class="v_5">
+	<view class="v_5" bindtap="add">
 		<view class="fl v_6">我的农机</view>
-		<view class="fr v_9"><image src="../img/f044.png"></image></view>
+		<view class="fr v_9" ><image src="../img/f044.png"></image></view>
 		<view class="fr v_8">添加</view>
 	</view>
 </view>

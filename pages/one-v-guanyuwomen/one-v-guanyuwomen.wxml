@@ -3,21 +3,36 @@
 	<view class="v_3">鼎齐农业</view>
 </view>
 <view class="v_4">
-	<view class="v_5">
+	<view class="v_5" bindtap="aboutUs">
 		<view class="fl v_6">关于鼎齐农业</view>
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
 	</view>
-	<view class="v_5">
+	<view class="v_5" bindtap="phoneShow">
 		<view class="fl v_6">联系我们</view>
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
-		<view class="fr v_8">电话客服</view>
+		<view class="fr v_8">{{phone}}</view>
 	</view>
 	<view class="v_5">
 		<view class="fl v_6">当前版本</view>
 		<view class="fr v_8">0.0.1</view>
 	</view>
 </view>
-
+<view class="v_0"><span bindtap="xieyi" class="t_00">平台注册及服务协议</span></view>
+<!-- 拨打电话弹框 -->
+<view class="f_08" wx:if="{{isShow}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要拨打客服电话?</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="phoneShow">取消</li>
+				<li bindtap="callPhone">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
 
 
 

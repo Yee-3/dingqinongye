@@ -32,14 +32,34 @@ Page({
       })
     }
   },
+  // 我的-修改手机号
   userIn(){
     wx.navigateTo({
       url: '../a-wodesjh/wodesjh',
     })
   },
+  // 身份修改
   cordXiu(){
     wx.navigateTo({
       url: '../v-xiugaishengf/v-xiugaishengf',
+    })
+  },
+  // 需求订单
+  demand(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '../n-wodexuqiudd/n-wodexuqiudd?id='+e.currentTarget.dataset.id,
+    })
+  },
+  // 地址管理
+  address(){
+    wx.navigateTo({
+      url: '../x-dizhiguanli/x-dizhiguanli',
+    })
+  },
+  aboutUs(){
+    wx.navigateTo({
+      url: '../one-v-guanyuwomen/one-v-guanyuwomen',
     })
   },
   /**

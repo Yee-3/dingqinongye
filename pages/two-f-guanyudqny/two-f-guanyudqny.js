@@ -1,18 +1,31 @@
 // pages/two-f-guanyudqny/two-f-guanyudqny.js
+const app = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    content:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+    app.http({
+      url: '/oauth/system/get-about-us',
+      dengl: false,
+      method: 'POST',
+      data: {},
+      success(res) {
+        that.setData({
+          content: res.data.data
+        })
+        console.log(res)
+      }
+    })
   },
 
   /**

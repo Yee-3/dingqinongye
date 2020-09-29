@@ -1,18 +1,35 @@
 // pages/two-k-pingtaizhucjyhxy/two-k-pingtaizhucjyhxy.js
+const app = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    con: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    app.http({
+      url: '/oauth/system/get-protocol',
+      dengl: false,
+      method: 'POST',
+      data: {},
+      success(res) {
+        that.setData({
+          con: res.data.data
+        })
+        wx.setNavigationBarTitle({
+          title: res.data.data.title    // 其他页面传过来的标题名
+      })
 
+      }
+    })
+   
   },
 
   /**

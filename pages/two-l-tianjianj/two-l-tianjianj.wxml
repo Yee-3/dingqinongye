@@ -1,5 +1,5 @@
 <view class="tl_1">
-	<view class="tl_2 fl">
+	<view class="tl_2 fl" bindtap="njDetail">
 		<view class="tl_3"><image src="../img/nj_01.png"></image></view>
 		<view class="tl_4">飞防无人机</view>
 		<view class="tl_5">1台</view>

@@ -1,11 +1,11 @@
 <view class="j_01">
-	<view class="j_02 on">
+	<view class="{{titleIndex==0?'j_02 on':'j_02'}}" data-index="0" bindtap="titleTog">
 		<p>待接单</p>
 	</view>
-	<view class="j_02">
+	<view class="{{titleIndex==1?'j_02 on':'j_02'}}"  data-index="1" bindtap="titleTog">
 		<p>已接单</p>
 	</view>
-	<view class="j_02">
+	<view class="{{titleIndex==2?'j_02 on':'j_02'}}"  data-index="2" bindtap="titleTog">
 		<p>已完成</p>
 	</view>
 </view>

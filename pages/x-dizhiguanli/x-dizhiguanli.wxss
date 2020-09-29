@@ -1,11 +1,96 @@
-.o_1{ width: 694rpx; margin: 0 auto; margin-top: 20rpx; background: #fff; border-radius: 20rpx; height: 172rpx; padding: 0 20rpx; box-sizing: border-box;}
-.o_2{ margin-top: 55rpx;}
-.o_2 image{ width: 60rpx; height: 60rpx;}
-.o_3{ width: 500rpx; padding-left: 20rpx; box-sizing: border-box; margin-top: 23rpx;}
-.o_4{ display: inline-block; font-size: 30rpx; color: #333;}
-.o_5{ display: inline-block; font-size: 24rpx; color: #666;}
-.o_6{ font-size: 26rpx; color: #333; margin-top: 14rpx;}
-.o_7{ display: inline-block; width: 66rpx; height: 34rpx; color: #fff; background: #ffa900; font-size: 24rpx; line-height: 34rpx; text-align: center; border-radius: 6rpx;}
-.o_8{ margin-top: 60rpx; border-left: 1rpx solid #e4e4e4; line-height: 60rpx; font-size: 26rpx; padding-left: 30rpx; color: #999;}
+.o_1 {
+  width: 694rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  height: 172rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
 
-.t_1{ width: 694rpx; height: 78rpx; background: #008359; text-align: center; line-height: 78rpx; color: #fff; margin: 0 auto; border-radius: 40rpx; margin-top: 30rpx;}
+
+.o_2 {
+  margin-top: 55rpx;
+}
+
+.o_2 image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.o_3 {
+  width: 500rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  margin-top: 23rpx;
+}
+
+.o_4 {
+  display: inline-block;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.o_5 {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.o_6 {
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 14rpx;
+}
+
+.o_7 {
+  display: inline-block;
+  width: 66rpx;
+  height: 34rpx;
+  color: #fff;
+  background: #ffa900;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  text-align: center;
+  border-radius: 6rpx;
+}
+
+.o_8 {
+  margin-top: 60rpx;
+  border-left: 1rpx solid #e4e4e4;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  color: #999;
+}
+
+.t_1 {
+  /* width: 694rpx; */
+  height: 78rpx;
+  background: #008359;
+  text-align: center;
+  line-height: 78rpx;
+  color: #fff;
+  /* margin: 0 auto; */
+  /* border-radius: 40rpx; */
+  margin-top: 30rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 28rpx;
+}
+.delete{
+  width: 160rpx;
+    text-align: center;
+    background: red;
+    height: 172rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: translateY(-172);
+    line-height: 172rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+}

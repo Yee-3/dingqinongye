@@ -14,7 +14,11 @@ Page({
   onLoad: function (options) {
 
   },
-
+  njDetail(){
+    wx.navigateTo({
+      url: '../two-q-nongjixq/two-q-nongjixq',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

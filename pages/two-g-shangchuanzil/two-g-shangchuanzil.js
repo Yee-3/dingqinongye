@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tiIndex: 1
   },
 
   /**
@@ -14,7 +14,12 @@ Page({
   onLoad: function (options) {
 
   },
-
+  toggle(e) {
+    console.log(e)
+    this.setData({
+      tiIndex: e.currentTarget.dataset.index
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

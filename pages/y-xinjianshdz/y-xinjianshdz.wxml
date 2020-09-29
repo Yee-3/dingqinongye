@@ -1,29 +1,45 @@
 <view class="tj_1">
-	<view class="tj_2"><input placeholder="收货人" /></view>
-	<view class="tj_2"><input placeholder="手机号" /></view>
+	<view class="tj_2"><input placeholder="收货人" data-type="1" value="{{nameVal}}" bindinput="obtain" /></view>
+	<view class="tj_2"><input placeholder="手机号" data-type="2" value="{{phoneVal}}" bindinput="obtain" /></view>
 	<view class="tj_2">
 		<view class="section">
-			<picker value="{{index}}" range="{{array}}">
-				<view class="tj_6 fl">选择地址</view>
+			<picker range="{{array}}" mode="region" bindchange="bindRegionChange" value="{{cityList}}">
+				<view class="tj_6 fl">{{cityValue}}</view>
 				<view class="tj_7 fr">
 					<image src="../img/f021.png"></image>
 				</view>
 			</picker>
 		</view>
+
 	</view>
-	
-	<view class="tj_2"><input placeholder="详细地址：如街道、门牌号、小区、单元室等" /></view>
-	
+
+	<view class="tj_2 fl">
+		<view class="tj_6 fl"><input placeholder="详细地址：如街道、门牌号、小区、单元室等" bindinput="getMap" value="{{mapVal}}" /></view>
+		<view class="tj_7 fr" bindtap="getLocation">
+			<image src="../img/f021.png"></image>
+		</view>
+	</view>
+
 	<view class="tj_10">
 		<view class="fl tj_11">设为默认地址</view>
 		<view class="fr tj_12">
 			<view class="page-section page-section-gap">
 				<view class="page-section-title"></view>
-				<switch name="switch" />
+				<switch name="switch" color="#008359" style="zoom:0.65" checked="{{chcekeds}}" bindchange="typeChange" />
 			</view>
+		</view>
+	</view>
+	<view class="del" wx:if="{{id}}" bindtap="delShow">删除收货地址</view>
+</view>
+<view class="dl_0" wx:if="{{isDel}}">
+	<view class="dl_01">
+		<view class="dl_02">确定要删除地址吗？</view>
+		<view class="dl_03">
+			<view class="dl_04 fl" bindtap="delShow">取消</view>
+			<view class="dl_05 fr" bindtap="delete">删除</view>
 		</view>
 	</view>
 </view>
 
 
-<view class="c_4">保存</view>
+<view class="c_4" bindtap="submit">保存</view>

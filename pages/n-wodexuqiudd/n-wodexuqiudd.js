@@ -5,16 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    titleIndex: '0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      titleIndex:options.id
+    })
   },
-
+  // 标题切换
+  titleTog(e) {
+    this.setData({
+      titleIndex: e.currentTarget.dataset.index,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

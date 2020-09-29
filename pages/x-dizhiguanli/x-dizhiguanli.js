@@ -1,20 +1,43 @@
 // pages/x-dizhiguanli/x-dizhiguanli.js
+const app = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    app.http({
+      url: '/user/get-address-list',
+      dengl: true,
+      method: 'POST',
+      data: '',
+      success(res) {
+        that.setData({
+          list: res.data.data
+        })
+      },
+    })
   },
-
+  build(e) {
+    if (e.currentTarget.dataset.id) {
+      
+      wx.navigateTo({
+        url: '../y-xinjianshdz/y-xinjianshdz?id=' + e.currentTarget.dataset.id +'&adress='+e.currentTarget.dataset.adress+'&name='+e.currentTarget.dataset.name+'&phone='+e.currentTarget.dataset.phone+'&map='+e.currentTarget.dataset.map+'&status='+e.currentTarget.dataset.status,
+      })
+    } else {
+      wx.navigateTo({
+        url: '../y-xinjianshdz/y-xinjianshdz',
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

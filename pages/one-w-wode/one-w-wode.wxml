@@ -60,24 +60,26 @@
 </view>
 
 <view class="w_18">
-	<view class="v_5">
-		<view class="fl v_6">修改身份</view>
+	<view class="v_5" bindtap="xgCard">
+		<view class="fl v_6" >修改身份</view>
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
 		<view class="fr v_8">手机</view>
 	</view>
-	<view class="v_5">
+	<view class="v_5" bindtap="myData">
 		<view class="fl v_6">我的资料</view>
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
 	</view>
-	<view class="v_5">
+	<view class="v_5" bindtap="address">
 		<view class="fl v_6">地址管理</view>
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
 	</view>
-	<view class="v_5">
+	<view class="v_5" bindtap="aboutUs">
 		<view class="fl v_6">关于我们</view>
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
 	</view>
 </view>
+<dengl isShow="{{isShow}}"></dengl>
+
 
 
 

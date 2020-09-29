@@ -14,7 +14,11 @@ Page({
   onLoad: function (options) {
 
   },
-
+add(){
+  wx.navigateTo({
+    url: '../two-l-tianjianj/two-l-tianjianj',
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

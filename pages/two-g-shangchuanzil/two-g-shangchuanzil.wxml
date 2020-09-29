@@ -1,13 +1,13 @@
 <view class="j_01">
-	<view class="j_02 on">
+	<view class="{{tiIndex==1?'j_02 on':'j_02'}}" data-index="1" bindtap="toggle">
 		<p>我是个人</p>
 	</view>
-	<view class="j_02">
+	<view class="{{tiIndex==2?'j_02 on':'j_02'}}" data-index="2" bindtap="toggle">
 		<p>我是公司/合作社</p>
 	</view>
 </view>
 
-<view class="tg_1">
+<view class="tg_1" wx:if="{{tiIndex==1}}">
 	<view class="o_20">请上传身份证正反面</view>
 	<view class="">
 		<view class="fl tg_2">
@@ -25,4 +25,18 @@
 		<view class="w-clear"></view>
 	</view>
 	<view class="c_4">提交审核</view>
+</view>
+<view class="tg1_1" wx:if="{{tiIndex==2}}">
+	<view class="o1_20">请上传营业执照</view>
+	<view class="tg1_2">
+		<view class="tg1_3">
+			<image src="../img/f055.png"></image>
+		</view>
+		<view class="th1_1">
+			<view class="fl th1_2">营业执照名称</view>
+			<view class="fl th1_3"><input placeholder="请输入营业执照名称" /></view>
+			<view class="w-clear"></view>
+		</view>
+	</view>
+	<view class="c1_4">提交审核</view>
 </view>
