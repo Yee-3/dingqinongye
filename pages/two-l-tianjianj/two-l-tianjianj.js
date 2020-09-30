@@ -16,7 +16,7 @@ Page({
   },
   njDetail(){
     wx.navigateTo({
-      url: '../two-q-nongjixq/two-q-nongjixq',
+      url: '../two-n-fenleiznj/two-n-fenleiznj',
     })
   },
   /**

@@ -71,13 +71,6 @@
       "list": [
         {
           "id": -1,
-          "name": "pages/c-fabuxuqiunr/c-fabuxuqiunr",
-          "pathName": "pages/c-fabuxuqiunr/c-fabuxuqiunr",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
           "name": "pages/a-index/a-index",
           "pathName": "pages/a-index/a-index",
           "query": "",
@@ -92,22 +85,8 @@
         },
         {
           "id": -1,
-          "name": "pages/n-wodexuqiudd/n-wodexuqiudd",
-          "pathName": "pages/n-wodexuqiudd/n-wodexuqiudd",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
           "name": "pages/y-xinjianshdz/y-xinjianshdz",
           "pathName": "pages/y-xinjianshdz/y-xinjianshdz",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/one-w-wode/one-w-wode",
-          "pathName": "pages/one-w-wode/one-w-wode",
           "query": "",
           "scene": null
         },
@@ -127,15 +106,15 @@
         },
         {
           "id": -1,
-          "name": "pages/two-b-wodeziliao/two-b-wodeziliao",
-          "pathName": "pages/two-b-wodeziliao/two-b-wodeziliao",
+          "name": "pages/one-q-zixun/one-q-zixun",
+          "pathName": "pages/one-q-zixun/one-q-zixun",
           "query": "",
           "scene": null
         },
         {
           "id": -1,
-          "name": "pages/two-l-tianjianj/two-l-tianjianj",
-          "pathName": "pages/two-l-tianjianj/two-l-tianjianj",
+          "name": "pages/one-r-zixunxq/one-r-zixunxq",
+          "pathName": "pages/one-r-zixunxq/one-r-zixunxq",
           "query": "",
           "scene": null
         }

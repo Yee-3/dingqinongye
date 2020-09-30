@@ -10,11 +10,30 @@
 .r_9{ margin-top: 20rpx;}
 .r_10{ width: 60rpx; height: 60rpx; border-radius: 30rpx; overflow: hidden;}
 .r_10 image{ width: 60rpx; height: 60rpx; display: block;}
+.r_101{ width: 50rpx; height: 50rpx; border-radius: 30rpx; overflow: hidden;}
+.r_101 image{ width: 50rpx; height: 50rpx; display: block;}
 .r_11{ width: 610rpx; margin-left: 25rpx; border-bottom: 1rpx solid #e4e4e4; padding-bottom: 20rpx;}
 .r_13{ font-size: 26rpx; color: #999;}
 .r_14{ font-size: 26rpx; color: #999;}
-.r_15{ font-size: 26rpc; color: #333; margin-top: 10rpx;}
+.r_15{ font-size: 26rpx; color: #333; margin-top: 10rpx;}
 .r_16{ display: inline-block; font-size: 24rpx; color: #999;}
+
+.c_11{ width:535rpx; margin-left: 25rpx; padding-bottom: 20rpx;}
+.c_13{ font-size: 26rpx; color: #999;}
+.c_14{ font-size: 26rpx; color: #999;}
+.c_15{ font-size: 26rpx; color: #333; margin-top: 10rpx;}
+.c_16{ display: inline-block; font-size: 24rpx; color: #999;}
+.c_00{
+  height: 80rpx;
+    line-height: 80rpx;
+    font-size: 26rpx;
+    color: #008359;
+}
+.c_00 image{
+  width: 20rpx;
+  height: 18rpx;
+  margin-left: 10rpx;
+}
 
 .r_20{ position: fixed; bottom: 0; width: 100%; height: 110rpx; border-top: 1rpx solid #e4e4e4; background: #fff; padding: 0 28rpx; box-sizing: border-box;}
 .r_21{ width: 514rpx; height: 70rpx; background: #f4f4f4; border-radius: 35rpx; line-height: 70rpx; margin-top: 20rpx;}
@@ -23,4 +42,16 @@
 .r_22{ width: 160rpx; height: 70rpx; background: #008359; text-align: center; border-radius: 35rpx; line-height: 70rpx; font-size: 26rpx; color: #fff; margin-top: 20rpx;}
 
 page{ padding-bottom: 150rpx;}
+.f_07{ width: 570rpx; height: 320rpx; background: #fff; margin: 0 auto; border-radius: 50rpx; box-sizing: border-box; margin-top: 50%;}
+.f_08{ width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,0.4); top: 0; bottom: 0; left: 0; right: 0; margin: 0 auto;}
 
+.e_22{ width: 80%; margin: 0 auto; text-align: center;}
+.e_22 p{ font-size: 36rpx; color: #333; display: block; padding-top: 39rpx; font-weight: 500;}
+.e_22 span{ font-size: 28rpx; color: #666; display: block; margin-top: 30rpx;}
+
+.e_23{ width: 70%; margin: 0 auto; margin-top: 60rpx;}
+.e_23 ul li{ width: 180rpx; height: 70rpx; background: #f4f4f4; line-height: 68rpx; font-size: 28rpx; box-sizing: border-box; border: 1rpx solid #dddddd; text-align: center; border-radius: 35rpx; display: block; float: left;}
+.e_23 ul li:nth-child(2){ float: right; background: #008359; border: none; color: #fff;}
+.hidden .r_9:nth-child(n+2){
+  display: none;
+}

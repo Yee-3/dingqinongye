@@ -14,7 +14,16 @@ Page({
   onLoad: function (options) {
 
   },
-
+  addNj(){
+    wx.navigateTo({
+      url: '../two-p-tianjiaxinnj/two-p-tianjiaxinnj',
+    })
+  },
+  njDetail(){
+    wx.navigateTo({
+      url: '../two-q-nongjixq/two-q-nongjixq',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

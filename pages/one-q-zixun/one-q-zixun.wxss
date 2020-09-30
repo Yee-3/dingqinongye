@@ -1,16 +1,50 @@
-page{ background: #f4f4f4;}
+page {
+  background: #f4f4f4;
+}
 
-.q_01{ width: 694rpx; margin: 0 auto; margin-top: 20rpx; background: #fff; border-radius: 20rpx; padding: 20rpx; box-sizing: border-box;}
-.q_02{ width: 170rpx; height: 120rpx; border-radius: 10rpx; overflow: hidden;}
-.q_02 image{ width: 170rpx; height: 120rpx;}
+.q_01 {
+  width: 694rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
 
-.q_03{ width: 480rpx; padding-left: 20rpx; box-sizing: border-box;}
-.q_04{ font-size: 30rpx; color: #333;}
-.q_05{ font-size: 26rpx; color: #666; margin: 6rpx 0 10rpx;}
-.q_06{ font-size: 22rpx; color: #666;}
+.q_02 {
+  width: 170rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
 
+.q_02 image {
+  width: 170rpx;
+  height: 120rpx;
+}
 
+.q_03 {
+  width: 480rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
 
+.q_04 {
+  font-size: 30rpx;
+  color: #333;
+}
 
+.q_05 {
+  font-size: 26rpx;
+  color: #666;
+  margin: 6rpx 0 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-
+.q_06 {
+  font-size: 22rpx;
+  color: #666;
+}

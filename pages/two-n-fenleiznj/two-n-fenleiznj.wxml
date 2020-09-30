@@ -2,7 +2,7 @@
 	<image src="../img/f056.jpg"></image>
 </view>
 
-<view class="v_5">
+<view class="v_5" bindtap="njDetail">
 	<view class="fl v_6">樱田2bd-8</view>
 	<view class="fr v_7">
 		<image src="../img/f021.png"></image>
@@ -10,4 +10,4 @@
 	<view class="fr v_8">一台</view>
 </view>
 
-<view class="c_4">添加新农机</view>
+<view class="c_4" bindtap="addNj">添加新农机</view>
