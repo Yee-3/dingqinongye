@@ -1,16 +1,13 @@
 <view class="w_18">
 	<view class="v_5">
 		<view class="fl v_6">请输入手机号</view>
-		<view class="fl v_7"><input placeholder="10230124568" /></view>
-		<view class="fr v_8">获取验证码</view>
+		<view class="fl v_7"><input placeholder="请输入手机号" type="number" value="{{phoneValue}}" data-val="{{value}}" bindblur="blur" /></view>
+		<view class="fr v_8" bindtap="code">{{text}}</view>
 	</view>
 	<view class="v_5">
 		<view class="fl v_6">请输入验证码</view>
-		<view class="fl v_9"><input placeholder="请在规定时间内输入验证码" /></view>
+		<view class="fl v_9" style="width:70%"><input placeholder="请在规定时间内输入验证码" value="{{yanValue}}" data-val="{{value}}" bindinput="yanZM" /></view>
 	</view>
 	
 </view>
-
-
-
-<view class="c_4">保存</view>
+<view class="c_4" bindtap="submit">保存</view>

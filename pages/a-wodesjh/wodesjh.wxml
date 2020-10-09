@@ -6,7 +6,7 @@
 	</view>
 	<view class="v_5">
 		<view class="fl v_6">请输入验证码</view>
-		<view class="fl v_9"><input placeholder="请在规定时间内输入验证码" value="{{yanValue}}" data-val="{{value}}" bindinput="yanZM" /></view>
+		<view class="fl v_9" style="width:70%"><input placeholder="请在规定时间内输入验证码" value="{{yanValue}}" data-val="{{value}}" bindinput="yanZM" /></view>
 	</view>
 	
 </view>

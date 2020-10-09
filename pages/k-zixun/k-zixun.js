@@ -16,17 +16,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this,
-    data = {
-      limit: 10,
-      page: this.data.currentPage
-    }
-  this.reword(data)
-},
-newsDetail(e){
-  console.log(e)
-  wx.navigateTo({
-    url: '../one-r-zixunxq/one-r-zixunxq?id='+e.currentTarget.dataset.id,
-  })
+      data = {
+        limit: 10,
+        page: this.data.currentPage
+      }
+    this.reword(data)
+  },
+  newsDetail(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '../one-r-zixunxq/one-r-zixunxq?id=' + e.currentTarget.dataset.id,
+    })
   },
   reword(data) {
     var that = this
@@ -103,12 +103,12 @@ newsDetail(e){
       }
     })
   },
-// 详情
-infoDetail(){
-  wx.navigateTo({
-    url: '../one-r-zixunxq/one-r-zixunxq?id='+e.currentTarget.dataset.id,
-  })
-},
+  // 详情
+  infoDetail() {
+    wx.navigateTo({
+      url: '../one-r-zixunxq/one-r-zixunxq?id=' + e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -152,10 +152,10 @@ infoDetail(){
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    var that=this
+    var that = this
     var data = {
       limit: 10,
-      page: that.data.currentPage+1
+      page: that.data.currentPage + 1
     }
     this.jiazai(data)
   },

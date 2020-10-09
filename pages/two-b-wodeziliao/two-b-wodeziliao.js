@@ -5,18 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+phone:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+    if(options){
+      that.setData({
+        phone:options.phone
+      })
+    }
   },
 add(){
   wx.navigateTo({
     url: '../two-l-tianjianj/two-l-tianjianj',
+  })
+},
+addPhone(){
+  wx.navigateTo({
+    url: '../two-i-wodeshoujh/two-i-wodeshoujh',
   })
 },
   /**

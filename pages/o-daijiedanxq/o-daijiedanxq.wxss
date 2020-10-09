@@ -1,39 +1,290 @@
 /**index.wxss**/
-page{ background: #f4f4f4; padding-bottom: 160rpx;}
+page {
+  background: #f4f4f4;
+  padding-bottom: 160rpx;
+}
 
-.te_1{ font-size: 26rpx; color: #333; background: #fff; padding: 0 28rpx; line-height: 76rpx; margin-top: 10rpx;}
+.te_1 {
+  font-size: 26rpx;
+  color: #333;
+  background: #fff;
+  padding: 0 28rpx;
+  line-height: 76rpx;
+  margin-top: 10rpx;
+}
 
-.top{ position: relative; height: 380rpx;} 
-.top swiper{ width: 100%; position: absolute; bottom: 0; top: 0; height: 380rpx;}
-.banner{ width: 750rpx; height: 380rpx;}
-.top swiper-item{ margin: 0 auto; text-align: center; height: 380rpx;}
+.top {
+  position: relative;
+  height: 380rpx;
+}
+
+.top swiper {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  height: 380rpx;
+}
+
+.banner {
+  width: 750rpx;
+  height: 380rpx;
+}
+
+.top swiper-item {
+  margin: 0 auto;
+  text-align: center;
+  height: 380rpx;
+}
 
 
-.e_04{ width: 750rpx; height: auto; background: #fff; padding: 0 28rpx 30rpx 28rpx; box-sizing: border-box;}
-.e_05{ font-size: 32rpx; color: #333; padding-top: 30rpx;}
+.e_04 {
+  width: 750rpx;
+  height: auto;
+  background: #fff;
+  padding: 0 28rpx 30rpx 28rpx;
+  box-sizing: border-box;
+}
 
-.e_06{ margin-top: 20rpx;}
-.e_07{ width: 176rpx; height: 80rpx; background: #f4f4f4; text-align: center; border-radius: 10rpx;}
-.e_07 p{ display: block;font-size: 28rpx; color: #333; padding-top: 4rpx;}
-.e_07 span{ display: block; font-size: 24rpx; color: #666;}
+.e_05 {
+  font-size: 32rpx;
+  color: #333;
+  padding-top: 30rpx;
+}
 
-.e_08{ width: 176rpx; height: 80rpx; background: #f4f4f4; text-align: center; border-radius: 10rpx; margin-left: 83rpx;}
-.e_08 p{ display: block; font-size: 28rpx; color: #333; padding-top: 4rpx;}
-.e_08 span{ display: block; font-size: 24rpx; color: #666;}
+.e_06 {
+  margin-top: 20rpx;
+}
 
-.e_09{ width: 750rpx; background: #fff; box-sizing: border-box; padding: 0 28rpx; margin-top: 20rpx;}
-.e_10{ width: 100%; height: 96rpx; border-bottom: 1rpx solid #eeeeee;}
+.e_07 {
+  width: 176rpx;
+  height: 80rpx;
+  background: #f4f4f4;
+  text-align: center;
+  border-radius: 10rpx;
+}
 
-.e_11{ line-height: 96rpx; font-size: 30rpx; color: #333;}
-.e_12{ line-height: 96rpx; font-size: 28rpx; color: #666;}
+.e_07 p {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  padding-top: 4rpx;
+}
+
+.e_07 span {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.e_08 {
+  width: 176rpx;
+  height: 80rpx;
+  background: #f4f4f4;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-left: 83rpx;
+}
+
+.e_08 p {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  padding-top: 4rpx;
+}
+
+.e_08 span {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.e_09 {
+  width: 750rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 28rpx;
+  margin-top: 20rpx;
+}
+
+.e_10 {
+  width: 100%;
+  height: 96rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.e_11 {
+  line-height: 96rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.e_12 {
+  line-height: 96rpx;
+  font-size: 28rpx;
+  color: #666;
+}
 
 
 
-.e_15{ width: 100%; height: 110rpx; position: fixed; bottom: 0; background: #fff;}
-.e_20{ width: 33.3333%; height: 110rpx; background: #fff; border-top: 1rpx solid #ddd; border-left: 1rpx solid #ddd; box-sizing: border-box;}
-.e_17{ padding-top: 30rpx; padding-left: 48rpx; padding-right: 10rpx;}
-.e_17 image{ width: 50rpx; height: 50rpx;}
-.e_21{ line-height: 110rpx; color: #666; font-size: 28rpx; text-align: center;}
-.f_01{ width: 66.6666%; height: 110rpx; border-top: 1rpx solid #ddd; background: #fff; box-sizing: border-box; padding-left: 28rpx;}
-.f_01 p{ font-size: 28rpx; line-height: 110rpx; color: #333;}
-.f_01 span{ color: #008359; font-weight: 500; text-decoration: underline;}
+.e_15 {
+  width: 100%;
+  height: 110rpx;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.e_20 {
+  width: 33.3333%;
+  height: 110rpx;
+  background: #fff;
+  border-top: 1rpx solid #ddd;
+  border-left: 1rpx solid #ddd;
+  box-sizing: border-box;
+}
+
+.e_17 {
+  padding-top: 30rpx;
+  padding-left: 48rpx;
+  padding-right: 10rpx;
+}
+
+.e_17 image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.e_21 {
+  line-height: 110rpx;
+  color: #666;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.f_01 {
+  width: 66.6666%;
+  height: 110rpx;
+  border-top: 1rpx solid #ddd;
+  background: #fff;
+  box-sizing: border-box;
+  padding-left: 28rpx;
+}
+
+.f_01 p {
+  font-size: 28rpx;
+  line-height: 110rpx;
+  color: #333;
+}
+
+.f_01 span {
+  color: #008359;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* 取消弹框 */
+.m_01 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.m_02 {
+  position: fixed;
+  z-index: 3;
+  background: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 90rpx;
+  right: 90rpx;
+  border-radius: 35rpx;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 40rpx 40rpx 30rpx 40rpx;
+}
+
+.ti_01 {
+  font-size: 34rpx;
+  /* margin-top: 40rpx; */
+  font-weight: 550;
+  color: #333;
+  margin-bottom: 35rpx;
+}
+
+.ti_02 {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  font-weight: 550;
+  padding-left: 30rpx;
+  text-align: left;
+}
+
+.m_03 {
+  width: 100%;
+  text-align: left;
+  border-bottom: 1rpx solid #ddd;
+  color: #666;
+  padding-bottom: 30rpx;
+  font-size: 28rpx;
+}
+
+.check_label {
+  line-height: 54rpx;
+}
+
+.checked_ra {
+  scale: 0.9;
+}
+
+.checked_ra radio {
+  margin-right: 19rpx;
+}
+
+.m_05 {
+  width: 100%;
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  text-align: left;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+
+.m_05 textarea {
+  padding: 0 1rem;
+  width: 100%;
+  font-size: 26rpx;
+  box-sizing: border-box;
+  /* line-height:45rpx; */
+  height: 100%;
+}
+.m_06{
+  padding-left: 45rpx;
+  padding-right: 45rpx;
+  overflow: hidden;
+}
+.m_06>.b_01,.m_06>.b_02{
+width: 180rpx;
+box-sizing: border-box;
+border-radius: 40rpx;
+height: 70rpx;
+line-height: 70rpx;
+margin-top: 60rpx;
+}
+.b_01{
+  border: 1rpx solid #dfdfdf;
+  background-color: #f4f4f4;
+  color: #666;
+}
+.b_02{
+  background-color: #008359;
+  color: #fff;
+}

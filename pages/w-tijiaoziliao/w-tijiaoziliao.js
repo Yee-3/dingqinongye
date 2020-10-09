@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    img: '../img/f053.png',
+    imgs: '../img/f054.png'
   },
 
   /**
@@ -13,6 +14,31 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  uploadImg(e) {
+    console.log(e)
+    var that = this
+    var type = e.currentTarget.dataset.ty
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        console.log(res)
+        const tempFilePaths = res.tempFilePaths
+        if (type == 1) {
+          that.setData({
+            img: res.tempFilePaths
+          })
+        } else {
+          that.setData({
+            imgs: res.tempFilePaths
+          })
+        }
+
+      }
+    })
   },
 
   /**

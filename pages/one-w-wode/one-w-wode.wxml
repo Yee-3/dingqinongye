@@ -1,9 +1,9 @@
 <view class="w_1">
-	<view class="w_2 fl">
-		<view class="w_3 fl"><image src="../img/f012.png"></image></view>
+	<view class="w_2 fl" bindtap="userUs">
+		<view class="w_3 fl"><image src="{{content.avatar}}"></image></view>
 		<view class="w_4 fl">
-			<view class="w_41">我是用户名</view>
-			<view class="w_42">15236412354</view>
+			<view class="w_41">{{content.nickname}}</view>
+			<view class="w_42">{{content.phone?content.phone:'请绑定手机号'}}</view>
 		</view>
 		<view class="w_5 fl"><image src="../img/f021.png"></image></view>
 		<view class="w-clear"></view>

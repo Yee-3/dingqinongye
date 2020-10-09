@@ -4,7 +4,7 @@
 
 <view class="c_2">
 	<view class="c_3">您当前的身份是“种植户”</view>
-	<view class="c_4">切换为“机手”身份</view>
+	<view class="c_4" bindtap="toggle">切换为“机手”身份</view>
 </view>
 
 

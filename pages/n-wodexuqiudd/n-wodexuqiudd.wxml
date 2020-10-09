@@ -10,33 +10,34 @@
 	</view>
 </view>
 
-<view class="x_1">
-	<view class="x_2">订单编号：21354123647</view>
-	<view class="x_3">
+<view class="x_1" wx:for="{{list}}">
+	<view class="x_2">订单编号：{{item.orderNo}}</view>
+	<view class="x_3" bindtap="detailIn">
 		<view class="fl x_4">
-			<image src="../img/f043.png"></image>
+			<image src="{{item.img}}"></image>
 		</view>
 		<view class="fr x_5">
-			<view class="x_6">水稻收割水稻收割</view>
-			<view class="x_7">2020.02.02（预计）</view>
+			<view class="x_6">{{item.title}}</view>
+			<view class="x_7">{{item.valTime}}（预计）</view>
 			<view class="x_8">
-				<view class="x_9 fl">亩数：100.0亩</view>
-				<view class="x_9 fl">农机：2台</view>
+				<view class="x_9 fl">亩数：{{item.landArea}}亩</view>
+				<view class="x_9 fl">农机：{{item.machinesNum}}台</view>
 		        <view class="w-clear"></view>
 			</view>
-			<view class="x_10">单价：￥5.0元/亩 </view>
-			<view class="x_10">位置：山东省济南市槐荫区汇金金融中心</view>
+			<view class="x_10">单价：￥{{item.farmPrice}}元/亩 </view>
+			<view class="x_10">位置：{{item.province+item.city+item.county+item.address}}</view>
 		</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="fr x_11">
-		<view class="fr x_13">取消订单</view>
+		<view class="fr x_13" wx:if="{{titleIndex==0}}" bindtap="cancelDd">取消订单</view>
+		<view class="x_12" wx:if="{{titleIndex!=0}}">{{titleIndex==1?'已接单':'已完成'}}</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="w-clear"></view>
 </view>
 
-<view class="x_1">
+<view class="x_1" bindtap="detailIn">
 	<view class="x_2">订单编号：21354123647</view>
 	<view class="x_3">
 		<view class="fl x_4">
@@ -56,8 +57,34 @@
 		<view class="w-clear"></view>
 	</view>
 	<view class="fr x_11">
-		<view class="x_12">已接单</view>
+		<view class="fr x_13" wx:if="{{titleIndex==0}}">取消订单</view>
+		<view class="x_12" wx:if="{{titleIndex!=0}}">{{titleIndex==1?'已接单':'已完成'}}</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="w-clear"></view>
+</view>
+
+<view class="m_01" wx:if="{{isQx}}">
+	<view class="m_02">
+		<view class="ti_01">取消原因</view>
+		<view class="m_03">
+			<radio-group bindchange="radioChange">
+        <label class="check_label" wx:for="{{items}}" wx:key="{{item.value}}">
+          <view class="checked_ra">
+            <radio value="{{item.name}}" color="#008359" data-index="{{item.name}}" checked="{{reason==item.name}}"/>{{item.name}}
+          </view>
+        </label>
+      </radio-group>
+		</view>
+		<view class="m_04">
+			<view class="ti_02">取消说明</view>
+			<view class="m_05">
+				<textarea placeholder="请简要描述取消任务的原因" data-val="{{value}}" value="{{cause}}" bindinput="capValue" placeholder-style='font-size: 28rpx;' />
+			</view>
+		</view>
+		<view class="m_06">
+			<view class="b_01 fl" bindtap="cancelDd">取消</view>
+			<view class="b_02 fr" bindtap="submit">提交</view>
+		</view>
+	</view>
 </view>

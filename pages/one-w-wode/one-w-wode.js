@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShow: false
+    isShow: false,
+    content:{}
   },
 
   /**
@@ -28,6 +29,9 @@ Page({
         data:{},
         success(res){
           console.log(res)
+          that.setData({
+            content:res.data.data.memberDTO
+          })
         }
       })
     }
@@ -41,7 +45,7 @@ Page({
   // 我的资料
   myData(){
     wx.navigateTo({
-      url: '../two-b-wodeziliao/two-b-wodeziliao',
+      url: '../two-b-wodeziliao/two-b-wodeziliao?phone='+this.data.content.phone,
     })
   },
   // 地址管理
@@ -56,6 +60,7 @@ Page({
       url: '../two-c-xiugaishengf/two-c-xiugaishengf',
     })
   },
+  userUs(){},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

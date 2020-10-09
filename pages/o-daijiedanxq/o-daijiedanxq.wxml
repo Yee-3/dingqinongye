@@ -51,13 +51,38 @@
 		<view class="fl e_11">结款方式</view>
 		<view class="fr e_12">完活完结 / 种植户结款</view>
 	</view>
-	
+
 </view>
 
 
 <view class="e_15">
 	<view class="f_01 fl"></view>
 	<view class="e_20 fr">
-		<view class="e_21">取消需求订单</view>
+		<view class="e_21" bindtap="cancelDd">取消需求订单</view>
+	</view>
+</view>
+
+<view class="m_01" wx:if="{{isQx}}">
+	<view class="m_02">
+		<view class="ti_01">取消原因</view>
+		<view class="m_03">
+			<radio-group bindchange="radioChange">
+        <label class="check_label" wx:for="{{items}}" wx:key="{{item.value}}">
+          <view class="checked_ra">
+            <radio value="{{item.name}}" color="#008359" data-index="{{item.name}}" checked="{{reason==item.name}}"/>{{item.name}}
+          </view>
+        </label>
+      </radio-group>
+		</view>
+		<view class="m_04">
+			<view class="ti_02">取消说明</view>
+			<view class="m_05">
+				<textarea placeholder="请简要描述取消任务的原因" data-val="{{value}}" value="{{cause}}" bindinput="capValue" placeholder-style='font-size: 28rpx;' />
+			</view>
+		</view>
+		<view class="m_06">
+			<view class="b_01 fl" bindtap="cancelDd">取消</view>
+			<view class="b_02 fr" bindtap="submit">提交</view>
+		</view>
 	</view>
 </view>

@@ -4,14 +4,14 @@
 	<view class="o_20">请上传身份证正反面</view>
 	<view class="">
 		<view class="fl tg_2">
-			<view class="tg_3">
-				<image src="../img/f053.png"></image>
+			<view class="tg_3" data-ty="1" bindtap="uploadImg">
+				<image src="{{img}}"></image>
 			</view>
 			<view class="tg_4">请上传带头像的一面</view>
 		</view>
 		<view class="fr tg_2">
-			<view class="tg_3">
-				<image src="../img/f054.png"></image>
+			<view class="tg_3" data-ty="2" bindtap="uploadImg">
+				<image src="{{imgs}}"></image>
 			</view>
 			<view class="tg_4">请上传带国徽的一面</view>
 		</view>
