@@ -33,21 +33,41 @@ Page({
     ],
     reason: '',
     cause: '',
-    isQx:false
-
+    isQx: false,
+cont:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+    app.http({
+      url: '/user/get-demand-detail',
+      data: {
+        id: options.id
+      },
+      method: 'POST',
+      dengl: true,
+      success(res) {
+        var time = res.data.data.workTime
+        function format(x) {
+          return x < 10 ? '0' + x : x
+        }
+        let d = new Date(time);
+        res.data.data.valTime = d.getFullYear() + '.' + format((d.getMonth() + 1)) + '.' + format((d.getDate()))
+        that.setData({
+          cont:res.data.data
+        })
+        console.log(res)
+      }
+    })
   },
   // 取消
-  cancelDd(){
-    var qx=this.data.isQx
+  cancelDd() {
+    var qx = this.data.isQx
     this.setData({
-      isQx:!qx
+      isQx: !qx
     })
   },
   // 提交取消时间

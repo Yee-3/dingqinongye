@@ -78,7 +78,7 @@
 		<view class="fr v_7"><image src="../img/f021.png"></image></view>
 	</view>
 </view>
-<dengl isShow="{{isShow}}"></dengl>
+<dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
 
 
 

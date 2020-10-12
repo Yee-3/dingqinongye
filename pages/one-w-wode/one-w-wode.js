@@ -36,6 +36,59 @@ Page({
       })
     }
   },
+  bindGetUserInfo(){
+    var that = this
+  wx.login({
+    success(res) {
+      console.log(res)
+      var code = res.code
+      wx.getUserInfo({
+        success(resp) {
+          if (code) {
+            console.log(resp)
+            wx.setStorageSync('users', {
+              'nickName': resp.userInfo.nickName,
+              'avatarUrl': resp.userInfo.avatarUrl
+            })
+            app.http({
+              url: '/oauth/wx-auth-save',
+              method: 'POST',
+              dengl: false,
+              header: true,
+              data: JSON.stringify({
+                code: code,
+                encryptedData: resp.encryptedData,
+                iv: resp.iv,
+                identityCode: wx.getStorageSync('code')
+              }),
+              success(res) {
+                if (res.data.code == 0) {
+                  wx.setStorageSync('Authorization', res.data.data.access_token)
+                  wx.showToast({
+                    title: '登录成功'
+                  })
+                  that.setData({
+                    isShow: false
+                  })
+                  that.onLoad()
+                } else {
+                  wx.showToast({
+                    title: '登录失败'
+                  })
+                }
+              }
+            })
+          }
+          console.log(resp)
+        },
+        fail: function (err) {
+          console.log(err)
+        }
+      })
+    }
+
+  })
+  },
   // 关于我们
   aboutUs() {
     wx.navigateTo({

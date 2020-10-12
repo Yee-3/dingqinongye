@@ -105,7 +105,10 @@ Page({
             var pages = getCurrentPages();
             var prevPage = pages[pages.length - 2]; //上一个页面
             var page = pages[pages.length - 3];
-            prevPage.onLoad()
+            // prevPage.onLoad()
+            prevPage.setData({
+              phone:that.data.phoneValue
+            })
             page.onLoad()
             wx.navigateBack({
               delta: 1,

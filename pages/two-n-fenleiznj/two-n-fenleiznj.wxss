@@ -8,5 +8,5 @@
 .v_7 image{ width: 16rpx; height: 30rpx;}
 .v_8{ font-size: 28rpx; color: #999; line-height: 100rpx;}
 
-.c_4{ width: 694rpx; height: 80rpx; background: #008359; margin: 0 auto; margin-top: 100rpx; text-align: center; border-radius: 40rpx; line-height: 80rpx; color: #fff; font-size: 28rpx;}
+.c_4{ width: 694rpx; height: 80rpx; background: #008359; margin: 0 auto; margin-top:50rpx; text-align: center; border-radius: 40rpx; line-height: 80rpx; color: #fff; font-size: 28rpx; margin-bottom: 25rpx;}
 

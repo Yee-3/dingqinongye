@@ -1,0 +1,17 @@
+<!--pages/components/select/select.wxml-->
+<view class="m_01" wx:if="{{isShow}}">
+	<view class="m_02">
+		<view class="m_03">{{title}}</view>
+		<scroll-view class="m_04" scroll-y="true" style="height: 180rpx;"  >
+			<radio-group bindchange="radioChange" data-id="{{item.brandId}}" data-index="{{index}}" wx:for="{{list}}">
+				<label class="r_01" bindtap="checked">
+					<view class="r_02">
+						<view class="r_03">{{item.brandName}}</view>
+						<radio class="r_04" color="#008359" value="{{item.brandName}}" checked="{{id==item.brandId}}" />
+					</view>
+				</label>
+			</radio-group>
+		</scroll-view>
+		<view class="m_05" bindtap="cancel">取消</view>
+	</view>
+</view>

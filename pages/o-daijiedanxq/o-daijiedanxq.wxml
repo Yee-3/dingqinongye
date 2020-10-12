@@ -1,5 +1,5 @@
 <view class="te_1">
-	订单编号：21354123647
+	订单编号：{{cont.orderNo}}
 </view>
 
 <view class="top">
@@ -19,16 +19,16 @@
 </view>
 
 <view class="e_04">
-	<view class="e_05">小麦飞防植保</view>
+	<view class="e_05">{{cont.title}}</view>
 	<view class="e_06">
 		<view class="e_07 fl">
-			<p>100.0亩</p><span>作业面积</span>
+			<p>{{cont.landArea}}亩</p><span>作业面积</span>
 		</view>
 		<view class="e_08 fl">
-			<p>50元</p><span>价格/亩</span>
+			<p>{{cont.farmPrice}}元</p><span>价格/亩</span>
 		</view>
 		<view class="e_07 fr">
-			<p>2台</p><span>机器台数</span>
+			<p>{{cont.machinesNum}}台</p><span>机器台数</span>
 		</view>
 		<view class="w-clear"></view>
 	</view>
@@ -37,19 +37,19 @@
 <view class="e_09">
 	<view class="e_10">
 		<view class="fl e_11">作业日期</view>
-		<view class="fr e_12">2020.02.02</view>
+		<view class="fr e_12">{{cont.valTime}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">作业周期</view>
-		<view class="fr e_12">1天</view>
+		<view class="fr e_12">{{cont.workCycle}}天</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">地理位置</view>
-		<view class="fr e_12">山东省济南市槐荫区报业大厦</view>
+		<view class="fr e_12">{{cont.province+cont.city+cont.county+cont.address}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">结款方式</view>
-		<view class="fr e_12">完活完结 / 种植户结款</view>
+		<view class="fr e_12">{{cont.payMethod==0?'完活完结':'种植户结款'}}</view>
 	</view>
 
 </view>

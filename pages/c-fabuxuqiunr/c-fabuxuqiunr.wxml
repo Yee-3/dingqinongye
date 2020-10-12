@@ -93,5 +93,5 @@
 			</view>
 		</view>
 	</view>
-<dengl isShow="{{isShow}}"></dengl>
+<dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
 <view class="c_4" bindtap="submit">提交</view>

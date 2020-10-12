@@ -72,7 +72,7 @@
 	</view>
 	<view class="fr r_22" bindtap="submit">发表</view>
 </view>
-<dengl isShow="{{isShow}}"></dengl>
+<dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
 <!-- 删除 -->
 <view class="f_08" wx:if="{{false}}">
 	<view class="f_07">

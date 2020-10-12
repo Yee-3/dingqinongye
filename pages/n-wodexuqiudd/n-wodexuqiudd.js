@@ -70,17 +70,18 @@ Page({
   },
   // 订单详情
   detailIn(e) {
+    console.log(e)
     if (this.data.titleIndex == 0) {
       wx.navigateTo({
-        url: '../o-daijiedanxq/o-daijiedanxq',
+        url: '../o-daijiedanxq/o-daijiedanxq?id='+e.currentTarget.dataset.id,
       })
     } else if (this.data.titleIndex == 1) {
       wx.navigateTo({
-        url: '../p-yijiedanxq/p-yijiedanxq',
+        url: '../p-yijiedanxq/p-yijiedanxq?id='+e.currentTarget.dataset.id,
       })
     } else {
       wx.navigateTo({
-        url: '../q-yiwanchengxq/q-yiwanchengxq',
+        url: '../q-yiwanchengxq/q-yiwanchengxq?id='+e.currentTarget.dataset.id,
       })
     }
 
@@ -99,7 +100,6 @@ Page({
           var arr = res.data.data
           arr.map(function (val, i) {
             var time = val.workTime
-
             function format(x) {
               return x < 10 ? '0' + x : x
             }

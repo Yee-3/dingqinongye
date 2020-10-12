@@ -80,5 +80,5 @@
 		</view>
 	</view>
 </view>
-<dengl isShow="{{isShow}}"></dengl>
+<dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
 <tabBar></tabBar>

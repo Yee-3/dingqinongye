@@ -61,7 +61,7 @@ App({
     isShow:false,
     http(obj) {
       // var webUrl='http://192.168.100.144:8089'
-      var webUrl = 'http://192.168.101.1:8889'
+      var webUrl = 'http://192.168.100.91:8889'
       if (obj.dengl) {
         if (wx.getStorageSync('Authorization')) {
           wx.request({
