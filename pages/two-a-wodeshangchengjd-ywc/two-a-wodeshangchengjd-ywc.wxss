@@ -1,7 +1,7 @@
 page{ background: #f4f4f4;}
 
 .j_01{ width: 750rpx; background: #fff; height: 70rpx;}
-.j_02{ float: left; text-align: center; width: 50%;}
+.j_02{ float: left; text-align: center; width: 20%;}
 .j_02 p{ line-height: 70rpx; color: #333; font-size: 28rpx;}
 .j_02.on p{ color: #008359; border-bottom: 4rpx solid #008359; box-sizing: border-box; padding-bottom: 14rpx;}
 
@@ -11,9 +11,11 @@ page{ background: #f4f4f4;}
 
 
 .x_11{ padding: 20rpx 0;}
-.x_12{ height: 56rpx; line-height: 56rpx; padding: 0 30rpx; box-sizing: border-box; display: block; background: #008359; font-size: 26rpx; border-radius: 30rpx; color: #fff;}
+.x_12{ height: 56rpx; line-height: 56rpx; padding: 0 30rpx; box-sizing: border-box; display: block; border: 1rpx solid #008359; font-size: 26rpx; border-radius: 30rpx; color: #008359;}
 .x_13{ margin-right: 30rpx; height: 56rpx; line-height: 56rpx; padding: 0 30rpx; box-sizing: border-box; display: block; border: 1rpx solid #dddddd; font-size: 26rpx; border-radius: 30rpx; color: #333;}
 
+.tr_1{ margin-right: 30rpx; height: 56rpx; line-height: 56rpx; padding: 20rpx 0; box-sizing: border-box; display: block; font-size: 26rpx; color: #ff3333;}
+.tr_2{ height: 56rpx; line-height: 56rpx; padding: 0 30rpx; box-sizing: border-box; display: block; background: #dcdcdc; font-size: 26rpx; border-radius: 30rpx; color: #666;}
 
 .n_04{ width: 170rpx; height: 170rpx; overflow: hidden; border-radius: 10rpx;}
 .n_04 image{ width: 170rpx; height: 170rpx;}
@@ -29,5 +31,5 @@ page{ background: #f4f4f4;}
 
 .z_1{ font-size: 22rpx; color: #999;}
 .z_2{ padding-top: 20rpx;}
-
+.s_01{ height: 56rpx; line-height: 56rpx; padding: 0 30rpx; box-sizing: border-box; display: block; background: #008359; font-size: 26rpx; border-radius: 30rpx; color: #fff;}
 

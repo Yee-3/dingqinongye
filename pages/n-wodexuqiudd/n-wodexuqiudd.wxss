@@ -127,6 +127,15 @@ margin-top: 60rpx;
   background-color: #008359;
   color: #fff;
 }
+.f_07{ width: 570rpx; height: 320rpx; background: #fff; margin: 0 auto; border-radius: 50rpx; box-sizing: border-box; margin-top: 50%;}
+.f_08{ width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,0.4); top: 0; bottom: 0; left: 0; right: 0; margin: 0 auto;}
+
+.e_22{ width: 80%; margin: 0 auto; text-align: center;}
+.e_22 p{ font-size: 36rpx; color: #333; display: block; padding-top: 39rpx; font-weight: 500;}
+.e_22 span{ font-size: 28rpx; color: #666; display: block; margin-top: 30rpx;}
+
+.e_23{ width: 70%; margin: 0 auto; margin-top: 60rpx;}
+.e_23 ul li{ width: 180rpx; height: 70rpx; background: #008359; line-height: 68rpx; color: #fff; margin: 0 auto; font-size: 28rpx; box-sizing: border-box; text-align: center; border-radius: 35rpx; display: block;}
 
 
 

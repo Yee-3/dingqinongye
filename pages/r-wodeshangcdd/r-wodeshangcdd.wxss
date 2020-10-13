@@ -31,5 +31,5 @@ page{ background: #f4f4f4;}
 
 .z_1{ font-size: 22rpx; color: #999;}
 .z_2{ padding-top: 20rpx;}
-
+.s_01{ height: 56rpx; line-height: 56rpx; padding: 0 30rpx; box-sizing: border-box; display: block; background: #008359; font-size: 26rpx; border-radius: 30rpx; color: #fff;}
 

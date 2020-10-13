@@ -44,9 +44,6 @@ callPhone(){
   wx.makePhoneCall({
     phoneNumber: this.data.phone //仅为示例，并非真实的电话号码
   })
-  wx.navigateTo({
-    url: '../dai',
-  })
 },
 phoneShow(){
   var show=this.data.isShow

@@ -1,8 +1,8 @@
 <view class="j_01">
-	<view class="j_02 on">
+	<view class="{{titleIndex==0?'j_02 on':'j_02'}}" bindtap="toggleTitle" data-id="0">
 		<p>待作业</p>
 	</view>
-	<view class="j_02">
+	<view class="{{titleIndex==1?'j_02 on':'j_02'}}" bindtap="toggleTitle" data-id="1">
 		<p>已完成</p>
 	</view>
 </view>
@@ -27,8 +27,9 @@
 		<view class="w-clear"></view>
 	</view>
 	<view class="fr x_11">
-		<view class="fl x_12">联系种植户</view>
-		<view class="fr x_13">取消订单</view>
+		<view class="fl x_12" wx:if="{{titleIndex==0}}">联系种植户</view>
+		<view class="fr x_13" wx:if="{{titleIndex==0}}">取消订单</view>
+		<view class="fr x_13" wx:if="{{titleIndex==1}}">已完成</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="w-clear"></view>
@@ -54,8 +55,9 @@
 		<view class="w-clear"></view>
 	</view>
 	<view class="fr x_11">
-		<view class="fl x_12">联系种植户</view>
-		<view class="fr x_13">取消订单</view>
+		<view class="fl x_12" wx:if="{{false}}">联系种植户</view>
+		<view class="fr x_13" wx:if="{{false}}">取消订单</view>
+		<view class="fr x_13">已完成</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="w-clear"></view>

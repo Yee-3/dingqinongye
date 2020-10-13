@@ -1,34 +1,34 @@
 <view class="te_1">
-	订单编号：21354123647
+	订单编号：{{cont.orderNo}}
 </view>
 
 <view class="top">
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 		<block class="top_img">
-			<swiper-item>
+			<swiper-item wx:for="{{cont.imgs}}">
+				<image class="banner" src="{{item}}"></image>
+			</swiper-item>
+			<!-- <swiper-item>
 				<image class="banner" src="../img/f013.jpg"></image>
 			</swiper-item>
 			<swiper-item>
 				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
+			</swiper-item> -->
 		</block>
 	</swiper>
 </view>
 
 <view class="e_04">
-	<view class="e_05">小麦飞防植保</view>
+	<view class="e_05">{{cont.title}}</view>
 	<view class="e_06">
 		<view class="e_07 fl">
-			<p>100.0亩</p><span>作业面积</span>
+			<p>{{cont.landArea}}亩</p><span>作业面积</span>
 		</view>
 		<view class="e_08 fl">
-			<p>50元</p><span>价格/亩</span>
+			<p>{{cont.farmPrice}}元</p><span>价格/亩</span>
 		</view>
 		<view class="e_07 fr">
-			<p>2台</p><span>机器台数</span>
+			<p>{{cont.machinesNum}}台</p><span>机器台数</span>
 		</view>
 		<view class="w-clear"></view>
 	</view>
@@ -37,26 +37,26 @@
 <view class="e_09">
 	<view class="e_10">
 		<view class="fl e_11">作业日期</view>
-		<view class="fr e_12">2020.02.02</view>
+		<view class="fr e_12">{{cont.valTime}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">作业周期</view>
-		<view class="fr e_12">1天</view>
+		<view class="fr e_12">{{cont.workCycle}}天</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">地理位置</view>
-		<view class="fr e_12">山东省济南市槐荫区报业大厦</view>
+		<view class="fr e_12">{{cont.province+cont.city+cont.county+cont.address}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">结款方式</view>
-		<view class="fr e_12">完活完结 / 种植户结款</view>
+		<view class="fr e_12">{{cont.payMethod==0?'完活完结':'种植户结款'}}</view>
 	</view>
-	
+
 </view>
 
 
 <view class="e_15">
-	<view class="e_16 fl">
+	<view class="e_16 fl" bindtap="callPhone">
 		<view class="fl e_17"><image src="../img/f047.png"></image></view>
 		<view class="fl e_18">联系机手</view>
 	</view>
@@ -64,10 +64,10 @@
 		<view class="e_18" bindtap="cancelDd">取消需求订单</view>
 	</view>
 	<view class="e_20 fr">
-		<view class="e_21">确认完成作业</view>
+		<view class="e_21" bindtap="concairmDd">确认完成作业</view>
 	</view>
 </view>
-
+<!-- 取消订单 -->
 <view class="m_01" wx:if="{{isQx}}">
 	<view class="m_02">
 		<view class="ti_01">取消原因</view>
@@ -89,6 +89,53 @@
 		<view class="m_06">
 			<view class="b_01 fl" bindtap="cancelDd">取消</view>
 			<view class="b_02 fr" bindtap="submit">提交</view>
+		</view>
+	</view>
+</view>
+<!-- 取消订单确定 -->
+<view class="f_08" wx:if="{{quSty}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>取消订单成功</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="confirmQ">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+
+<!-- 机手电话 -->
+<!-- 拨打电话弹框 -->
+<view class="f_08" wx:if="{{isPhone}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要拨打客服电话?</span>
+		</view>
+		<view class="lis_1">
+			<ul>
+				<li bindtap="callPhone">取消</li>
+				<li bindtap="makeCall">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+
+<!-- 确定完成作业 -->
+<view class="f_08" wx:if="{{isCon}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>确定完成作业？</span>
+		</view>
+		<view class="lis_1">
+			<ul>
+				<li bindtap="concairmDd">取消</li>
+				<li bindtap="conConfirm">确定</li>
+			</ul>
 		</view>
 	</view>
 </view>

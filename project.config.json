@@ -105,9 +105,9 @@
           "scene": null
         },
         {
-          "id": -1,
-          "name": "pages/w-tijiaoziliao/w-tijiaoziliao",
-          "pathName": "pages/w-tijiaoziliao/w-tijiaoziliao",
+          "id": 5,
+          "name": "pages/s-wodeshangcdd-ywc/s-wodeshangcdd-ywc",
+          "pathName": "pages/s-wodeshangcdd-ywc/s-wodeshangcdd-ywc",
           "query": "",
           "scene": null
         },
@@ -120,8 +120,8 @@
         },
         {
           "id": -1,
-          "name": "pages/two-l-tianjianj/two-l-tianjianj",
-          "pathName": "pages/two-l-tianjianj/two-l-tianjianj",
+          "name": "pages/one-w-wode/one-w-wode",
+          "pathName": "pages/one-w-wode/one-w-wode",
           "query": "",
           "scene": null
         },
@@ -134,8 +134,8 @@
         },
         {
           "id": -1,
-          "name": "pages/n-wodexuqiudd/n-wodexuqiudd",
-          "pathName": "pages/n-wodexuqiudd/n-wodexuqiudd",
+          "name": "pages/r-wodeshangcdd/r-wodeshangcdd",
+          "pathName": "pages/r-wodeshangcdd/r-wodeshangcdd",
           "query": "",
           "scene": null
         }

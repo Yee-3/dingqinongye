@@ -5,15 +5,15 @@
 <view class="top">
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 		<block class="top_img">
-			<swiper-item>
+			<swiper-item wx:for="{{cont.imgs}}">
+				<image class="banner" src="{{item}}"></image>
+			</swiper-item>
+			<!-- <swiper-item>
 				<image class="banner" src="../img/f013.jpg"></image>
 			</swiper-item>
 			<swiper-item>
 				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
+			</swiper-item> -->
 		</block>
 	</swiper>
 </view>
@@ -83,6 +83,20 @@
 		<view class="m_06">
 			<view class="b_01 fl" bindtap="cancelDd">取消</view>
 			<view class="b_02 fr" bindtap="submit">提交</view>
+		</view>
+	</view>
+</view>
+
+<view class="f_08" wx:if="{{quSty}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>取消订单成功</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="confirmQ">确定</li>
+			</ul>
 		</view>
 	</view>
 </view>

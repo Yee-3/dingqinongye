@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    titleIndex: '0',
+    titleIndex: 0,
     currentPage: 1,
     loadingType: 0,
     list: [],
@@ -37,7 +37,9 @@ Page({
     ],
     reason: '',
     cause: '',
-    isQx: false
+    isQx: false,
+    id: '',
+    quSty: false
   },
 
   /**
@@ -45,12 +47,13 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    var that=this
     this.setData({
       titleIndex: options.id
     })
     var data = {
       limit: 10,
-      ordersStatus: options.id,
+      ordersStatus: this.data.titleIndex,
       page: this.data.currentPage
     }
     this.reword(data)
@@ -71,17 +74,20 @@ Page({
   // 订单详情
   detailIn(e) {
     console.log(e)
+    var that=this
     if (this.data.titleIndex == 0) {
       wx.navigateTo({
-        url: '../o-daijiedanxq/o-daijiedanxq?id='+e.currentTarget.dataset.id,
+        url: '../o-daijiedanxq/o-daijiedanxq?id=' + e.currentTarget.dataset.id+'&status='+that.data.titleIndex,
+        // url: '../q-yiwanchengxq/q-yiwanchengxq?id=' + e.currentTarget.dataset.id,
+        // url: '../p-yijiedanxq/p-yijiedanxq?id=' + e.currentTarget.dataset.id+'&status='+that.data.titleIndex,
       })
     } else if (this.data.titleIndex == 1) {
       wx.navigateTo({
-        url: '../p-yijiedanxq/p-yijiedanxq?id='+e.currentTarget.dataset.id,
+        url: '../p-yijiedanxq/p-yijiedanxq?id=' + e.currentTarget.dataset.id+'&status='+that.data.titleIndex,
       })
     } else {
       wx.navigateTo({
-        url: '../q-yiwanchengxq/q-yiwanchengxq?id='+e.currentTarget.dataset.id,
+        url: '../q-yiwanchengxq/q-yiwanchengxq?id=' + e.currentTarget.dataset.id,
       })
     }
 
@@ -100,12 +106,16 @@ Page({
           var arr = res.data.data
           arr.map(function (val, i) {
             var time = val.workTime
+
             function format(x) {
               return x < 10 ? '0' + x : x
             }
             let d = new Date(time);
             val.valTime = d.getFullYear() + '.' + format((d.getMonth() + 1)) + '.' + format((d.getDate()))
+            val.imgs = val.img.split(',')
           })
+          console.log(res.data.data)
+
         }
         that.setData({
           list: res.data.data
@@ -154,6 +164,7 @@ Page({
             }
             let d = new Date(time);
             val.valTime = d.getFullYear() + '.' + format((d.getMonth() + 1)) + '.' + format((d.getDate()))
+            val.imgs = val.img.split(',')
           })
         }
         that.setData({
@@ -174,25 +185,68 @@ Page({
     })
   },
   // 取消
-  cancelDd() {
+  cancelDd(e) {
     var qx = this.data.isQx
     this.setData({
-      isQx: !qx
+      isQx: !qx,
+      id: e.currentTarget.dataset.id
     })
   },
-  // 提交取消时间
+  // 提交取消事件
   submit() {
-    app.http({
-      url: '/growers/user/cancel-publish-demand',
-      dengl: true,
-      data: {
-        // id:
-      },
-      method: 'POST',
-      success(res) {
-        console.log(res)
-      }
+    var that = this
+    if (!this.data.reason) {
+      wx.showToast({
+        title: '请选择原因',
+        icon: 'none'
+      })
+    } else if (!this.data.cause) {
+      wx.showToast({
+        title: '请输入取消说明',
+        icon: 'none'
+      })
+    } else {
+      app.http({
+        url: '/growers/user/cancel-publish-demand',
+        dengl: true,
+        data: {
+          id: that.data.id,
+          label: that.data.reason,
+          directions: that.data.cause
+        },
+        method: 'POST',
+        success(res) {
+          console.log(res)
+          if (res.data.code == 0) {
+            that.setData({
+              isQx: false,
+              cause: '',
+              reason: ''
+            })
+            setTimeout(function(){
+              that.setData({
+                quSty:true
+              })
+            },500)
+          }
+        }
+      })
+    }
+
+  },
+  confirmQ(){
+    var hide=this.data.quSty,
+    that=this
+    this.setData({
+      quSty:!hide,
+      currentPage: 1
     })
+    var data = {
+      limit: 10,
+      ordersStatus: that.data.titleIndex,
+      page: that.data.currentPage
+    }
+    this.reword(data)  
   },
   // 获取取消说明内容
   capValue(e) {
@@ -201,6 +255,7 @@ Page({
     })
   },
   radioChange(e) {
+    console.log(e)
     this.setData({
       reason: e.detail.value
     })

@@ -14,7 +14,7 @@
 	<view class="x_2">订单编号：{{item.orderNo}}</view>
 	<view class="x_3" bindtap="detailIn" data-id="{{item.id}}">
 		<view class="fl x_4">
-			<image src="{{item.img}}"></image>
+			<image src="{{item.imgs[0]}}"></image>
 		</view>
 		<view class="fr x_5">
 			<view class="x_6">{{item.title}}</view>
@@ -30,14 +30,14 @@
 		<view class="w-clear"></view>
 	</view>
 	<view class="fr x_11">
-		<view class="fr x_13" wx:if="{{titleIndex==0}}" bindtap="cancelDd">取消订单</view>
+		<view class="fr x_13" wx:if="{{titleIndex==0}}" data-id="{{item.id}}" bindtap="cancelDd">取消订单</view>
 		<view class="x_12" wx:if="{{titleIndex!=0}}">{{titleIndex==1?'已接单':'已完成'}}</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="w-clear"></view>
 </view>
 
-<view class="x_1" >
+<!-- <view class="x_1" >
 	<view class="x_2">订单编号：21354123647</view>
 	<view class="x_3" bindtap="detailIn">
 		<view class="fl x_4">
@@ -62,7 +62,7 @@
 		<view class="w-clear"></view>
 	</view>
 	<view class="w-clear"></view>
-</view>
+</view> -->
 
 <view class="m_01" wx:if="{{isQx}}">
 	<view class="m_02">
@@ -87,6 +87,20 @@
 		<view class="m_06">
 			<view class="b_01 fl" bindtap="cancelDd">取消</view>
 			<view class="b_02 fr" bindtap="submit">提交</view>
+		</view>
+	</view>
+</view>
+
+<view class="f_08" wx:if="{{quSty}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>取消订单成功</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="confirmQ">确定</li>
+			</ul>
 		</view>
 	</view>
 </view>

@@ -114,6 +114,17 @@ Page({
     })
   },
   userUs(){},
+  // 机手订单
+  operator(e){
+      wx.navigateTo({
+        url: '../one-x-wodejishoudingd/one-x-wodejishoudingd?id='+e.currentTarget.dataset.id,
+      })
+  },
+  shopOrder(e){
+wx.navigateTo({
+  url: '../two-a-wodeshangchengjd-ywc/two-a-wodeshangchengjd-ywc',
+})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

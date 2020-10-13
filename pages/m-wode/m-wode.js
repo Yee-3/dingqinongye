@@ -99,10 +99,15 @@ Page({
   },
   // 需求订单
   demand(e){
-    console.log(e)
     wx.navigateTo({
       url: '../n-wodexuqiudd/n-wodexuqiudd?id='+e.currentTarget.dataset.id,
     })
+  },
+  // 商城订单
+  shopOrder(e){
+      wx.navigateTo({
+        url: '../r-wodeshangcdd/r-wodeshangcdd?id='+e.currentTarget.dataset.id,
+      })
   },
   // 地址管理
   address(){
