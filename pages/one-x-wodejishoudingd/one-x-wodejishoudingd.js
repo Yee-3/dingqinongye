@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    titleIndex: 0
+    titleIndex: 2
   },
 
   /**
@@ -19,6 +19,11 @@ Page({
   toggleTitle(e) {
     this.setData({
       titleIndex: e.currentTarget.dataset.id
+    })
+  },
+  xqDetail(){
+    wx.navigateTo({
+      url: '../two-e-daizuoyexq/two-e-daizuoyexq',
     })
   },
   /**

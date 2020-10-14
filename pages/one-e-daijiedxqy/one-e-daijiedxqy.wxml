@@ -99,3 +99,19 @@
 		</view>
 	</view>
 </view>
+
+<view class="f_08" wx:if="{{false}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要拨打客服电话?</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="callPhone">取消</li>
+				<li bindtap="makeCall">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+<dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>

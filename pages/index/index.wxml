@@ -10,24 +10,24 @@
 
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 		<block class="top_img">
-			<swiper-item>
+			<swiper-item wx:for="{{lists.bannerList}}">
+				<image class="banner" src="{{item.imgUrl}}"></image>
+			</swiper-item>
+			<!-- <swiper-item>
 				<image class="banner" src="../img/f001.png"></image>
 			</swiper-item>
 			<swiper-item>
 				<image class="banner" src="../img/f001.png"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f001.png"></image>
-			</swiper-item>
+			</swiper-item> -->
 		</block>
 	</swiper>
 	<view class="a_01">
-		<ul>
-			<li bindtap="listIn">
-				<image src="../img/f003.png"></image>
-				<p>水稻</p>
-			</li>
-			<li>
+		<scroll-view class="scroll-view_H" scroll-x="true" style="width:100%">
+			<view class="scroll-view-item li" bindtap="listIn" data-id="{{item.id}}" wx:for="{{lists.cateList}}">
+				<image src="{{item.img}}"></image>
+				<p>{{item.cateTitle}}</p>
+			</view>
+			<!-- <li>
 				<image src="../img/f004.png"></image>
 				<p>水稻</p>
 			</li>
@@ -42,13 +42,13 @@
 			<li>
 				<image src="../img/f007.png"></image>
 				<p>水稻</p>
-			</li>
+			</li> -->
 			<view class="w-clear"></view>
-		</ul>
+		</scroll-view>
 	</view>
 </view>
 
-<view class="a_02">
+<view class="a_02" bindtap="gxsList">
 	<image src="../img/f008.png"></image>
 </view>
 
@@ -58,25 +58,14 @@
 		<view class="fr a_06" bindtap="moreIn">更多</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="a_07" bindtap="infoDetail">
+	<view class="a_07" bindtap="infoDetail" data-id="{{item.id}}" wx:for="{{lists.newsHotList}}">
 		<view class="fl a_08">
-			<image src="../img/f009.png"></image>
+			<image src="{{item.url}}"></image>
 		</view>
 		<view class="fr a_09">
-			<view class="a_10">2020年农业补贴政策</view>
-			<view class="a_11">关于2020年农业的补贴政策，政府已经...</view>
-			<view class="a_12">2020.01.20</view>
-		</view>
-		<view class="w-clear"></view>
-	</view>
-	<view class="a_07">
-		<view class="fl a_08">
-			<image src="../img/f009.png"></image>
-		</view>
-		<view class="fr a_09">
-			<view class="a_10">2020年农业补贴政策</view>
-			<view class="a_11">关于2020年农业的补贴政策，政府已经...</view>
-			<view class="a_12">2020.01.20</view>
+			<view class="a_10">{{item.title}}</view>
+			<view class="a_11">{{item.synopsis}}</view>
+			<view class="a_12">{{item.createTime}}</view>
 		</view>
 		<view class="w-clear"></view>
 	</view>
@@ -85,67 +74,51 @@
 <view class="a_13">
 	<view class="a_14">
 		<view class="a_15">
-			<view class="{{title1_index==1?'a_16 fl f-34':'a_16 f-28 fl'}}" data-index="1" bindtap="title_1">热门订单</view>
-			<view class="{{title1_index==2?'a_16 fl f-34':'a_16 f-28 fl'}}" data-index="2" bindtap="title_1">优质供销社</view>
-			<view class="{{title1_index==3?'a_16 fl f-34':'a_16 f-28 fl'}}" data-index="3" bindtap="title_1">农资特惠</view>
+			<view class="{{title1_index==1?'a_16 add fl f-34':'a_16 f-28 fl'}}" data-index="1" bindtap="title_1">热门订单</view>
+			<view class="{{title1_index==2?'a_16 add fl f-34':'a_16 f-28 fl'}}" data-index="2" bindtap="title_1">优质供销社</view>
+			<view class="{{title1_index==3?'a_16 add fl f-34':'a_16 f-28 fl'}}" data-index="3" bindtap="title_1">农资商品</view>
 		</view>
 		<view class="a_17">
-			<view class="{{title2_index==1?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="1" bindtap="title_2">
+			<view class="{{title2_index==0?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="0" bindtap="title_2">
 				<p>推荐</p>
 			</view>
-			<view class="{{title2_index==2?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="2" bindtap="title_2">
+			<view class="{{title2_index==1?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="1" bindtap="title_2">
 				<p>待接单</p>
 			</view>
-			<view class="{{title2_index==3?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="3" bindtap="title_2">
+			<!-- <view class="{{title2_index==3?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="3" bindtap="title_2">
 				<p>距离最近</p>
-			</view>
-			<view class="{{title2_index==4?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="4" bindtap="title_2">
+			</view> -->
+			<view class="{{title2_index==2?'f-26 fl a_18 on':'f-26 fl a_18'}}" data-index="2" bindtap="title_2">
 				<p>最新发布</p>
 			</view>
 		</view>
-		<view class="a_19" bindtap="proDetail">
+		<view class="a_19" bindtap="proDetail" wx:for="{{contList}}">
 			<view class="a_20">
-				<image src="../img/f010.png"></image>
+				<image src="{{item.imgs[0]}}"></image>
 			</view>
-			<view class="a_21 f-22">待接单</view>
+			<view class="a_21 f-22">{{item.status==0?'待接单':item.status==1?'已接单':item.status==2?'已完成':'已取消'}}</view>
 			<view class="a_22">
 				<view class="a_23">
-					<view class="f-30 fl a_24_1">水稻收割</view>
-					<view class="f-22 fr a_24">2020.02.02（预计）</view>
+					<view class="f-30 fl a_24_1">{{item.title}}</view>
+					<view class="f-22 fr a_24">{{item.valTime}}（预计）</view>
 				</view>
 				<view class="a_25">
-					<view class="fl f-26 a_26">亩数：100.0亩</view>
-					<view class="fl f-26 a_26">单价：￥5.0元/亩</view>
-					<view class="fl f-26 a_26">农机：2台</view>
+					<view class="fl f-26 a_26">亩数：{{item.landArea}}亩</view>
+					<view class="fl f-26 a_26">单价：￥{{item.farmPrice}}元/亩</view>
+					<view class="fl f-26 a_26">农机：{{item.machinesNum}}台</view>
 				</view>
-				<view class="f-26 a_27">位置：山东省济南市槐荫区汇金金融中心</view>
+				<view class="f-26 a_27">位置：{{item.province+item.city+item.county+item.address}}</view>
 			</view>
 		</view>
-		<view class="a_19">
-			<view class="a_20">
-				<image src="../img/f010.png"></image>
-			</view>
-			<view class="a_21 f-22">待接单</view>
-			<view class="a_22">
-				<view class="a_23">
-					<view class="f-30 fl a_24_1">水稻收割</view>
-					<view class="f-22 fr a_24">2020.02.02（预计）</view>
-				</view>
-				<view class="a_25">
-					<view class="fl f-26 a_26">亩数：100.0亩</view>
-					<view class="fl f-26 a_26">单价：￥5.0元/亩</view>
-					<view class="fl f-26 a_26">农机：2台</view>
-				</view>
-				<view class="f-26 a_27">位置：山东省济南市槐荫区汇金金融中心</view>
-			</view>
-		</view>
+	
 	</view>
 </view>
 <change isShow="{{isChange}}" bindconfirm="chanConfirm" content="{{carList}}"></change>
 <view class="dl_01" wx:if="{{isShow}}">
 	<view class="dl_02">
 		<view class="dl_03">登录/注册会员信息</view>
-		<button style="padding:0" size="mini" open-type="getUserInfo" withCredentials="true" bindgetuserinfo="bindGetUserInfo">
+		<button style="padding:0" size="mini" open-type="getUserInfo" withCredentials="true"
+			bindgetuserinfo="bindGetUserInfo">
 			<image src="../img/weixinBut.png"></image>
 		</button>
 	</view>

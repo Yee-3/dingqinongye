@@ -1,4 +1,4 @@
-page{ background: #f4f4f4;}
+page{ background: #f4f4f4;margin-bottom: 30rpx;}
 .page-section-spacing{
   margin-top: 0;
   height: 70rpx;
@@ -19,7 +19,7 @@ page{ background: #f4f4f4;}
 
 
 .d_01{ line-height: 70rpx; padding: 0 30rpx; font-size: 30rpx; color: #666;}
-.d_02{ line-height: 70rpx; padding: 0 30rpx; font-size: 34rpx; color: #333;}
+.d_02{ line-height: 70rpx; padding: 0 30rpx; font-size: 34rpx; color: #333;font-weight: 550;}
 
 .d_03{ width: 694rpx; margin: 0 auto;}
 

@@ -19,12 +19,12 @@
 <view class="w_9">
 	<view class="w_10">我的机手订单</view>
 	<view class="w_11">
-		<view class="w_12 fl" bindtap="operator" data-id="0">
+		<view class="w_12 fl" bindtap="operator" data-id="2">
 			<view class="w_15"><image src="../img/f036.png"></image></view>
 			<view class="w_14">待完成</view>
 		</view>
 		<view class="w_13 fl"></view>
-		<view class="w_12 fr" bindtap="operator" data-id="1">
+		<view class="w_12 fr" bindtap="operator" data-id="3">
 			<view class="w_15"><image src="../img/f037.png"></image></view>
 			<view class="w_14">已完成</view>
 		</view>

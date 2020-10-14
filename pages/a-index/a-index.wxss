@@ -136,8 +136,11 @@ page {
   font-size: 34rpx;
   color: #333;
   line-height: 50rpx;
+  font-weight: 550;
 }
-
+.add{
+  font-weight: 550;
+}
 .a_06 {
   font-size: 24rpx;
   color: #444;

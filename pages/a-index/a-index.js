@@ -72,6 +72,12 @@ Page({
       url: '../d-gongxiaoshelb/d-gongxiaoshelb',
     })
   },
+  // 资讯详情
+  infoDetail(e){
+    wx.navigateTo({
+      url: '../one-r-zixunxq/one-r-zixunxq?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

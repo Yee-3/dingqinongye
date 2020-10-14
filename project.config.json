@@ -70,72 +70,23 @@
       "current": -1,
       "list": [
         {
-          "id": -1,
+          "id": 0,
           "name": "pages/a-index/a-index",
           "pathName": "pages/a-index/a-index",
           "query": "",
           "scene": null
         },
         {
-          "id": 7,
-          "name": "pages/two-h-shangchuanzil-gshzs/two-h-shangchuanzil-gshzs",
-          "pathName": "pages/two-h-shangchuanzil-gshzs/two-h-shangchuanzil-gshzs",
+          "id": -1,
+          "name": "pages/one-d-fenleilb/one-d-fenleilb",
+          "pathName": "pages/one-d-fenleilb/one-d-fenleilb",
           "query": "",
           "scene": null
         },
         {
           "id": -1,
-          "name": "pages/one-q-zixun/one-q-zixun",
-          "pathName": "pages/one-q-zixun/one-q-zixun",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 3,
           "name": "pages/index/index",
           "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/o-daijiedanxq/o-daijiedanxq",
-          "pathName": "pages/o-daijiedanxq/o-daijiedanxq",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 5,
-          "name": "pages/s-wodeshangcdd-ywc/s-wodeshangcdd-ywc",
-          "pathName": "pages/s-wodeshangcdd-ywc/s-wodeshangcdd-ywc",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/one-w-wode/one-w-wode",
-          "pathName": "pages/one-w-wode/one-w-wode",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/one-w-wode/one-w-wode",
-          "pathName": "pages/one-w-wode/one-w-wode",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/m-wode/m-wode",
-          "pathName": "pages/m-wode/m-wode",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/r-wodeshangcdd/r-wodeshangcdd",
-          "pathName": "pages/r-wodeshangcdd/r-wodeshangcdd",
           "query": "",
           "scene": null
         }

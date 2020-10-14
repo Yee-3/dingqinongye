@@ -98,20 +98,24 @@ page {
   box-sizing: border-box;
 }
 
-.a_01 ul li {
+.a_01 .li {
   width: 20%;
-  float: left;
+  /* float: left; */
+  display: inline-block;
   text-align: center;
 }
 
-.a_01 ul li p {
+.a_01 .li p {
   display: block;
   font-size: 24rpx;
 }
 
-.a_01 ul li image {
+.a_01 .li image {
   width: 80rpx;
   height: 80rpx;
+}
+.scroll-view_H{
+  white-space: nowrap;
 }
 
 .a_02 {
@@ -143,6 +147,7 @@ page {
   font-size: 34rpx;
   color: #333;
   line-height: 50rpx;
+  font-weight: 550;
 }
 
 .a_06 {
@@ -209,8 +214,11 @@ page {
 .a_16 {
   padding-right: 40rpx;
   line-height: 50rpx;
+  color: #333;
 }
-
+.add{
+  font-weight: 550;
+}
 .a_17 {
   width: 100%;
   height: 70rpx;
@@ -220,7 +228,7 @@ page {
 }
 
 .a_18 {
-  width: 25%;
+  width: 33.33%;
   text-align: center;
   line-height: 70rpx;
 }
