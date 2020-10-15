@@ -8,30 +8,24 @@
 
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 		<block class="top_img">
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
+			<swiper-item wx:for="{{cont.imgs}}">
+				<image class="banner" src="{{item}}"></image>
 			</swiper-item>
 		</block>
 	</swiper>
 </view>
 
 <view class="e_04">
-	<view class="e_05">小麦飞防植保</view>
+	<view class="e_05">{{cont.title}}</view>
 	<view class="e_06">
 		<view class="e_07 fl">
-			<p>100.0亩</p><span>作业面积</span>
+			<p>{{cont.landArea}}亩</p><span>作业面积</span>
 		</view>
 		<view class="e_08 fl">
-			<p>50元</p><span>价格/亩</span>
+			<p>{{cont.farmPrice}}元</p><span>价格/亩</span>
 		</view>
 		<view class="e_07 fr">
-			<p>2台</p><span>机器台数</span>
+			<p>{{cont.machinesNum}}台</p><span>机器台数</span>
 		</view>
 		<view class="w-clear"></view>
 	</view>
@@ -40,50 +34,76 @@
 <view class="e_09">
 	<view class="e_10">
 		<view class="fl e_11">作业日期</view>
-		<view class="fr e_12">2020.02.02</view>
+		<view class="fr e_12">{{cont.valTime}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">作业周期</view>
-		<view class="fr e_12">1天</view>
+		<view class="fr e_12">{{cont.workCycle}}天</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">地理位置</view>
-		<view class="fr e_12">山东省济南市槐荫区报业大厦</view>
+		<view class="fr e_12">{{cont.province+cont.city+cont.county+cont.address}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">结款方式</view>
-		<view class="fr e_12">完活完结 / 种植户结款</view>
+		<view class="fr e_12">{{cont.payMethod==0?'完活完结':'种植户结款'}}</view>
 	</view>
 	<view class="e_13">
 		<view class="e_11">地块描述</view>
-		<view class="e_14">Lorem ipsum dolor sit amet, consectetu
-			r adipiscing elit. Aenean euismod bibendu
-			m laoreet. Proin gravida dolor sit amet
-			lacus accumsan et viverra justo commo
-			do. Proin sodales pulvinar tempor. Cum
-			sociis natoque penatibus et</view>
+		<view class="e_14">{{cont.description}}</view>
 	</view>
 </view>
 
 
-<view class="e_15">
-	<view class="e_16 fl">
-		<view class="fl e_17"><image src="../img/f014.png"></image></view>
+<view class="e_15" wx:if="{{status==0}}">
+	<view class="e_16 fl" bindtap="callPhone">
+		<view class="fl e_17">
+			<image src="../img/f014.png"></image>
+		</view>
 		<view class="fl e_18">联系种植户</view>
 	</view>
-	<view class="e_19 fl">
+	<view class="e_19 fl" bindtap="showModal">
 		<view class="section">
-			<picker value="{{index}}" range="{{array}}">
-				<view class="fl e_17"><image src="../img/f015.png"></image></view>
+			<!-- <picker value="{{index}}" range="{{array}}"> -->
+				<view class="fl e_17" >
+					<image src="../img/f015.png"></image>
+				</view>
 				<view class="fl e_21">推荐给朋友</view>
-			</picker>
+			<!-- </picker> -->
 		</view>
 	</view>
 	<view class="e_20 fr" bindtap="tanchuang">
-		<view class="fl e_17"><image src="../img/f016.png"></image></view>
+		<view class="fl e_17">
+			<image src="../img/f016.png"></image>
+		</view>
 		<view class="fl e_21">立即抢单</view>
 	</view>
 </view>
+<!-- 已接单/已完成/已取消 -->
+<view class="e_15" wx:if="{{status==1||status==2||status==3}}">
+	<view class="f_01 fl">
+		<p>如有疑问请<span bindtap="callPhone">联系客服</span></p>
+	</view>
+	<view class="e_20 fr" wx:if="{{status==1}}">
+		<view class="fl e_171">
+			<image src="../img/f017.png"></image>
+		</view>
+		<view class="fl e_211">已接单</view>
+	</view>
+	<view class="e_20 fr" wx:if="{{status==2}}">
+		<view class="fl e_171">
+			<image src="../img/f018.png"></image>
+		</view>
+		<view class="fl e_211">已完成</view>
+	</view>
+	<view class="e_20 fr" style="background: #8a8a8a" wx:if="{{status==3}}">
+		<view class="fl e_171">
+			<image src="../img/cancel.png"></image>
+		</view>
+		<view class="fl e_211">已取消</view>
+	</view>
+</view>
+
 
 <view class="f_08" style="{{style}}">
 	<view class="f_07">
@@ -94,13 +114,13 @@
 		<view class="e_23">
 			<ul>
 				<li bindtap="quxiao">取消</li>
-				<li bindtap="">确定</li>
+				<li bindtap="confirmT">确定</li>
 			</ul>
 		</view>
 	</view>
 </view>
 
-<view class="f_08" wx:if="{{false}}">
+<view class="f_08" wx:if="{{isPhone}}">
 	<view class="f_07">
 		<view class="e_22">
 			<p>提示</p>
@@ -115,3 +135,19 @@
 	</view>
 </view>
 <dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
+
+<view class="sh_1" hidden="{{hideFlag}}" bindtap="hideModal">
+	<view class="sh_2 bottom-positon" animation="{{animationData}}">
+		<view class="sh_3">选择分享方式</view>
+		<view class="sh_4">
+			<view class="sh_5" catchtap="share">
+				<image src="../img/share2.png"></image>
+				<view class="sh_6">分享给朋友</view>
+			</view>
+			<view class="sh_5" catchtap="poster">
+				<image src="../img/share1.png"></image>
+				<view class="sh_6">生成海报</view>
+			</view>	
+		</view>
+	</view>
+</view>

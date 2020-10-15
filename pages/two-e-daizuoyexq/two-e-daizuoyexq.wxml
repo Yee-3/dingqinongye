@@ -1,166 +1,120 @@
 <view class="te_1">
-	订单编号：21354123647
+	订单编号：{{cont.orderNo}}
 </view>
 
 <view class="top">
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 		<block class="top_img">
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
+			<swiper-item wx:for="{{cont.imgs}}">
+				<image class="banner" src="{{item}}"></image>
 			</swiper-item>
 		</block>
 	</swiper>
 </view>
 
+
 <view class="e_04">
-	<view class="e_05">小麦飞防植保</view>
+	<view class="e_05">{{cont.title}}</view>
 	<view class="e_06">
 		<view class="e_07 fl">
-			<p>100.0亩</p><span>作业面积</span>
+			<p>{{cont.landArea}}亩</p><span>作业面积</span>
 		</view>
 		<view class="e_08 fl">
-			<p>50元</p><span>价格/亩</span>
+			<p>{{cont.farmPrice}}元</p><span>价格/亩</span>
 		</view>
 		<view class="e_07 fr">
-			<p>2台</p><span>机器台数</span>
+			<p>{{cont.machinesNum}}台</p><span>机器台数</span>
 		</view>
 		<view class="w-clear"></view>
 	</view>
 </view>
 
+
 <view class="e_09">
 	<view class="e_10">
 		<view class="fl e_11">作业日期</view>
-		<view class="fr e_12">2020.02.02</view>
+		<view class="fr e_12">{{cont.valTime}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">作业周期</view>
-		<view class="fr e_12">1天</view>
+		<view class="fr e_12">{{cont.workCycle}}天</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">地理位置</view>
-		<view class="fr e_12">山东省济南市槐荫区报业大厦</view>
+		<view class="fr e_12">{{cont.province+cont.city+cont.county+cont.address}}</view>
 	</view>
 	<view class="e_10">
 		<view class="fl e_11">结款方式</view>
-		<view class="fr e_12">完活完结 / 种植户结款</view>
+		<view class="fr e_12">{{cont.payMethod==0?'完活完结':'种植户结款'}}</view>
 	</view>
-	
 </view>
 
 
-<view class="e_15">
-	<view class="e_16 fl">
-		<view class="fl e_17"><image src="../img/f014.png"></image></view>
+<view class="e_15" wx:if="{{status==1}}">
+	<view class="e_16 fl" bindtap="callPhone">
+		<view class="fl e_17">
+			<image src="../img/f014.png"></image>
+		</view>
 		<view class="fl e_18">联系种植户</view>
 	</view>
-	<view class="e_19 fl" bindtap="tanchuanga">
-		<view class="fl e_17"><image src="../img/f049.png"></image></view>
+	<view class="e_19 fl" bindtap="cancelDd">
+		<view class="fl e_17">
+			<image src="../img/f049.png"></image>
+		</view>
 		<view class="fl e_18">取消订单</view>
 	</view>
 	<view class="e_20 fr" bindtap="tanchuang">
-		<view class="fl e_17"><image src="../img/f051.png"></image></view>
+		<view class="fl e_17">
+			<image src="../img/f051.png"></image>
+		</view>
 		<view class="fl e_21">开始作业</view>
 	</view>
 </view>
-
-<view class="f_08" style="{{style}}">
-	<view class="f_07">
-		<view class="e_22">
-			<p>提示</p>
-			<span>完成时请提示种植户点击确认</span>
-		</view>
-		<view class="e_23">
-			<ul>
-				<li bindtap="quxiao">确定</li>
-			</ul>
-		</view>
+<!-- 已接单/已完成/已取消 -->
+<view class="e_15" wx:if="{{status==3}}">
+	<view class="f_01 fl">
+		<p>如有疑问请<span bindtap="callPhone">联系客服</span></p>
 	</view>
+	<view class="e_20 fr">
+		<view class="fl e_171">
+			<image src="../img/f018.png"></image>
+		</view>
+		<view class="fl e_211">已完成</view>
+	</view>
+
 </view>
 
-<view class="f_081" style="{{stylea}}">
-	<view class="f_071">
-		<view class="e_221">
-			<p>取消原因</p>
+
+<!-- 取消订单 -->
+<view class="m_01" wx:if="{{isQx}}">
+	<view class="m_02">
+		<view class="ti_01">取消原因</view>
+		<view class="m_03">
+			<radio-group bindchange="radioChange">
+				<label class="check_label" wx:for="{{items}}" wx:key="{{item.value}}">
+					<view class="checked_ra">
+						<radio value="{{item.name}}" color="#008359" data-index="{{item.name}}" checked="{{reason==item.name}}" />
+						{{item.name}}
+					</view>
+				</label>
+			</radio-group>
 		</view>
-		<view class="te_2">
-			<view class="te_3">
-				<view class="fl">
-					<radio-group name="radio">
-					    <label><radio value="checkbox1"/></label>
-					</radio-group>
+		<view class="m_04">
+			<view class="ti_02">取消说明</view>
+			<view class="m_05">
+				<textarea placeholder="请简要描述取消任务的原因" data-val="{{value}}" value="{{cause}}" bindinput="capValue"
+					placeholder-style='font-size: 28rpx;' />
 				</view>
-				<view class="fl te_4">没看清楚内容</view>
-				<view class="w-clear"></view>
-			</view>
-			<view class="te_3">
-				<view class="fl">
-					<radio-group name="radio">
-					    <label><radio value="checkbox1"/></label>
-					</radio-group>
-				</view>
-				<view class="fl te_4">机器坏了</view>
-				<view class="w-clear"></view>
-			</view>
-			<view class="te_3">
-				<view class="fl">
-					<radio-group name="radio">
-					    <label><radio value="checkbox1"/></label>
-					</radio-group>
-				</view>
-				<view class="fl te_4">时间待确定</view>
-				<view class="w-clear"></view>
-			</view>
-			<view class="te_3">
-				<view class="fl">
-					<radio-group name="radio">
-					    <label><radio value="checkbox1"/></label>
-					</radio-group>
-				</view>
-				<view class="fl te_4">对方不需要</view>
-				<view class="w-clear"></view>
-			</view>
-			<view class="te_3">
-				<view class="fl">
-					<radio-group name="radio">
-					    <label><radio value="checkbox1"/></label>
-					</radio-group>
-				</view>
-				<view class="fl te_4">赶不上时间</view>
-				<view class="w-clear"></view>
-			</view>
-			<view class="te_3">
-				<view class="fl">
-					<radio-group name="radio">
-					    <label><radio value="checkbox1"/></label>
-					</radio-group>
-				</view>
-				<view class="fl te_4">其他原因</view>
-				<view class="w-clear"></view>
-			</view>
 		</view>
-		<view class="te_5">
-			<view class="te_6">取消说明</view>
-			<view class="te_7"><input placeholder="请简要描述取消任务的原因" /></view>
-		</view>
-		<view class="e_231">
-			<ul>
-				<li bindtap="quxiaoa">取消</li>
-				<li bindtap="tanchuangb">确定</li>
-				<view class="w-clear"></view>
-			</ul>
+		<view class="m_06">
+			<view class="b_01 fl" bindtap="cancelDd">取消</view>
+			<view class="b_02 fr" bindtap="submit">提交</view>
 		</view>
 	</view>
 </view>
 
 
-<view class="f_08" style="{{styleb}}">
+<view class="f_08" wx:if="{{quSty}}">
 	<view class="f_07">
 		<view class="e_22">
 			<p>提示</p>
@@ -168,10 +122,38 @@
 		</view>
 		<view class="e_23">
 			<ul>
-				<li bindtap="quxiaob">确定</li>
+				<li bindtap="confirmQ">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+<!-- 电话 -->
+<view class="f_08" wx:if="{{isPhone}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要拨打客服电话?</span>
+		</view>
+		<view class="lis_1">
+			<ul>
+				<li bindtap="callPhone">取消</li>
+				<li bindtap="makeCall">确定</li>
 			</ul>
 		</view>
 	</view>
 </view>
 
-
+<!-- 开始作业 -->
+<view class="f_08" wx:if="{{isWork}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>开始作业</p>
+			<span>完成时请提示种植户点击确认</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="confirmZ">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>

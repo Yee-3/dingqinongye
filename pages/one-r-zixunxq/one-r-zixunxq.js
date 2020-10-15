@@ -140,7 +140,7 @@ Page({
         isShow: true
       })
     } else {
-      var url = that.data.comId ? '/oauth/system/save-news-comm-reply-info' : '/oauth/system/save-news-comm-info'
+      var url = that.data.comId ? '/system/save-news-comm-reply-info' : '/system/save-news-comm-info'
       var data = that.data.comId ? {
         commId: that.data.comId,
         replyContent: that.data.pingValue,

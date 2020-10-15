@@ -8,9 +8,9 @@
 </view>
 
 <view class="d_03">
-	<view class="a_19" wx:for="{{contList}}" bindtap="detailIn">
+	<view class="a_19" wx:for="{{contList}}" data-id="{{item.id}}" bindtap="detailIn" data-status="{{item.status}}">
 		<view class="a_20"><image src="{{item.imgs[0]}}"></image></view>
-		<view class="a_21 f-22">待接单</view>
+		<view class="a_21 f-22">{{item.status==0?'待接单':item.status==1?'已接单':item.status==2?'已完成':'已取消'}}</view>
 		<view class="a_22">
 			<view class="a_23">
 				<view class="f-30 fl a_24_1">{{item.title}}</view>
@@ -22,22 +22,6 @@
 				<view class="fl f-26 a_26">农机：{{item.machinesNum}}台</view>
 			</view>
 			<view class="f-26 a_27">位置：{{item.province+item.city+item.county+item.address}}</view>
-		</view>
-	</view>
-	<view class="a_19">
-		<view class="a_20"><image src="../img/f010.png"></image></view>
-		<view class="a_21 f-22">待接单</view>
-		<view class="a_22">
-			<view class="a_23">
-				<view class="f-30 fl a_24_1">水稻收割</view>
-				<view class="f-22 fr a_24">2020.02.02（预计）</view>
-			</view>
-			<view class="a_25">
-				<view class="fl f-26 a_26">亩数：100.0亩</view>
-				<view class="fl f-26 a_26">单价：￥5.0元/亩</view>
-				<view class="fl f-26 a_26">农机：2台</view>
-			</view>
-			<view class="f-26 a_27">位置：山东省济南市槐荫区汇金金融中心</view>
 		</view>
 	</view>
 </view>

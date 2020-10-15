@@ -26,7 +26,7 @@
 	</view>
 	<!-- 农机型号 -->
 	<view class="m_01" wx:if="{{isTwo}}">
-	<view class="m_02">
+	<view class="m_02" >
 		<view class="m_03">农机型号</view>
 		<scroll-view class="m_04" scroll-y="true" style="height: 180rpx;"  >
 			<radio-group bindchange="modelCheck" data-id="{{item.modelId}}" data-index="{{index}}" wx:for="{{listTwo}}">

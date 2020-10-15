@@ -61,7 +61,6 @@ Page({
       dengl: true,
       success(res) {
         var time = res.data.data.workTime
-
         function format(x) {
           return x < 10 ? '0' + x : x
         }

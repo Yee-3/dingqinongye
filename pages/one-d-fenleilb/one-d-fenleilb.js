@@ -9,7 +9,7 @@ Page({
   },
   data: {
     toView: 'green',
-    id: '202009012671',
+    id: '',
     cateId: '',
     titleIndex: 0,
     titleList: [],
@@ -21,21 +21,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options)
     var that = this
-    // if (options) {
-    //   this.setData({
-    //     id: options.id
-    //   })
-    // }
+    if (options) {
+      this.setData({
+        id: options.id
+      })
+    }
     // 获取顶部标题列表
     app.http({
       url: '/oauth/robot/get-tree-child-list',
       dengl: false,
       method: 'POST',
       data: {
-        // id: options.id
-        id: this.data.id
+        id: options.id
+        // id: this.data.id
       },
       success(res) {
         console.log(res.data.data)
@@ -55,14 +54,14 @@ Page({
 
   },
   // 详情
-  detailIn() {
+  detailIn(e) {
     wx.navigateTo({
-      url: '../one-e-daijiedxqy/one-e-daijiedxqy',
+      url: '../one-e-daijiedxqy/one-e-daijiedxqy?id='+e.currentTarget.dataset.id+'&status='+e.currentTarget.dataset.status+'&cateId='+this.data.cateId,
+      // url:'../two-m-yiwancddxq/two-m-yiwancddxq'
     })
   },
   // 标题切换
   toggleIndex(e) {
-    console.log(e)
     this.setData({
       titleIndex: e.currentTarget.dataset.index,
       cateId: e.currentTarget.dataset.id,

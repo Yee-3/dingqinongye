@@ -103,7 +103,7 @@
   width: 100%;
   box-sizing: border-box;
 }
-
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
 .m_05 {
   height: 70rpx;
   line-height: 70rpx;

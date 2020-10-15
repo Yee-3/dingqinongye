@@ -92,7 +92,7 @@
 				<p>最新发布</p>
 			</view>
 		</view>
-		<view class="a_19" bindtap="proDetail" wx:for="{{contList}}">
+		<view class="a_19" bindtap="proDetail" data-id="{{item.id}}" wx:for="{{contList}}">
 			<view class="a_20">
 				<image src="{{item.imgs[0]}}"></image>
 			</view>

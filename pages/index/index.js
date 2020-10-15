@@ -227,9 +227,10 @@ Page({
     })
   },
   // 订单详情
-  proDetail(){
+  proDetail(e){
+    console.log(e)
     wx.navigateTo({
-      url: '../one-e-daijiedxqy/one-e-daijiedxqy',
+      url: '../one-e-daijiedxqy/one-e-daijiedxqy?id='+e.currentTarget.dataset.id,
     })
   },
   chanConfirm() {
