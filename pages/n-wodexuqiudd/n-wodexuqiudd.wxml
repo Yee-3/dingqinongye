@@ -6,6 +6,9 @@
 		<p>已接单</p>
 	</view>
 	<view class="{{titleIndex==2?'j_02 on':'j_02'}}" data-index="2" bindtap="titleTog">
+		<p>作业中</p>
+	</view>
+	<view class="{{titleIndex==3?'j_02 on':'j_02'}}" data-index="3" bindtap="titleTog">
 		<p>已完成</p>
 	</view>
 </view>
@@ -31,38 +34,12 @@
 	</view>
 	<view class="fr x_11">
 		<view class="fr x_13" wx:if="{{titleIndex==0}}" data-id="{{item.id}}" bindtap="cancelDd">取消订单</view>
-		<view class="x_12" wx:if="{{titleIndex!=0}}">{{titleIndex==1?'已接单':'已完成'}}</view>
+		<view class="x_12" wx:if="{{titleIndex!=0}}">{{titleIndex==1?'已接单':titleIndex==2?'作业中':'已完成'}}</view>
 		<view class="w-clear"></view>
 	</view>
 	<view class="w-clear"></view>
 </view>
 
-<!-- <view class="x_1" >
-	<view class="x_2">订单编号：21354123647</view>
-	<view class="x_3" bindtap="detailIn">
-		<view class="fl x_4">
-			<image src="../img/f043.png"></image>
-		</view>
-		<view class="fr x_5">
-			<view class="x_6">水稻收割水稻收割</view>
-			<view class="x_7">2020.02.02（预计）</view>
-			<view class="x_8">
-				<view class="x_9 fl">亩数：100.0亩</view>
-				<view class="x_9 fl">农机：2台</view>
-				<view class="w-clear"></view>
-			</view>
-			<view class="x_10">单价：￥5.0元/亩 </view>
-			<view class="x_10">位置：山东省济南市槐荫区汇金金融中心</view>
-		</view>
-		<view class="w-clear"></view>
-	</view>
-	<view class="fr x_11">
-		<view class="fr x_13" wx:if="{{titleIndex==0}}">取消订单</view>
-		<view class="x_12" wx:if="{{titleIndex!=0}}">{{titleIndex==1?'已接单':'已完成'}}</view>
-		<view class="w-clear"></view>
-	</view>
-	<view class="w-clear"></view>
-</view> -->
 
 <view class="m_01" wx:if="{{isQx}}">
 	<view class="m_02">

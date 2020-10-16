@@ -1,15 +1,21 @@
 <view class="w_1">
 	<view class="w_2 fl" bindtap="userUs">
-		<view class="w_3 fl"><image src="{{content.avatar}}"></image></view>
+		<view class="w_3 fl">
+			<image src="{{content.avatar}}"></image>
+		</view>
 		<view class="w_4 fl">
 			<view class="w_41">{{content.nickname}}</view>
 			<view class="w_42">{{content.phone?content.phone:'请绑定手机号'}}</view>
 		</view>
-		<view class="w_5 fl"><image src="../img/f021.png"></image></view>
+		<view class="w_5 fl">
+			<image src="../img/f021.png"></image>
+		</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="fr w_6">
-		<view class="w_7"><image src="../img/f035.png"></image></view>
+	<view class="fr w_6" bindtap="newsIn">
+		<view class="w_7">
+			<image src="../img/f035.png"></image>
+		</view>
 		<view class="w_8">提醒</view>
 		<view class="w-clear"></view>
 	</view>
@@ -20,12 +26,23 @@
 	<view class="w_10">我的机手订单</view>
 	<view class="w_11">
 		<view class="w_12 fl" bindtap="operator" data-id="1">
-			<view class="w_15"><image src="../img/f036.png"></image></view>
-			<view class="w_14">待完成</view>
+			<view class="w_15">
+				<image src="../img/star.png"></image>
+			</view>
+			<view class="w_14">待作业</view>
+		</view>
+		<view class="w_13 fl"></view>
+		<view class="w_12 fl" bindtap="operator" data-id="2">
+			<view class="w_15">
+				<image src="../img/f036.png"></image>
+			</view>
+			<view class="w_14">作业中</view>
 		</view>
 		<view class="w_13 fl"></view>
 		<view class="w_12 fr" bindtap="operator" data-id="3">
-			<view class="w_15"><image src="../img/f037.png"></image></view>
+			<view class="w_15">
+				<image src="../img/f037.png"></image>
+			</view>
 			<view class="w_14">已完成</view>
 		</view>
 		<view class="w-clear"></view>
@@ -33,72 +50,67 @@
 </view>
 
 <view class="w_18">
-		<view class="w_10">我的商城订单</view>
-		<view class="w_11">
-			<view class="w_17 fl" bindtap="shopOrder" data-id="0">
-				<view class="w_15">
-					<image src="../img/f039.png"></image>
-				</view>
-				<view class="w_14">待付款</view>
+	<view class="w_10">我的商城订单</view>
+	<view class="w_11">
+		<view class="w_17 fl" bindtap="shopOrder" data-id="0">
+			<view class="w_15">
+				<image src="../img/f039.png"></image>
 			</view>
-			<view class="w_17 fl" bindtap="shopOrder" data-id="1">
-				<view class="w_15">
-					<image src="../img/f040.png"></image>
-				</view>
-				<view class="w_14">待发货</view>
-			</view>
-			<view class="w_17 fl" bindtap="shopOrder" data-id="2">
-				<view class="w_15">
-					<image src="../img/f041.png"></image>
-				</view>
-				<view class="w_14">待收货</view>
-			</view>
-			<view class="w_17 fl" bindtap="shopOrder" data-id="3">
-				<view class="w_15">
-					<image src="../img/f042.png"></image>
-				</view>
-				<view class="w_14">已完成</view>
-			</view>
-			<view class="w_17 fl" bindtap="shopOrder" data-id="4">
-				<view class="w_15">
-					<image src="../img/f038.png"></image>
-				</view>
-				<view class="w_14">已取消</view>
-			</view>
-			<view class="w-clear"></view>
+			<view class="w_14">待付款</view>
 		</view>
+		<view class="w_17 fl" bindtap="shopOrder" data-id="1">
+			<view class="w_15">
+				<image src="../img/f040.png"></image>
+			</view>
+			<view class="w_14">待发货</view>
+		</view>
+		<view class="w_17 fl" bindtap="shopOrder" data-id="2">
+			<view class="w_15">
+				<image src="../img/f041.png"></image>
+			</view>
+			<view class="w_14">待收货</view>
+		</view>
+		<view class="w_17 fl" bindtap="shopOrder" data-id="3">
+			<view class="w_15">
+				<image src="../img/f042.png"></image>
+			</view>
+			<view class="w_14">已完成</view>
+		</view>
+		<view class="w_17 fl" bindtap="shopOrder" data-id="4">
+			<view class="w_15">
+				<image src="../img/f038.png"></image>
+			</view>
+			<view class="w_14">已取消</view>
+		</view>
+		<view class="w-clear"></view>
 	</view>
+</view>
 
 <view class="w_18">
 	<view class="v_5" bindtap="xgCard">
-		<view class="fl v_6" >修改身份</view>
-		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fl v_6">修改身份</view>
+		<view class="fr v_7">
+			<image src="../img/f021.png"></image>
+		</view>
 		<view class="fr v_8">手机</view>
 	</view>
 	<view class="v_5" bindtap="myData">
 		<view class="fl v_6">我的资料</view>
-		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fr v_7">
+			<image src="../img/f021.png"></image>
+		</view>
 	</view>
 	<view class="v_5" bindtap="address">
 		<view class="fl v_6">地址管理</view>
-		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fr v_7">
+			<image src="../img/f021.png"></image>
+		</view>
 	</view>
 	<view class="v_5" bindtap="aboutUs">
 		<view class="fl v_6">关于我们</view>
-		<view class="fr v_7"><image src="../img/f021.png"></image></view>
+		<view class="fr v_7">
+			<image src="../img/f021.png"></image>
+		</view>
 	</view>
 </view>
 <dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
-
-
-
-
-
-
-
-
-
-
-
-
-

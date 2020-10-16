@@ -97,10 +97,18 @@ Page({
           that.setData({
             isWork:true
           })
-          // var data = {
-          //   id: that.data.id
-          // }
-          // that.loading(data)
+          var pages = getCurrentPages();
+          var prevPage = pages[pages.length - 2]; //上一个页面
+          prevPage.setData({
+            currentPage: 1,
+            titleIndex: that.data.status
+          })
+          var data = {
+            limit: 10,
+            status: that.data.status,
+            page: prevPage.data.currentPage
+          }
+          prevPage.reword(data)
         } else {
           wx.showToast({
             title: '操作失败',
@@ -119,7 +127,7 @@ Page({
     isPhone: !show
   })
   console.log(this.data.status)
-  if (this.data.status !=1) {
+  if (this.data.status ==3) {
     app.http({
       url: '/oauth/system/get-consumer-hot-line',
       dengl: true,
@@ -231,6 +239,16 @@ makeCall() {
       reason: e.detail.value
     })
   },
+  confirmZ(){
+    this.setData({
+      isWork:false
+    })
+    var data = {
+      id: this.data.id
+    }
+    this.loading(data)
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

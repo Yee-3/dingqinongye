@@ -126,6 +126,11 @@ Page({
       url: '../two-a-wodeshangchengjd-ywc/two-a-wodeshangchengjd-ywc',
     })
   },
+  newsIn(){
+    wx.navigateTo({
+      url: '../one-news/one-news',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

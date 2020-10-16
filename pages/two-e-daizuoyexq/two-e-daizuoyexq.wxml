@@ -81,6 +81,27 @@
 		</view>
 		<view class="fl e_211">已完成</view>
 	</view>
+	<!-- <view class="e_20 fr" wx:if="{{status==2}}">
+		<view class="fl e_171">
+			<image src="../img/ing.png"></image>
+		</view>
+		<view class="fl e_211">作业中</view>
+	</view> -->
+
+</view>
+<view class="e_15" wx:if="{{status==2}}">
+	<view class="f_01 fl" bindtap="callPhone">
+		<view class="fl e_17" style="padding-left: 25%;">
+			<image src="../img/f014.png"></image>
+		</view>
+		<view class="fl e_18">联系种植户</view>
+	</view>
+	<view class="e_20 fr">
+		<view class="fl e_171">
+			<image src="../img/ing.png"></image>
+		</view>
+		<view class="fl e_211">作业中</view>
+	</view>
 
 </view>
 

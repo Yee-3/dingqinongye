@@ -54,11 +54,34 @@
 
 </view>
 
-
-<view class="e_15">
+<!-- 待接单 -->
+<view class="e_15" wx:if="{{status==0}}">
 	<view class="f_01 fl"></view>
 	<view class="e_20 fr">
 		<view class="e_21" bindtap="cancelDd">取消需求订单</view>
+	</view>
+</view>
+<!-- 已完成 -->
+<view class="e_15" wx:if="{{status==3}}">
+	<view class="f_01 fl">
+		<p>如有疑问请<span bindtap="callPhone">联系客服</span></p>
+	</view>
+	<view class="e_20 fr" style=" background: #008359;">
+		<view class="e_21" style="color:#fff">已完成作业</view>
+	</view>
+</view>
+<!-- 已接单 作业中 -->
+<view class="e_151" wx:if="{{status==1||status==2}}">
+	<view class="e_161 fl" bindtap="callPhone">
+		<view class="fl e_171"><image src="../img/f047.png"></image>
+		</view>
+		<view class="fl e_181">联系机手</view>
+	</view>
+	<view class="e_191 fl" wx:if="{{status==1}}">
+		<view class="e_181" bindtap="cancelDd">取消需求订单</view>
+	</view>
+	<view class="e_201 fr" wx:if="{{status==2}}">
+		<view class="e_211" bindtap="concairmDd">确认完成作业</view>
 	</view>
 </view>
 
@@ -96,6 +119,39 @@
 		<view class="e_23">
 			<ul>
 				<li bindtap="confirmQ">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+
+<!-- 机手电话 -->
+<!-- 拨打电话弹框 -->
+<view class="f_08" wx:if="{{isPhone}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要拨打客服电话?</span>
+		</view>
+		<view class="lis_1">
+			<ul>
+				<li bindtap="callPhone">取消</li>
+				<li bindtap="makeCall">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+
+<!-- 确定完成作业 -->
+<view class="f_08" wx:if="{{isCon}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>确定订单已完成？</span>
+		</view>
+		<view class="lis_1">
+			<ul>
+				<li bindtap="concairmDd">取消</li>
+				<li bindtap="conConfirm">确定</li>
 			</ul>
 		</view>
 	</view>

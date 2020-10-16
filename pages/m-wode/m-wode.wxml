@@ -28,7 +28,13 @@
 				</view>
 				<view class="w_14">已接单</view>
 			</view>
-			<view class="w_12 fr" bindtap="demand" data-id="2">
+			<view class="w_12 fl" bindtap="demand" data-id="2">
+				<view class="w_15">
+					<image src="../img/ing1.png"></image>
+				</view>
+				<view class="w_14">作业中</view>
+			</view>
+			<view class="w_12 fr" bindtap="demand" data-id="3">
 				<view class="w_15">
 					<image src="../img/f037.png"></image>
 				</view>

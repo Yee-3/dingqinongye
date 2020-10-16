@@ -47,9 +47,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.setData({
-    //   titleIndex: options.id
-    // })
+    this.setData({
+      titleIndex: options.id
+    })
     var data = {
       status: this.data.titleIndex,
       limit: 10,

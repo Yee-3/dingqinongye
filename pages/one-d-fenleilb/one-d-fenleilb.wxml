@@ -10,7 +10,7 @@
 <view class="d_03">
 	<view class="a_19" wx:for="{{contList}}" data-id="{{item.id}}" bindtap="detailIn" data-status="{{item.status}}">
 		<view class="a_20"><image src="{{item.imgs[0]}}"></image></view>
-		<view class="a_21 f-22">{{item.status==0?'待接单':item.status==1?'已接单':item.status==2?'已完成':'已取消'}}</view>
+		<view class="a_21 f-22" style="{{item.status==0?'background:#ffa900':item.status==1?'background:#5982f8':item.status==2?'background:#c26ff5':item.status==3?'background:#008359':'background:#8a8a8a'}}">{{item.status==0?'待接单':item.status==1?'已接单':item.status==2?'作业中':item.status==3?'已完成':'已取消'}}</view>
 		<view class="a_22">
 			<view class="a_23">
 				<view class="f-30 fl a_24_1">{{item.title}}</view>

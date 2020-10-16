@@ -1,7 +1,7 @@
 page{ background: #f4f4f4;}
 
 .j_01{ width: 750rpx; background: #fff; height: 70rpx;}
-.j_02{ float: left; text-align: center; width: 50%;}
+.j_02{ float: left; text-align: center; width:33.33%;}
 .j_02 p{ line-height: 70rpx; color: #333; font-size: 28rpx;}
 .j_02.on p{ color: #008359; border-bottom: 4rpx solid #008359; box-sizing: border-box; padding-bottom: 14rpx;}
 

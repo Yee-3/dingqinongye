@@ -66,7 +66,8 @@
     "pages/c-fabuxuqiunr/c-fabuxuqiunr",
     "pages/b-fabuxuqiu/b-fabuxuqiu",
     "pages/a-index/a-index",
-    "pages/a-wodesjh/wodesjh"
+    "pages/a-wodesjh/wodesjh",
+    "pages/one-news/one-news"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -76,12 +77,11 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-
-
   "tabBar": {
     "color": "#999999",
     "selectedColor": "#008359",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "pages/img/d_1.png",

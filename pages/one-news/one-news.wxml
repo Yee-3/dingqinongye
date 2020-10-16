@@ -1,0 +1,5 @@
+<!--pages/one-news/one-news.wxml-->
+<view class="n-1" wx:for="{{newsList}}">
+  <view class="n-2 inner" bindtouchstart="touchS" bindtouchmove="touchM" data-index="{{index}}" style="{{item.txtStyle}}" bindtouchend="touchE">{{item.msg}}</view>
+  <view data-index="{{index}}" data-id="{{item.id}}" bindtap= "delItem" class="del inner" data-type="{{isShow}}">删除</view>
+</view>

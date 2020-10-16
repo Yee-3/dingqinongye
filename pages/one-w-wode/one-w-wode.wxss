@@ -92,7 +92,7 @@ page {
 }
 
 .w_12 {
-  width: 48%;
+  width: 33%;
   text-align: center;
 }
 

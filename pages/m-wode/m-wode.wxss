@@ -21,7 +21,7 @@ page{ background: #f4f4f4;}
   background: #fff;
   box-sizing: border-box;
 }
-.w_12{ width: 33.3333%; text-align: center;}
+.w_12{ width: 25%; text-align: center;}
 
 .w_13{ width: 2rpx; height: 55rpx; background: #bfbfbf; margin: 0 auto; margin-top: 19rpx;}
 

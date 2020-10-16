@@ -37,28 +37,45 @@ Page({
     cont: {},
     id: '',
     titleIndex:'',
-    quSty: false
+    quSty: false,
+    isPhone: false,
+    phone: '',
+    isCon: false,
+    status:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.status)
     var that = this
     this.setData({
       id: options.id,
       titleIndex:options.status
     })
+    var data={
+      id: options.id
+    }
+    this.londIng(data)
+   
+  },
+  // 取消
+  cancelDd() {
+    var qx = this.data.isQx
+    this.setData({
+      isQx: !qx
+    })
+  },
+  londIng(data){
+    var that=this
     app.http({
       url: '/user/get-demand-detail',
-      data: {
-        id: options.id
-      },
+      data: data,
       method: 'POST',
       dengl: true,
       success(res) {
         var time = res.data.data.workTime
-
         function format(x) {
           return x < 10 ? '0' + x : x
         }
@@ -66,16 +83,11 @@ Page({
         res.data.data.valTime = d.getFullYear() + '.' + format((d.getMonth() + 1)) + '.' + format((d.getDate()))
         res.data.data.imgs = res.data.data.img.split(',')
         that.setData({
-          cont: res.data.data
+          cont: res.data.data,
+          phone: res.data.data.phone,
+          status:res.data.data.status
         })
       }
-    })
-  },
-  // 取消
-  cancelDd() {
-    var qx = this.data.isQx
-    this.setData({
-      isQx: !qx
     })
   },
   // 提交取消事件
@@ -142,6 +154,85 @@ Page({
   radioChange(e) {
     this.setData({
       reason: e.detail.value
+    })
+  },
+   // 打电话
+   callPhone() {
+    var show = this.data.isPhone,
+    that=this
+    this.setData({
+      isPhone: !show
+    })
+    console.log(this.data.status)
+    if(this.data.status==3){
+      app.http({
+        url: '/oauth/system/get-consumer-hot-line',
+        dengl: true,
+        method: 'POST',
+        data: {},
+        success(res) {
+          console.log(res)
+          that.setData({
+            phone: res.data.data.phone,
+          })
+        }
+      })
+    }else{
+      return
+    }
+  },
+  makeCall() {
+    wx.makePhoneCall({
+      phoneNumber: this.data.phone //仅为示例，并非真实的电话号码
+    })
+    this.setData({
+      isPhone:false
+    })
+  },
+  // 完成订单
+  concairmDd() {
+    var show = this.data.isCon
+    this.setData({
+      isCon: !show
+    })
+  },
+  conConfirm() {
+    var that = this
+    this.concairmDd()
+    app.http({
+      url: '/growers/user/demand-confirm-complete',
+      dengl: true,
+      method: 'POST',
+      data: {
+        id: that.data.id
+      },
+      success(res) {
+        console.log(res)
+        if (res.data.code == 0) {
+          var data={
+            id:that.data.id
+          }
+          that.londIng(data)
+          var pages = getCurrentPages();
+          var prevPage = pages[pages.length - 2]; //上一个页面
+          prevPage.setData({
+            currentPage: 1,
+            titleIndex: that.data.titleIndex
+          })
+          var data = {
+            limit: 10,
+            ordersStatus: that.data.titleIndex,
+            page: prevPage.data.currentPage
+          }
+          prevPage.reword(data)
+         
+        } else {
+          wx.showToast({
+            title: '操作失败',
+            icon: 'none'
+          })
+        }
+      }
     })
   },
   /**

@@ -75,21 +75,9 @@ Page({
   detailIn(e) {
     console.log(e)
     var that=this
-    if (this.data.titleIndex == 0) {
-      wx.navigateTo({
-        url: '../o-daijiedanxq/o-daijiedanxq?id=' + e.currentTarget.dataset.id+'&status='+that.data.titleIndex,
-        // url: '../q-yiwanchengxq/q-yiwanchengxq?id=' + e.currentTarget.dataset.id,
-        // url: '../p-yijiedanxq/p-yijiedanxq?id=' + e.currentTarget.dataset.id+'&status='+that.data.titleIndex,
-      })
-    } else if (this.data.titleIndex == 1) {
-      wx.navigateTo({
-        url: '../p-yijiedanxq/p-yijiedanxq?id=' + e.currentTarget.dataset.id+'&status='+that.data.titleIndex,
-      })
-    } else {
-      wx.navigateTo({
-        url: '../q-yiwanchengxq/q-yiwanchengxq?id=' + e.currentTarget.dataset.id,
-      })
-    }
+    wx.navigateTo({
+      url: '../o-daijiedanxq/o-daijiedanxq?id=' + e.currentTarget.dataset.id+'&status='+that.data.titleIndex,
+    })
 
   },
   // 获取数据
