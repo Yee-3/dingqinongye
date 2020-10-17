@@ -131,6 +131,26 @@
           "pathName": "pages/one-news/one-news",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/two-c-xiugaishengf/two-c-xiugaishengf",
+          "pathName": "pages/two-c-xiugaishengf/two-c-xiugaishengf",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/two-g-shangchuanzil/two-g-shangchuanzil",
+          "pathName": "pages/two-g-shangchuanzil/two-g-shangchuanzil",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/w-tijiaoziliao/w-tijiaoziliao",
+          "pathName": "pages/w-tijiaoziliao/w-tijiaoziliao",
+          "scene": null
         }
       ]
     }

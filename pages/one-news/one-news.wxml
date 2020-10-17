@@ -1,5 +1,21 @@
 <!--pages/one-news/one-news.wxml-->
 <view class="n-1" wx:for="{{newsList}}">
-  <view class="n-2 inner" bindtouchstart="touchS" bindtouchmove="touchM" data-index="{{index}}" style="{{item.txtStyle}}" bindtouchend="touchE">{{item.msg}}</view>
-  <view data-index="{{index}}" data-id="{{item.id}}" bindtap= "delItem" class="del inner" data-type="{{isShow}}">删除</view>
+  <view class="n-2 inner" bindlongtap="maskShow" data-id="{{item.id}}">{{item.msg}}</view>
+  <!-- <view data-index="{{index}}" data-id="{{item.id}}" bindtap= "delItem" class="del inner" data-type="{{isShow}}">删除</view> -->
+</view>
+
+<!-- 删除弹框 -->
+<view class="f_08" wx:if="{{isShow}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要删除该消息吗?</span>
+		</view>
+		<view class="lis_1">
+			<ul>
+				<li bindtap="maskShow">取消</li>
+				<li bindtap="delItem">确定</li>
+			</ul>
+		</view>
+	</view>
 </view>
