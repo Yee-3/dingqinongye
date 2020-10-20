@@ -1,8 +1,8 @@
-
-
 <view class="d_03">
 	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
-		<view class="a_20"><image src="{{item.img}}"></image></view>
+		<view class="a_20">
+			<image src="{{item.img}}"></image>
+		</view>
 		<view class="a_22">
 			<view class="a_23">
 				<view class="f-30 a_24_1">{{item.name}}</view>
@@ -14,7 +14,9 @@
 		</view>
 	</view>
 	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
-		<view class="a_20"><image src="{{item.img}}"></image></view>
+		<view class="a_20">
+			<image src="{{item.img}}"></image>
+		</view>
 		<view class="a_22">
 			<view class="a_23">
 				<view class="f-30 a_24_1">{{item.name}}</view>
@@ -24,8 +26,11 @@
 			</view>
 			<view class="f-26 a_27">位置：{{item.area}}</view>
 		</view>
-	</view>	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
-		<view class="a_20"><image src="{{item.img}}"></image></view>
+	</view>
+	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
+		<view class="a_20">
+			<image src="{{item.img}}"></image>
+		</view>
 		<view class="a_22">
 			<view class="a_23">
 				<view class="f-30 a_24_1">{{item.name}}</view>
@@ -35,8 +40,11 @@
 			</view>
 			<view class="f-26 a_27">位置：{{item.area}}</view>
 		</view>
-	</view>	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
-		<view class="a_20"><image src="{{item.img}}"></image></view>
+	</view>
+	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
+		<view class="a_20">
+			<image src="{{item.img}}"></image>
+		</view>
 		<view class="a_22">
 			<view class="a_23">
 				<view class="f-30 a_24_1">{{item.name}}</view>
@@ -46,8 +54,11 @@
 			</view>
 			<view class="f-26 a_27">位置：{{item.area}}</view>
 		</view>
-	</view>	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
-		<view class="a_20"><image src="{{item.img}}"></image></view>
+	</view>
+	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
+		<view class="a_20">
+			<image src="{{item.img}}"></image>
+		</view>
 		<view class="a_22">
 			<view class="a_23">
 				<view class="f-30 a_24_1">{{item.name}}</view>
@@ -59,11 +70,3 @@
 		</view>
 	</view>
 </view>
-
-
-
-
-
-
-
-

@@ -171,7 +171,7 @@ Page({
   },
   gxsList(){
     wx.navigateTo({
-      url: '../one-j-gongxiaoslb/one-j-gongxiaoslb',
+      url: '../d-gongxiaoshelb/d-gongxiaoshelb',
     })
   },
   // 分类列表

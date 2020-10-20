@@ -1,13 +1,7 @@
-<view class="j_01">
-	<view class="j_02 on"><p>分类一</p></view>
-	<view class="j_02"><p>分类二</p></view>
-	<view class="j_02"><p>分类三</p></view>
-	<view class="j_02"><p>分类四</p></view>
-	<view class="j_02"><p>分类五</p></view>
-</view>
+
 
 <view class="d_03">
-	<view class="a_19">
+	<view class="a_19" bindtap="detail">
 		<view class="a_20"><image src="../img/f010.png"></image></view>
 		<view class="a_21 f-22">待接单</view>
 		<view class="a_22">

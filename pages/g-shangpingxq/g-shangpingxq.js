@@ -14,6 +14,16 @@ Page({
       modalName: null
     })
   },
+  shopCar(){
+    wx.navigateTo({
+      url: '../j-gouwuche/j-gouwuche',
+    })
+  },
+  store(){
+    wx.navigateTo({
+      url: '../one-k-gongxiaosxqy/one-k-gongxiaosxqy',
+    })
+  },
   ChooseCheckbox(e) {
     let items = this.data.checkbox;
     let values = e.currentTarget.dataset.value;

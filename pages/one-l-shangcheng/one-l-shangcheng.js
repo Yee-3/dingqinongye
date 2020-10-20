@@ -5,16 +5,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    scrollTop: '',
+    itemIndex: 0,
+    rightHeight:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        let clientHeight = res.windowHeight;
+        let clientWidth = res.windowWidth;
+        let changeHeight = 750 / clientWidth;
+        let height = clientHeight * changeHeight;
+        that.setData({
+          scrollTop: height  + 'rpx',
+          rightHeight:(height-70)+ 'rpx',
+        });
+        console.log(height)
+      }
+    })
   },
-
+  addColor(e) {
+    console.log(e)
+    this.setData({
+      itemIndex: e.currentTarget.dataset.index
+    })
+  },
+  detailIn(){
+    wx.navigateTo({
+      url: '../g-shangpingxq/g-shangpingxq',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

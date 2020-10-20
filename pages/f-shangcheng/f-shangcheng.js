@@ -6,6 +6,7 @@ Page({
    */
   data: {
     scrollTop: '',
+    rightHeight:'',
     itemIndex: 0,
   },
 
@@ -21,7 +22,8 @@ Page({
         let changeHeight = 750 / clientWidth;
         let height = clientHeight * changeHeight;
         that.setData({
-          scrollTop: (height - 98) + 'rpx'
+          scrollTop: (height - 98) + 'rpx',
+          rightHeight: (height - 98-70) + 'rpx'
         });
         console.log(height)
       }

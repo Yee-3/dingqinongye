@@ -1,11 +1,17 @@
 <view class="k_01">{{content.name}}</view>
-<view class="j_01">
-	<view class="j_02 on"><p>分类一</p></view>
-	<view class="j_02"><p>分类二</p></view>
-	<view class="j_02"><p>分类三</p></view>
-	<view class="j_02"><p>分类四</p></view>
-	<view class="j_02"><p>分类五</p></view>
+<!-- 分类 -->
+<view class="page-section-spacing">
+	<scroll-view class="scroll-view_H j_01" scroll-x="true"  style="width: 750rpx">
+	<view class="scroll-view-item_H j_02 on"><p>分类一</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类二</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类三</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类四</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
+</scroll-view>
 </view>
+
 <view class="c_01">
 	<view class="c_02 fl">
 		<view class="c_03">

@@ -22,8 +22,12 @@
 		</view>
 	</view>
 	<view class="fr l_03">
+		<view class="top_c">
+			<view class="top_e"><image src="../img/f019.png"></image></view>
+			<view class="top_d"><input placeholder="搜索产品、商家或关键词" /></view>
+		</view>
 		<view class="page-section-spacing l_05">
-			<scroll-view scroll-y="true" style="height:{{scrollTop}}">
+			<scroll-view scroll-y="true" style="height:{{rightHeight}}">
 				<view id="demo1" class="scroll-view-item demo-text-1" bindtap="detailIn">
 					<view class="c_02">
 						<view class="c_03 fl"><image src="../img/f011.png"></image></view>

@@ -8,7 +8,7 @@
 		<view class="n_03 fl">报业大厦供销社</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="n_06">
+	<view class="n_06" bindlongtap="del">
 		<view class="n_07 fl">
 			<radio-group name="radio">
 			    <label><radio value="checkbox1"/></label>
@@ -103,6 +103,21 @@
 	</view>
 </view>
 
+
+<view class="f_08">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>确定<span style="color:#ff3334;display:inline-block;margin-top:0">删除</span>此条数据？</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="quxiao">取消</li>
+				<li bindtap="confirmT">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
 
 
 

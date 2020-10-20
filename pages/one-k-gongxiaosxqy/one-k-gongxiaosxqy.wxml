@@ -1,7 +1,18 @@
 <view class="k_01">我是店铺名称</view>
-
+<!-- 分类 -->
+<view class="page-section-spacing">
+	<scroll-view class="scroll-view_H j_01" scroll-x="true"  style="width: 750rpx">
+	<view class="scroll-view-item_H j_02 on"><p>分类一</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类二</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类三</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类四</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
+	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
+</scroll-view>
+</view>
 <view class="c_01">
-	<view class="c_02 fl">
+	<view class="c_02 fl" bindtap="detail">
 		<view class="c_03">
 			<image src="../img/f011.png"></image>
 		</view>

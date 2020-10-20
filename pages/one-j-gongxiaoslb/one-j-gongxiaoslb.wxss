@@ -16,10 +16,15 @@ page{ background: #f4f4f4;}
 .a_27{ line-height: 45rpx; font-weight: 200;}
 
 .j_01{ width: 750rpx; background: #fff; height: 70rpx;}
-.j_02{ float: left; text-align: center; width: 20%;}
+.j_02{ text-align: center; width: 20%;}
 .j_02 p{ line-height: 70rpx; color: #333; font-size: 28rpx;}
 .j_02.on p{ color: #008359; border-bottom: 4rpx solid #008359; box-sizing: border-box; padding-bottom: 14rpx;}
-
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item_H{
+  display: inline-block;
+}
 
 
 
