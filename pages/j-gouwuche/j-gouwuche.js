@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isDel: false
   },
 
   /**
@@ -14,7 +14,12 @@ Page({
   onLoad: function (options) {
 
   },
-
+  delCar(){
+    var del=this.data.isDel
+    this.setData({
+      isDel:!del
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -2,26 +2,32 @@
 	<view class="n_13">
 		<view class="n_02 fl">
 			<radio-group name="radio">
-			    <label><radio value="checkbox1"/></label>
+				<label>
+					<radio value="checkbox1" /></label>
 			</radio-group>
 		</view>
 		<view class="n_03 fl">报业大厦供销社</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="n_06" bindlongtap="del">
+	<view class="n_06" bindlongtap="delCar">
 		<view class="n_07 fl">
 			<radio-group name="radio">
-			    <label><radio value="checkbox1"/></label>
+				<label>
+					<radio value="checkbox1" /></label>
 			</radio-group>
 		</view>
-		<view class="n_04 fl"><image src="../img/f027.png"></image></view>
+		<view class="n_04 fl">
+			<image src="../img/f027.png"></image>
+		</view>
 		<view class="n_05 fl">
 			<view class="n_08">70%吡虫啉20g杀虫剂农药</view>
 			<view class="n_09">
 				<view class="section">
 					<picker value="{{index}}" range="{{array}}">
 						<view class="n_10 fl">规格1</view>
-						<view class="n_11 fr"><image src="../img/f028.png"></image></view>
+						<view class="n_11 fr">
+							<image src="../img/f028.png"></image>
+						</view>
 					</picker>
 				</view>
 			</view>
@@ -47,17 +53,22 @@
 	<view class="n_06">
 		<view class="n_07 fl">
 			<radio-group name="radio">
-			    <label><radio value="checkbox1"/></label>
+				<label>
+					<radio value="checkbox1" /></label>
 			</radio-group>
 		</view>
-		<view class="n_04 fl"><image src="../img/f027.png"></image></view>
+		<view class="n_04 fl">
+			<image src="../img/f027.png"></image>
+		</view>
 		<view class="n_05 fl">
 			<view class="n_08">70%吡虫啉20g杀虫剂农药</view>
 			<view class="n_09">
 				<view class="section">
 					<picker value="{{index}}" range="{{array}}">
 						<view class="n_10 fl">规格1</view>
-						<view class="n_11 fr"><image src="../img/f028.png"></image></view>
+						<view class="n_11 fr">
+							<image src="../img/f028.png"></image>
+						</view>
 					</picker>
 				</view>
 			</view>
@@ -87,7 +98,8 @@
 		<view class="n_15 fl">
 			<view class="n_14 fl">
 				<radio-group name="radio">
-				    <label><radio value="checkbox1"/></label>
+					<label>
+						<radio value="checkbox1" /></label>
 				</radio-group>
 			</view>
 			<view class="n_16 fl">全选</view>
@@ -103,8 +115,9 @@
 	</view>
 </view>
 
-
-<view class="f_08">
+<view wx:if="{{isDel}}">
+	<view class="f_08" bindtap="delCar">
+	</view>
 	<view class="f_07">
 		<view class="e_22">
 			<p>提示</p>
@@ -112,18 +125,9 @@
 		</view>
 		<view class="e_23">
 			<ul>
-				<li bindtap="quxiao">取消</li>
+				<li bindtap="delCar">取消</li>
 				<li bindtap="confirmT">确定</li>
 			</ul>
 		</view>
 	</view>
 </view>
-
-
-
-
-
-
-
-
-

@@ -32,7 +32,7 @@
 			</view>
 			<view class="fr m_06">
 				<view class="m_07 fl">送货上门</view>
-				<view class="m_08 fr">
+				<view class="m_08 fr" bindtap="showModal1">
 					<view class="fl m_09"><image src="../img/f020.png"></image></view>
 					<view class="fl m_10">分享</view>
 				</view>
@@ -137,8 +137,37 @@
 
 
 
+<view class="sh_1" hidden="{{hideFlag}}" bindtap="hideModal1">
+	<view class="sh_2 bottom-positon" animation="{{animationData}}">
+		<view class="sh_3">选择分享方式</view>
+		<view class="sh_4">
+			<view class="sh_5" catchtap="share">
+				<image src="../img/share2.png"></image>
+				<view class="sh_6">分享给朋友</view>
+			</view>
+			<view class="sh_5" catchtap="poster">
+				<image src="../img/share1.png"></image>
+				<view class="sh_6">生成海报</view>
+			</view>	
+		</view>
+	</view>
+</view>
 
 
-
+<!-- 拨打电话弹框 -->
+<view class="f_08">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要拨打客服电话?</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="phoneShow">取消</li>
+				<li bindtap="callPhone">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
 
 
