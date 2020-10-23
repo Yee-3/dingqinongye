@@ -1,4 +1,5 @@
 // pages/v-xiugaishengf/v-xiugaishengf.js
+const app = getApp().globalData;
 Page({
 
   /**
@@ -14,10 +15,32 @@ Page({
   onLoad: function (options) {
 
   },
-  toggle(){
-    wx.navigateTo({
-      url: '../w-tijiaoziliao/w-tijiaoziliao',
+  toggle() {
+    app.http({
+      url: '/user/get-my-member-material-status',
+      dengl: true,
+      method: 'POST',
+      data: {},
+      success(res) {
+        console.log(res)
+        if (res.data.data.memberMaterial.status == 1) {
+          wx.setStorageSync('Authorization', res.data.data.access_token)
+         wx.reLaunch({
+           url: '../index/index',
+         })
+        }else if(res.data.data.memberMaterial.status == 0){
+          wx.showToast({
+            title: '信息审核中！',
+            icon:'none'
+          })
+        }else if(res.data.data.memberMaterial.status == 2){
+          wx.navigateTo({
+            url: '../w-tijiaoziliao/w-tijiaoziliao',
+          })
+        }
+      }
     })
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

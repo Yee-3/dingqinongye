@@ -117,7 +117,7 @@
 
 <view class="e_15">
 	<view class="e_16 fl">
-		<view class="m_37">
+		<view class="m_37" bindtap="customerSer">
 			<image src="../img/f025.png"></image>
 			<view class="m_38">客服</view>
 		</view>
@@ -155,7 +155,7 @@
 
 
 <!-- 拨打电话弹框 -->
-<view class="f_08">
+<view class="f_08" wx:if="{{isPhone}}">
 	<view class="f_07">
 		<view class="e_22">
 			<p>提示</p>
@@ -163,7 +163,7 @@
 		</view>
 		<view class="e_23">
 			<ul>
-				<li bindtap="phoneShow">取消</li>
+				<li bindtap="customerSer">取消</li>
 				<li bindtap="callPhone">确定</li>
 			</ul>
 		</view>

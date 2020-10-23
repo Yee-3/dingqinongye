@@ -5,6 +5,14 @@ Page({
     checkbox: [],
     hideFlag: true,
     animationData: {},
+    isPhone:false
+  },
+  // 客服
+  customerSer(){
+    var show=this.data.isPhone
+    this.setData({
+      isPhone:!show
+    })
   },
   showModal(e) {
     this.setData({
@@ -16,12 +24,12 @@ Page({
       modalName: null
     })
   },
-  shopCar(){
+  shopCar() {
     wx.navigateTo({
       url: '../j-gouwuche/j-gouwuche',
     })
   },
-  store(){
+  store() {
     wx.navigateTo({
       url: '../one-k-gongxiaosxqy/one-k-gongxiaosxqy',
     })
@@ -39,8 +47,8 @@ Page({
       checkbox: items
     })
   },
-   // 显示遮罩层
-   showModal1: function () {
+  // 显示遮罩层
+  showModal1: function () {
     var that = this;
     this.setData({
       hideFlag: false
