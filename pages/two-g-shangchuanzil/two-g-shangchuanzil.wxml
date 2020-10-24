@@ -24,7 +24,7 @@
 		</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="c_4" bindtap="submit">提交审核</view>
+	<view class="c_4" bindtap="submit">{{imgValue}}</view>
 </view>
 <view class="tg1_1" wx:if="{{tiIndex==1}}">
 	<view class="o1_20">请上传营业执照</view>
@@ -38,5 +38,5 @@
 			<view class="w-clear"></view>
 		</view>
 	</view>
-	<view class="c1_4" bindtap="submit">提交审核</view>
+	<view class="c1_4" bindtap="submit">{{nameValue}}</view>
 </view>

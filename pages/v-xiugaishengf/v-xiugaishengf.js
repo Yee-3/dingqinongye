@@ -23,24 +23,34 @@ Page({
       data: {},
       success(res) {
         console.log(res)
-        if (res.data.data.memberMaterial.status == 1) {
-          wx.setStorageSync('Authorization', res.data.data.access_token)
-         wx.reLaunch({
-           url: '../index/index',
-         })
-        }else if(res.data.data.memberMaterial.status == 0){
-          wx.showToast({
-            title: '信息审核中！',
-            icon:'none'
-          })
-        }else if(res.data.data.memberMaterial.status == 2){
+        if(res.data.code==0){
+          if (res.data.data.memberMaterial.status == 1) {
+            wx.setStorageSync('Authorization', res.data.data.access_token)
+            wx.setStorageSync('code', res.data.data.userInfo.currentIdentity)
+            wx.reLaunch({
+              url: '../index/index',
+            })
+          } else if (res.data.data.memberMaterial.status == 0) {
+            wx.showToast({
+              title: '信息审核中！',
+              icon: 'none'
+            })
+          } else if (res.data.data.memberMaterial.status == 2) {
+            wx.navigateTo({
+              url: '../w-tijiaoziliao/w-tijiaoziliao?type=0',
+            })
+          }
+        }else{
           wx.navigateTo({
             url: '../w-tijiaoziliao/w-tijiaoziliao',
           })
         }
+        wx.navigateTo({
+          url: '../w-tijiaoziliao/w-tijiaoziliao',
+        })
       }
     })
-  
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

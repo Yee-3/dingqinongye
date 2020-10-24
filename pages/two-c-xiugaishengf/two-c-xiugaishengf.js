@@ -1,4 +1,5 @@
 // pages/two-c-xiugaishengf/two-c-xiugaishengf.js
+const app = getApp().globalData;
 Page({
 
   /**
@@ -15,9 +16,10 @@ Page({
 
   },
   toggle(){
-    wx.navigateTo({
-      url: '../two-g-shangchuanzil/two-g-shangchuanzil',
-    })
+    
+ wx.navigateTo({
+   url: '../two-g-shangchuanzil/two-g-shangchuanzil',
+ })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

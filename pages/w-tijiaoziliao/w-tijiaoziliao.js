@@ -9,15 +9,34 @@ Page({
   data: {
     // img: '../img/f053.png',
     // imgs: '../img/f054.png',
-     img: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1602901116&di=9fedd0790079f03ed3be0cf3e512a26d&src=http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg',
-     imgs: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602911205304&di=b1080730b320068e241c6a594c29e9fb&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F64%2F52%2F01300000407527124482522224765.jpg',
+    img: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1602901116&di=9fedd0790079f03ed3be0cf3e512a26d&src=http://a3.att.hudong.com/14/75/01300000164186121366756803686.jpg',
+    imgs: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602911205304&di=b1080730b320068e241c6a594c29e9fb&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F64%2F52%2F01300000407527124482522224765.jpg',
+    value: '提交审核'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+    if (options.type) {
+      app.http({
+        url: '/user/get-my-member-material-status',
+        dengl: true,
+        method: 'POST',
+        data: {},
+        success(res) {
+          console.log(res)
+          if (res.data.code == 0) {
+          that.setData({
+            img: res.data.data.memberMaterial.cardImg1,
+            imgs: res.data.data.memberMaterial.cardImg2,
+            value:'审核失败'
+          })
+          }
+        }
+      })
+    }
   },
   uploadImg(e) {
     console.log(e)
@@ -31,6 +50,9 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         console.log(res)
         const tempFilePaths = res.tempFilePaths
+        that.setData({
+          value:'提交审核'
+        })
         if (type == 1) {
           that.setData({
             img: res.tempFilePaths
@@ -45,19 +67,21 @@ Page({
     })
   },
   submit() {
-    var index = this.data.tiIndex
-      if(this.data.img=='../img/f053.png'||this.data.imgs=='../img/f054.png'){
+    var index = this.data.tiIndex,
+    that=this
+    if(that.data.value=='提交审核'){
+      if (this.data.img == '../img/f053.png' || this.data.imgs == '../img/f054.png') {
         wx.showToast({
           title: '请上传完整身份信息',
-          icon:'none'
+          icon: 'none'
         })
-      }else{
+      } else {
         app.http({
           url: '/growers/user/identity-switching',
           dengl: true,
           data: {
-            param1:  this.data.img,
-            param2: this.data.imgs ,
+            param1: this.data.img,
+            param2: this.data.imgs,
           },
           method: 'POST',
           success(res) {
@@ -68,8 +92,12 @@ Page({
           }
         })
       }
-    
-   
+  
+    }else{
+      wx.showToast({
+        title: '审核失败，请重新上传信息',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -17,5 +17,5 @@
 		</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="c_4" bindtap="submit">提交审核</view>
+	<view class="c_4" bindtap="submit">{{value}}</view>
 </view>
