@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: []
+    list: [],
+    type: ''
   },
 
   /**
@@ -14,6 +15,15 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+   this.loading()
+    if (options.type) {
+      that.setData({
+        type: options.type
+      })
+    }
+  },
+  loading(){
+    var that=this
     app.http({
       url: '/user/get-address-list',
       dengl: true,
@@ -28,13 +38,27 @@ Page({
   },
   build(e) {
     if (e.currentTarget.dataset.id) {
-      
       wx.navigateTo({
-        url: '../y-xinjianshdz/y-xinjianshdz?id=' + e.currentTarget.dataset.id +'&adress='+e.currentTarget.dataset.adress+'&name='+e.currentTarget.dataset.name+'&phone='+e.currentTarget.dataset.phone+'&map='+e.currentTarget.dataset.map+'&status='+e.currentTarget.dataset.status,
+        url: '../y-xinjianshdz/y-xinjianshdz?id=' + e.currentTarget.dataset.id + '&adress=' + e.currentTarget.dataset.adress + '&name=' + e.currentTarget.dataset.name + '&phone=' + e.currentTarget.dataset.phone + '&map=' + e.currentTarget.dataset.map + '&status=' + e.currentTarget.dataset.status,
       })
     } else {
       wx.navigateTo({
         url: '../y-xinjianshdz/y-xinjianshdz',
+      })
+    }
+  },
+  // 修改收货地址
+  changeAdress:function(e){
+    console.log(e)
+    if(this.data.type){
+      var pages = getCurrentPages();
+      var prevPage = pages[pages.length - 2]; //上一个页面
+      prevPage.loading()
+      prevPage.setData({
+        index:e.currentTarget.dataset.index
+      })
+      wx.navigateBack({
+        delta: 1,
       })
     }
   },

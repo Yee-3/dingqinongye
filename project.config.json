@@ -96,6 +96,26 @@
           "pathName": "pages/two-g-shangchuanzil/two-g-shangchuanzil",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/g-shangpingxq/g-shangpingxq",
+          "pathName": "pages/g-shangpingxq/g-shangpingxq",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/h-tijiaodingdan/h-tijiaodingdan",
+          "pathName": "pages/h-tijiaodingdan/h-tijiaodingdan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/j-gouwuche/j-gouwuche",
+          "pathName": "pages/j-gouwuche/j-gouwuche",
+          "scene": null
         }
       ]
     }

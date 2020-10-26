@@ -1,11 +1,12 @@
-<view class="o_1">
+<view class="o_1" wx:if="{{isFirst}}" bindtap="addAddress">
 	<view class="fl o_2">
 		<image src="../img/f029.png"></image>
 	</view>
 	<view class="fl o_3">
-		<view class="o_4">姓名<view class="o_5">12345213645</view></view>
+		<view class="o_4">姓名<view class="o_5">{{list[index].name}}</view>
+		</view>
 		<view class="o_6">
-			<view class="o_7">默认</view>山东省济南市槐荫区腊山河西交叉口报业大厦20层
+			<view class="o_7">默认</view>{{list[index].province+list[index].city+list[index].county+list[index].address}}
 		</view>
 	</view>
 	<view class="fr o_8">
@@ -13,18 +14,34 @@
 	</view>
 	<view class="w-clear"></view>
 </view>
-
+<!-- 首次提交未添加地址 -->
+<view class="o_1" bindtap="addAddress" wx:if="{{!isFirst}}">
+	<view class="fl o_2">
+		<image src="../img/f029.png"></image>
+	</view>
+	<view class="fl o_31">
+		请添加地址
+	</view>
+	<view class="fr o_8">
+		<image src="../img/f021.png"></image>
+	</view>
+	<view class="w-clear"></view>
+</view>
 <view class="o_9">
 	<view class="o_10">报业大厦供销社</view>
 	<view class="">
-		<view class="n_04 fl"><image src="../img/f027.png"></image></view>
+		<view class="n_04 fl">
+			<image src="../img/f027.png"></image>
+		</view>
 		<view class="n_05 fl">
 			<view class="n_08">70%吡虫啉20g杀虫剂农药</view>
 			<view class="n_09">
 				<view class="section">
 					<picker value="{{index}}" range="{{array}}">
 						<view class="n_10 fl">规格1</view>
-						<view class="n_11 fr"><image src="../img/f028.png"></image></view>
+						<view class="n_11 fr">
+							<image src="../img/f028.png"></image>
+						</view>
 					</picker>
 				</view>
 			</view>
@@ -80,10 +97,16 @@
 	</view>
 </view>
 
-
-
-
-
-
-
-
+<!-- 添加地址 -->
+<view class="o_1" bindtap="addAddress" wx:if="{{isFirst}}">
+	<view class="fl o_2">
+		<image src="../img/f029.png"></image>
+	</view>
+	<view class="fl o_31">
+		请添加地址
+	</view>
+	<view class="fr o_8">
+		<image src="../img/f021.png"></image>
+	</view>
+	<view class="w-clear"></view>
+</view>

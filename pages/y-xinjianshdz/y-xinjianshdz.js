@@ -130,7 +130,7 @@ Page({
           if (res.data.code == 0) {
             var pages = getCurrentPages();
             var prevPage = pages[pages.length - 2]; //上一个页面
-            prevPage.onLoad()
+            prevPage.loading()
             wx.navigateBack({
               delta: 1,
             })

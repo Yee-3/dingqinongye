@@ -11,6 +11,14 @@ page{ background: #f4f4f4;}
 .o_8{ margin-top: 70rpx;}
 .o_8 image{ width: 16rpx; height: 30rpx;}
 
+.o_1{ width: 694rpx; margin: 0 auto; margin-top: 20rpx; background: #fff; border-radius: 20rpx; height: 172rpx; padding: 0 20rpx; box-sizing: border-box;}
+.o_2{ margin-top: 55rpx;}
+.o_2 image{ width: 60rpx; height: 60rpx;}
+.o_31{ width: 500rpx; padding-left: 20rpx; box-sizing: border-box; font-size: 26rpx; color: #666; line-height: 172rpx;}
+.o_8{ margin-top: 70rpx;}
+.o_8 image{ width: 16rpx; height: 30rpx;}
+
+
 .o_9{ width: 694rpx; margin: 0 auto; border-radius: 20rpx; padding: 0 20rpx; box-sizing: border-box; background: #fff; margin-top: 20rpx;}
 .o_10{ font-size: 30rpx; color: #333; line-height: 80rpx;}
 

@@ -2,7 +2,7 @@
 	<view class="fl o_2">
 		<image src="../img/f029.png"></image>
 	</view>
-	<view class="fl o_3">
+	<view class="fl o_3" bindtap="changeAdress" data-index="{{index}}">
 		<view class="o_4">{{item.name}}<view class="o_5">{{item.phone}}</view>
 		</view>
 		<view class="o_6">

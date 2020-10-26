@@ -5,7 +5,39 @@ Page({
     checkbox: [],
     hideFlag: true,
     animationData: {},
-    isPhone:false
+    isPhone:false,
+    num:1,
+    isBuy:false,
+  },
+  // 减
+  bindMinus:function(){
+    var num=this.data.num
+    if(num>1){
+      num--
+    }else{
+      num=1
+      wx.showToast({
+        title: '数量不能低于1',
+        icon:'none'
+      })
+    }
+    this.setData({
+      num:num
+    })
+  },
+  // 修改
+  bindManual:function(e){
+    this.setData({
+      num:e.datail.value
+    })
+  },
+  // 加
+  bindPlus:function(){
+    var num=this.data.num
+    num ++
+    this.setData({
+      num:num
+    })
   },
   // 客服
   customerSer(){
@@ -14,10 +46,26 @@ Page({
       isPhone:!show
     })
   },
+  submit(){
+    if(this.data.isBuy){
+      this.hideModal()
+      wx.navigateTo({
+        url: '../h-tijiaodingdan/h-tijiaodingdan',
+      })
+    }  
+  },
   showModal(e) {
-    this.setData({
-      modalName: e.currentTarget.dataset.target
-    })
+    if(e.currentTarget.dataset.type==1){
+     this.setData({
+       isBuy:true,
+       modalName: e.currentTarget.dataset.target,
+     })
+    }else{
+      this.setData({
+        modalName: e.currentTarget.dataset.target,
+        isBuy:false
+      })
+    }
   },
   hideModal(e) {
     this.setData({
