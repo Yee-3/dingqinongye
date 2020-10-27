@@ -1,69 +1,77 @@
 const app = getApp();
+const createSharePic = require('../../utils/createSharePic');
 Page({
   data: {
     CustomBar: app.globalData.CustomBar,
     checkbox: [],
     hideFlag: true,
     animationData: {},
-    isPhone:false,
-    num:1,
-    isBuy:false,
+    isPhone: false,
+    num: 1,
+    isBuy: false,
+    goodsId: ''
+  },
+  onLoad(options) {
+    console.log(options)
+    this.setData({
+      goodsId: options.id
+    })
   },
   // 减
-  bindMinus:function(){
-    var num=this.data.num
-    if(num>1){
+  bindMinus: function () {
+    var num = this.data.num
+    if (num > 1) {
       num--
-    }else{
-      num=1
+    } else {
+      num = 1
       wx.showToast({
         title: '数量不能低于1',
-        icon:'none'
+        icon: 'none'
       })
     }
     this.setData({
-      num:num
+      num: num
     })
   },
   // 修改
-  bindManual:function(e){
+  bindManual: function (e) {
     this.setData({
-      num:e.datail.value
+      num: e.datail.value
     })
   },
   // 加
-  bindPlus:function(){
-    var num=this.data.num
-    num ++
+  bindPlus: function () {
+    var num = this.data.num
+    num++
     this.setData({
-      num:num
+      num: num
     })
   },
   // 客服
-  customerSer(){
-    var show=this.data.isPhone
+  customerSer() {
+    var show = this.data.isPhone
     this.setData({
-      isPhone:!show
+      isPhone: !show
     })
   },
-  submit(){
-    if(this.data.isBuy){
+  submit() {
+    if (this.data.isBuy) {
       this.hideModal()
       wx.navigateTo({
         url: '../h-tijiaodingdan/h-tijiaodingdan',
       })
-    }  
+    }
   },
   showModal(e) {
-    if(e.currentTarget.dataset.type==1){
-     this.setData({
-       isBuy:true,
-       modalName: e.currentTarget.dataset.target,
-     })
-    }else{
+    if (e.currentTarget.dataset.type == 1) {
+      this.setData({
+        isBuy: true,
+        modalName: e.currentTarget.dataset.target,
+      })
+    } else {
       this.setData({
         modalName: e.currentTarget.dataset.target,
-        isBuy:false
+        isBuy: false
       })
     }
   },
@@ -145,4 +153,27 @@ Page({
       animationData: this.animation.export(),
     })
   },
+  // 分享
+  onShareAppMessage: function () {
+    var that = this
+    createSharePic.createSharePicUrl(this,
+      'https://img2018.cnblogs.com/blog/735803/201901/735803-20190118174652016-1046321986.png',
+      '名字',
+      '对加沙',
+      '发射点发生', () => {
+        wx.canvasToTempFilePath({
+          canvasId: 'shareCanvas',
+          x: 0,
+          y: 0,
+          width: 250,
+          height: 200,
+          success(res) {
+            console.log(res.tempFilePath);
+            that.setData({
+              sharePicUrl: res.tempFilePath,
+            });
+          },
+        }, that);
+      });
+  }
 })

@@ -31,7 +31,7 @@
 			<view class="n_12">
 				<view class="fl">
 					<view class="c_06">
-						<p><em>￥</em>{{items.money}}.00</p>
+						<p><em>￥</em>{{items.money}}</p>
 					</view>
 				</view>
 				<view class="fr">
@@ -62,7 +62,7 @@
 		</view>
 		<view class="fl">
 			<view class="n_17">
-				<p><span>合计：</span><em>￥</em>{{money}}.00</p>
+				<p><span>合计：</span><em>￥</em>{{money}}</p>
 			</view>
 		</view>
 	</view>

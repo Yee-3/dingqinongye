@@ -74,9 +74,7 @@ Page({
     this.setData({
       check_All: !check_All
     })
-    console.log(e, this.data.check_All)
     list.map(function (val, i) {
-      console.log(val)
       if (that.data.check_All) {
         val.checkeds = true
       } else {
@@ -87,7 +85,7 @@ Page({
     this.setData({
       list: list
     })
-    console.log(list)
+    this.count_price()
   },
   // 全选
   checkAll: function (e) {
@@ -116,34 +114,45 @@ Page({
     this.setData({
       list: list
     })
-    console.log(e, list)
+    this.count_price()
   },
   // 单选
   checks: function (e) {
-    console.log(e)
     var check = e.detail.value,
       i = e.currentTarget.dataset.idex,
       ii = e.currentTarget.dataset.index,
       list = this.data.list,
       that = this
-
     list[i].children[ii].checked = !list[i].children[ii].checked
-    list.map(function (v, i) {
-      var mone = e.currentTarget.dataset.money,
-        num = e.currentTarget.dataset.num
-      v.children.map(function (val, ii) {
-        if (val.checked) {
-          that.setData({
-            money: mone * num
-          })
-        }
-      })
-    })
+    // 计算数字
     this.setData({
       list: list
     })
     this.checkout(i)
+    this.count_price()
   },
+  // 计算金额
+  count_price() {
+    // 获取商品列表数据
+    let list = this.data.list;
+    // 声明一个变量接收数组列表price
+    let total = 0;
+    // 循环列表得到每个数据
+    list.map(function(val,i){
+      for (let j = 0; j < val.children.length; j++) {
+        if ( val.children[j].checked) {
+          // 所有价格加起来 count_money
+          total +=  val.children[j].num *  val.children[j].money;
+        }   
+      }
+    })
+    // 最后赋值到data中渲染到页面
+    this.setData({
+      list: list,
+      money: total
+    });
+  },
+
   // 检验是否全选
   checkout: function (index) {
     var list = this.data.list,
@@ -213,12 +222,10 @@ Page({
   },
   // 减
   bindMinus: function (e) {
-    console.log(e)
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list,
       num = list[index].children[indexs].num
-    console.log(num)
     if (num > 1) {
       list[index].children[indexs].num--
     } else {
@@ -237,7 +244,7 @@ Page({
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list
-      list[index].children[indexs].num=e.detail.value
+    list[index].children[indexs].num = e.detail.value
     this.setData({
       list: list
     })

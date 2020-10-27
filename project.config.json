@@ -99,13 +99,6 @@
         },
         {
           "id": -1,
-          "name": "pages/g-shangpingxq/g-shangpingxq",
-          "pathName": "pages/g-shangpingxq/g-shangpingxq",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
           "name": "pages/h-tijiaodingdan/h-tijiaodingdan",
           "pathName": "pages/h-tijiaodingdan/h-tijiaodingdan",
           "query": "",
@@ -115,6 +108,14 @@
           "id": -1,
           "name": "pages/j-gouwuche/j-gouwuche",
           "pathName": "pages/j-gouwuche/j-gouwuche",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/one-l-shangcheng/one-l-shangcheng",
+          "pathName": "pages/one-l-shangcheng/one-l-shangcheng",
+          "query": "",
           "scene": null
         }
       ]

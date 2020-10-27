@@ -1,4 +1,5 @@
 // pages/one-l-shangcheng/one-l-shangcheng.js
+const app = getApp().globalData;
 Page({
 
   /**
@@ -6,8 +7,16 @@ Page({
    */
   data: {
     scrollTop: '',
+     windowHeight: 0,
     itemIndex: 0,
-    rightHeight:''
+    rightHeight:'',
+    currentPage: 1,
+    currentPage_Two: 1,
+    loadingType: 0,
+    classifyList: [],
+    commodityList:[],
+    keyword:'',
+    cateId:''
   },
 
   /**
@@ -28,17 +37,188 @@ Page({
         console.log(height)
       }
     })
+    // 获取商品分类
+    var data={
+      limit:10,
+      page:this.data.currentPage
+    }
+    this.reword(data) 
   },
   addColor(e) {
+    var that=this
     console.log(e)
     this.setData({
-      itemIndex: e.currentTarget.dataset.index
+      itemIndex: e.currentTarget.dataset.index,
+      cateId:e.currentTarget.dataset.id
+    })
+    var data1={
+      limit:10,
+      page:that.data.currentPage_Two,
+      cateId:e.currentTarget.dataset.id,
+      keywords:that.data.keyword?that.data.keyword:''
+    }
+    this.getList(data1)
+  },
+  detailIn(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '../g-shangpingxq/g-shangpingxq?id='+e.currentTarget.dataset.id,
     })
   },
-  detailIn(){
-    wx.navigateTo({
-      url: '../g-shangpingxq/g-shangpingxq',
+  // 获取数据
+  reword(data) {
+    var that = this
+    wx.showNavigationBarLoading()
+    app.http({
+      url: '/shop/mall-lists',
+      dengl: false,
+      method: 'GET',
+      data: data,
+      success(res) {
+        that.setData({
+          classifyList:  res.data.data.cateList,
+          cateId:res.data.data.cateList[0].id
+        })
+        var data1={
+          limit:10,
+          page:that.data.currentPage_Two,
+          cateId:that.data.cateId,
+          keywords:that.data.keyword?that.data.keyword:''
+        }
+        that.getList(data1)
+        if ( res.data.data.cateList.length < 10) {
+          that.setData({
+            loadingType: 2
+          })
+        } else {
+          that.setData({
+            loadingType: 0
+          })
+        }
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh()
+      }
     })
+  },
+  // 上拉加载
+  jiazai(data) {
+    var that = this
+    this.setData({
+      currentPage: that.data.currentPage + 1
+    })
+    if (this.data.loadingType != 0) {
+      //loadingType!=0;直接返回
+      return false;
+    }
+    this.setData({
+      loadingType: 1
+    })
+    wx.showNavigationBarLoading()
+    app.http({
+      url: '/shop/mall-lists',
+      dengl: false,
+      method: 'GET',
+      data: data,
+      success(res) {
+        console.log('liebiap')
+        that.setData({
+          classifyList: that.data.classifyList.concat( res.data.data.cateList)
+        })
+        if ( res.data.data.cateList.length < 10) {
+          that.setData({
+            loadingType: 2
+          })
+          wx.hideNavigationBarLoading()
+        } else {
+          that.setData({
+            loadingType: 0
+          })
+        }
+        wx.hideNavigationBarLoading()
+      }
+    })
+  },
+  // 获取商品列表
+  getList(data) {
+    var that = this
+    wx.showNavigationBarLoading()
+    app.http({
+      url: '/shop/mall-goods-list',
+      dengl: false,
+      method: 'GET',
+      data: data,
+      success(res) {
+        that.setData({
+          commodityList:  res.data.data.goodsList
+        })
+        if ( res.data.data.goodsList.length <10) {
+          that.setData({
+            loadingType: 2
+          })
+        } else {
+          that.setData({
+            loadingType: 0
+          })
+        }
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh()
+      }
+    })
+  }, 
+  // 上拉加载
+  getMoreList(data) {
+    var that = this
+    this.setData({
+      currentPage: that.data.currentPage + 1
+    })
+    if (this.data.loadingType != 0) {
+      //loadingType!=0;直接返回
+      return false;
+    }
+    this.setData({
+      loadingType: 1
+    })
+    wx.showNavigationBarLoading()
+    app.http({
+      url: '/shop/mall-goods-list',
+      dengl: false,
+      method: 'GET',
+      data: data,
+      success(res) {
+        console.log('shangpin')
+        that.setData({
+          commodityList: that.data.commodityList.concat( res.data.data.goodsList)
+        })
+        if ( res.data.data.goodsList.length <10) {
+          that.setData({
+            loadingType: 2
+          })
+          wx.hideNavigationBarLoading()
+        } else {
+          that.setData({
+            loadingType: 0
+          })
+        }
+        wx.hideNavigationBarLoading()
+      }
+    })
+  },
+  scrollButton_Two(e){
+    console.log(2323,e)
+    var data1={
+      limit:10,
+      page:this.data.currentPage_Two+1,
+      cateId:this.data.cateId,
+      keywords:this.data.keyword?this.data.keyword:''
+    }
+    this.getMoreList(data1)
+  },
+  scrollButton_Two(e){
+    var data={
+      limit:10,
+      page:this.data.currentPage+1
+    }
+    this.jiazai(data)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -74,12 +254,11 @@ Page({
   onPullDownRefresh: function () {
 
   },
-
+ 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 
   /**
