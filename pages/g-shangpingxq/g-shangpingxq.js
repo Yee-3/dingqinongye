@@ -12,7 +12,9 @@ Page({
     isBuy: false,
     goodsId: '',
     cont: {},
-    isShow: false
+    isShow: false,
+    priceList:{},
+    togIndex:''
   },
   onLoad(options) {
     var that = this
@@ -42,9 +44,19 @@ Page({
       dengl: true,
       success(res) {
         console.log(res)
+        var arr=[]
+        var list=res.data.data.specs
+        for(let i in list){
+          var obj={}
+          obj.name=i,
+          obj.value=list[i]
+          arr.push(obj)
+        }
+        res.data.data.specs=arr
         res.data.data.detail.imgs = res.data.data.detail.goodsLogo.split(',')
         that.setData({
           cont: res.data.data,
+          priceList:res.data.data.spec_price,
           isShow: false
         })
       }
@@ -139,6 +151,13 @@ Page({
     var show = this.data.isPhone
     this.setData({
       isPhone: !show
+    })
+  },
+  // 切换
+  toggle(e){
+    console.log(e)
+    this.setData({
+      togIndex:e.currentTarget.dataset.index
     })
   },
   submit() {

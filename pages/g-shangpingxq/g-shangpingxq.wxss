@@ -59,7 +59,10 @@ page{ background: #f4f4f4; padding-bottom: 160rpx;}
 .m_24{ width: 58rpx; height: 44rpx; background: #f4f4f4; font-size: 26rpx; text-align: center; line-height: 44rpx; color: #444; }
 .m_25{ width: 76rpx; height: 44rpx; background: #f4f4f4; font-size: 26rpx; text-align: center; line-height: 44rpx; color: #444; margin: 0 4rpx;}
 .m_26{ width: 694rpx; height: 70rpx; background: #008359; text-align: center; line-height: 70rpx; border-radius: 35rpx; font-size: 30rpx; color: #fff; margin: 30rpx 0;}
-
+.active{
+  background: #008359;
+  color: #fff;
+}
 .m_27{ width: 750rpx; background: #fff; padding: 30rpx 28rpx; box-sizing: border-box; margin-top: 16rpx;}
 .m_29{ width: 80rpx; height: 80rpx; border-radius: 6rpx; overflow: hidden;}
 .m_29 image{ width: 80rpx; height: 80rpx; display: block;}

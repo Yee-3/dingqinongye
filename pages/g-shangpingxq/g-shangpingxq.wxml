@@ -63,11 +63,9 @@
 						<view class="w-clear"></view>
 					</view>
 					<view class="m_19" wx:for="{{cont.specs}}">
-						<view class="m_20">{{item}}</view>
+						<view class="m_20">{{item.name}}</view>
 						<view class="m_21">
-							<view class="m_22">规格1</view>
-							<view class="m_22">规格1</view>
-							<view class="m_22">规格1</view>
+							<view class="m_22 {{togIndex==itm.itemId?'active':''}}" wx:for="{{item.value}}" data-index="{{itm.itemId}}" bindtap="toggle" wx:for-index="idx" wx:for-item="itm">{{itm.item}}</view>
 							<view class="w-clear"></view>
 						</view>
 					</view>
