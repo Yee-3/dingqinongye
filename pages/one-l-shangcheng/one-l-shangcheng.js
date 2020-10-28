@@ -34,7 +34,6 @@ Page({
           scrollTop: height  + 'rpx',
           rightHeight:(height-70)+ 'rpx',
         });
-        console.log(height)
       }
     })
     // 获取商品分类
@@ -46,7 +45,6 @@ Page({
   },
   addColor(e) {
     var that=this
-    console.log(e)
     this.setData({
       itemIndex: e.currentTarget.dataset.index,
       cateId:e.currentTarget.dataset.id
@@ -60,7 +58,6 @@ Page({
     this.getList(data1)
   },
   detailIn(e){
-    console.log(e)
     wx.navigateTo({
       url: '../g-shangpingxq/g-shangpingxq?id='+e.currentTarget.dataset.id,
     })
@@ -120,7 +117,6 @@ Page({
       method: 'GET',
       data: data,
       success(res) {
-        console.log('liebiap')
         that.setData({
           classifyList: that.data.classifyList.concat( res.data.data.cateList)
         })
@@ -169,7 +165,7 @@ Page({
   getMoreList(data) {
     var that = this
     this.setData({
-      currentPage: that.data.currentPage + 1
+      currentPage_Two: that.data.currentPage_Two + 1
     })
     if (this.data.loadingType != 0) {
       //loadingType!=0;直接返回
@@ -185,7 +181,6 @@ Page({
       method: 'GET',
       data: data,
       success(res) {
-        console.log('shangpin')
         that.setData({
           commodityList: that.data.commodityList.concat( res.data.data.goodsList)
         })
@@ -204,7 +199,6 @@ Page({
     })
   },
   scrollButton_Two(e){
-    console.log(2323,e)
     var data1={
       limit:10,
       page:this.data.currentPage_Two+1,
@@ -213,7 +207,7 @@ Page({
     }
     this.getMoreList(data1)
   },
-  scrollButton_Two(e){
+  scrollButton_One(e){
     var data={
       limit:10,
       page:this.data.currentPage+1

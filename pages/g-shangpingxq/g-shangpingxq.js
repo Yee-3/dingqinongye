@@ -1,20 +1,107 @@
-const app = getApp();
+// const app = getApp();
+const app = getApp().globalData;
 const createSharePic = require('../../utils/createSharePic');
 Page({
   data: {
-    CustomBar: app.globalData.CustomBar,
+    CustomBar: app.CustomBar,
     checkbox: [],
     hideFlag: true,
     animationData: {},
     isPhone: false,
     num: 1,
     isBuy: false,
-    goodsId: ''
+    goodsId: '',
+    cont: {},
+    isShow: false
   },
   onLoad(options) {
-    console.log(options)
+    var that = this
     this.setData({
       goodsId: options.id
+    })
+    var that = this
+    if (!wx.getStorageSync('Authorization')) {
+      setTimeout(function () {
+        that.setData({
+          isShow: true
+        })
+      }, 500)
+    } else {
+      this.loading()
+    }
+
+  },
+  loading() {
+    var that = this
+    app.http({
+      url: '/shop/mall-goods-detail',
+      data: {
+        goods_id: that.data.goodsId
+      },
+      method: 'GET',
+      dengl: true,
+      success(res) {
+        console.log(res)
+        res.data.data.detail.imgs = res.data.data.detail.goodsLogo.split(',')
+        that.setData({
+          cont: res.data.data,
+          isShow: false
+        })
+      }
+    })
+  },
+  // 登录
+  bindGetUserInfo() {
+    var that = this
+    wx.login({
+      success(res) {
+        console.log(res)
+        var code = res.code
+        wx.getUserInfo({
+          success(resp) {
+            if (code) {
+              console.log(resp)
+              wx.setStorageSync('users', {
+                'nickName': resp.userInfo.nickName,
+                'avatarUrl': resp.userInfo.avatarUrl
+              })
+              app.http({
+                url: '/oauth/wx-auth-save',
+                method: 'POST',
+                dengl: false,
+                header: true,
+                data: JSON.stringify({
+                  code: code,
+                  encryptedData: resp.encryptedData,
+                  iv: resp.iv,
+                  identityCode: wx.getStorageSync('code')
+                }),
+                success(res) {
+                  if (res.data.code == 0) {
+                    wx.setStorageSync('Authorization', res.data.data.access_token)
+                    wx.showToast({
+                      title: '登录成功'
+                    })
+                    that.setData({
+                      isShow: false
+                    })
+                    that.loading()
+                  } else {
+                    wx.showToast({
+                      title: '登录失败'
+                    })
+                  }
+                }
+              })
+            }
+            console.log(resp)
+          },
+          fail: function (err) {
+            console.log(err)
+          }
+        })
+      }
+
     })
   },
   // 减

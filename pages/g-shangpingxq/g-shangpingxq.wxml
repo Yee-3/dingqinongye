@@ -8,14 +8,8 @@
 
 	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 		<block class="top_img">
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
-			</swiper-item>
-			<swiper-item>
-				<image class="banner" src="../img/f013.jpg"></image>
+			<swiper-item wx:for="{{cont.detail.imgs}}">
+				<image class="banner" src="{{item}}"></image>
 			</swiper-item>
 		</block>
 	</swiper>
@@ -23,11 +17,11 @@
 
 <view class="m_01">
 	<view class="m_02">
-		<view class="m_03">70%吡虫啉20g杀虫剂农药</view>
+		<view class="m_03">{{cont.detail.goodsName}}</view>
 		<view class="m_04">
 			<view class="fl m_05">
 				<view class="c_06">
-					<p><em>￥</em>88.00<span>￥88.00</span></p>
+					<p><em>￥</em>{{cont.detail.shopPrice}}<span>￥{{cont.detail.marketPrice}}</span></p>
 				</view>
 			</view>
 			<view class="fr m_06">
@@ -61,15 +55,15 @@
 					<view class="m_15">
 						<view class="m_16 fl"><image src="../img/f023.png"></image></view>
 						<view class="m_17 fl">
-							<view class="m_18">70%吡虫啉20g杀虫剂农药</view>
+							<view class="m_18">{{cont.detail.goodsName}}</view>
 							<view class="c_06">
-								<p><em>￥</em>88.00<span>￥88.00</span></p>
+								<p><em>￥</em>{{cont.detail.shopPrice}}<span>￥{{cont.detail.marketPrice}}</span></p>
 							</view>
 						</view>
 						<view class="w-clear"></view>
 					</view>
-					<view class="m_19">
-						<view class="m_20">规格</view>
+					<view class="m_19" wx:for="{{cont.specs}}">
+						<view class="m_20">{{item}}</view>
 						<view class="m_21">
 							<view class="m_22">规格1</view>
 							<view class="m_22">规格1</view>
@@ -169,5 +163,6 @@
 		</view>
 	</view>
 </view>
+<dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
 
 
