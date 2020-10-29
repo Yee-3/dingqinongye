@@ -1,3 +1,4 @@
+const app = getApp().globalData;
 // pages/j-gouwuche/j-gouwuche.js
 Page({
 
@@ -10,60 +11,127 @@ Page({
     hideFlag: true,
     check_All: false,
     animationData: {},
-    list: [{
-        shopName: "报业大厦供销社",
-        id: 1,
-        children: [{
-            name: "70%吡虫啉20g杀虫剂农药",
-            id: 1,
-            guige: "红色蓝色",
-            num: '3',
-            money: 666
-          },
-          {
-            name: "70%吡虫啉20g杀虫剂农药3223",
-            id: 2,
-            guige: "农药产品",
-            num: '4',
-            money: 777
-          }
-        ]
-      },
-      {
-        shopName: "汇金金融中心",
-        id: 2,
-        children: [{
-            name: "70%吡虫啉20g杀虫剂农药经费和第三",
-            id: 3,
-            guige: "红色蓝色",
-            num: '3',
-            money: 666
-          },
-          {
-            name: "70%吡虫啉20g杀虫剂农药322是懂法守法3",
-            id: 4,
-            guige: "农药产品",
-            num: '4',
-            money: 777
-          }
-        ]
-      }
-    ],
-    money: 0
+    list: [],
+    money: 0,
+    isShow: false,
+    currentPage: 1,
+    loadingType: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var list = this.data.list
-    list.map(function (val, i) {
-      val.children.map(function (vals, iis) {
-        vals.checked = false
+    var that = this
+    if (!wx.getStorageSync('Authorization')) {
+      setTimeout(function () {
+        that.setData({
+          isShow: true
+        })
+      }, 500)
+    } else {
+      var data={
+        page:1,
+        page_num:10
+      }
+      this.load(data)
+      that.setData({
+        isShow: false
       })
+    }
+
+  },
+  // 加载
+  loading() {
+    app.http({
+      url: '/shop/mall-cart-list',
+      dengl: true,
+      method: 'GET',
+      data: {
+        page: 1,
+        page_num: 10
+      },
+      success(res) {
+        console.log(res.data.data)
+      }
     })
+  },
+  // 获取数据
+  load(data) {
+    var that = this
+    wx.showNavigationBarLoading()
+    app.http({
+      url: '/shop/mall-cart-list',
+      dengl: true,
+      method: 'GET',
+      data: data,
+      success(res) {
+        if(res.data.data.length>0){
+          res.data.data.map(function (val, i) {
+            val.specList.map(function (vals, iis) {
+              vals.checked = false
+            })
+          })
+        }
+        that.setData({
+          list:  res.data.data,
+        })
+        if ( res.data.data.length < 10) {
+          that.setData({
+            loadingType: 2
+          })
+        } else {
+          that.setData({
+            loadingType: 0
+          })
+        }
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh()
+      }
+    })
+  },
+  // 上拉加载
+  loading(data) {
+    var that = this
     this.setData({
-      list: list
+      currentPage: that.data.currentPage + 1
+    })
+    if (this.data.loadingType != 0) {
+      //loadingType!=0;直接返回
+      return false;
+    }
+    this.setData({
+      loadingType: 1
+    })
+    wx.showNavigationBarLoading()
+    app.http({
+      url: '/shop/mall-cart-list',
+      dengl: true,
+      method: 'GET',
+      data: data,
+      success(res) {
+        if(res.data.data.length>0){
+          res.data.data.map(function (val, i) {
+            val.specList.map(function (vals, iis) {
+              vals.checked = false
+            })
+          })
+        }
+        that.setData({
+          list: that.data.list.concat( res.data.data)
+        })
+        if ( res.data.data.length < 10) {
+          that.setData({
+            loadingType: 2
+          })
+          wx.hideNavigationBarLoading()
+        } else {
+          that.setData({
+            loadingType: 0
+          })
+        }
+        wx.hideNavigationBarLoading()
+      }
     })
   },
   // 大全选
@@ -96,7 +164,7 @@ Page({
     list.map(function (val, i) {
       if (ii == i) {
         val.checkeds = !val.checkeds
-        val.children.map(function (v, ii) {
+        val.specList.map(function (v, ii) {
           v.checked = val.checkeds
         })
       }
@@ -123,7 +191,7 @@ Page({
       ii = e.currentTarget.dataset.index,
       list = this.data.list,
       that = this
-    list[i].children[ii].checked = !list[i].children[ii].checked
+    list[i].specList[ii].checked = !list[i].specList[ii].checked
     // 计算数字
     this.setData({
       list: list
@@ -138,12 +206,12 @@ Page({
     // 声明一个变量接收数组列表price
     let total = 0;
     // 循环列表得到每个数据
-    list.map(function(val,i){
-      for (let j = 0; j < val.children.length; j++) {
-        if ( val.children[j].checked) {
+    list.map(function (val, i) {
+      for (let j = 0; j < val.specList.length; j++) {
+        if (val.specList[j].checked) {
           // 所有价格加起来 count_money
-          total +=  val.children[j].num *  val.children[j].money;
-        }   
+          total += val.specList[j].num * val.specList[j].money;
+        }
       }
     })
     // 最后赋值到data中渲染到页面
@@ -156,12 +224,12 @@ Page({
   // 检验是否全选
   checkout: function (index) {
     var list = this.data.list,
-      len = this.data.list[index].children.length,
+      len = this.data.list[index].specList.length,
       lens = this.data.list.length,
       lenIndex = 0,
       lensIndex = 0,
       that = this
-    list[index].children.map(function (val, i) {
+    list[index].specList.map(function (val, i) {
       if (val.checked) {
         lenIndex++
       }
@@ -193,7 +261,7 @@ Page({
   checkAllOut: function () {
     var list = this.data.list
     list.map(function (val, i) {
-      val.children.map(function (va, ii) {
+      val.specList.map(function (va, ii) {
         va.checked = val.checkeds
       })
 
@@ -225,9 +293,9 @@ Page({
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list,
-      num = list[index].children[indexs].num
+      num = list[index].specList[indexs].num
     if (num > 1) {
-      list[index].children[indexs].num--
+      list[index].specList[indexs].num--
     } else {
       num = 1
       wx.showToast({
@@ -244,7 +312,7 @@ Page({
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list
-    list[index].children[indexs].num = e.detail.value
+    list[index].specList[indexs].num = e.detail.value
     this.setData({
       list: list
     })
@@ -254,7 +322,7 @@ Page({
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list
-    list[index].children[indexs].num++
+    list[index].specList[indexs].num++
     this.setData({
       list: list
     })
@@ -263,6 +331,57 @@ Page({
     var del = this.data.isDel
     this.setData({
       isDel: !del
+    })
+  },
+  // 登录
+  bindGetUserInfo() {
+    var that = this
+    wx.login({
+      success(res) {
+        var code = res.code
+        wx.getUserInfo({
+          success(resp) {
+            if (code) {
+              wx.setStorageSync('users', {
+                'nickName': resp.userInfo.nickName,
+                'avatarUrl': resp.userInfo.avatarUrl
+              })
+              app.http({
+                url: '/oauth/wx-auth-save',
+                method: 'POST',
+                dengl: false,
+                header: true,
+                data: JSON.stringify({
+                  code: code,
+                  encryptedData: resp.encryptedData,
+                  iv: resp.iv,
+                  identityCode: wx.getStorageSync('code')
+                }),
+                success(res) {
+                  if (res.data.code == 0) {
+                    wx.setStorageSync('Authorization', res.data.data.access_token)
+                    wx.showToast({
+                      title: '登录成功'
+                    })
+                    that.setData({
+                      isShow: false
+                    })
+                    that.loading()
+                  } else {
+                    wx.showToast({
+                      title: '登录失败'
+                    })
+                  }
+                }
+              })
+            }
+          },
+          fail: function (err) {
+            console.log(err)
+          }
+        })
+      }
+
     })
   },
   /**

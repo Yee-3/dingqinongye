@@ -18,7 +18,7 @@
 			<scroll-view scroll-y="true" style="height:{{rightHeight}}" bindscrolltolower="scrollButton_Two">
 				<view id="demo1" class="scroll-view-item demo-text-1" bindtap="detailIn" data-id="{{item.goodsId}}" wx:for="{{commodityList}}">
 					<view class="c_02">
-						<view class="c_03 fl"><image src="{{item.goodsLogo}}"></image></view>
+						<view class="c_03 fl"><image src="{{item.imgs[0]}}"></image></view>
 						<view class="c_04 fl">
 							<view class="c_05">{{item.goodsName}}</view>
 							<view class="c_06"><p><em>￥</em>{{item.shopPrice}}<span>￥{{item.marketPrice}}</span></p></view>
@@ -34,6 +34,7 @@
 			</scroll-view>
 			
 		</view>
+		<view class="cartBot" bindtap="shopCart">购物车</view>
 	</view>
 </view>
 

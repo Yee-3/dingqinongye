@@ -2,21 +2,9 @@
 <view class="l_01">
 	<view class="fl l_02">
 		<view class="page-section-spacing">
-			<scroll-view scroll-y="true" bindscrolltoupper="upper" style="height:{{scrollTop}}">
-				<view class="scroll-view-item demo-text-1"  bindtap="addColor" wx:for="{{20}}" data-index="{{index}}">
-					<view class="{{itemIndex==index?'l_04 on':'l_04'}}">精选农资</view>
-				</view>
-				<view id="demo2" class="scroll-view-item demo-text-2">
-					<view class="l_04">种子</view>
-				</view>
-				<view id="demo3" class="scroll-view-item demo-text-3">
-					<view class="l_04">农药</view>
-				</view>
-				<view id="demo4" class="scroll-view-item demo-text-3">
-					<view class="l_04">肥料</view>
-				</view>
-				<view id="demo3" class="scroll-view-item demo-text-3">
-					<view class="l_04">农药</view>
+			<scroll-view scroll-y="true" bindscrolltoupper="upper" style="height:{{scrollTop}}" bindscrolltolower="scrollButton_One">
+				<view class="scroll-view-item demo-text-1"  bindtap="addColor" wx:for="{{classifyList}}" data-id="{{item.id}}" data-index="{{index}}">
+					<view class="{{itemIndex==index?'l_04 on':'l_04'}}">{{item.cateTitle}}</view>
 				</view>
 			</scroll-view>
 		</view>
@@ -27,84 +15,27 @@
 			<view class="top_d"><input placeholder="搜索产品、商家或关键词" /></view>
 		</view>
 		<view class="page-section-spacing l_05">
-			<scroll-view scroll-y="true" style="height:{{rightHeight}}">
-				<view id="demo1" class="scroll-view-item demo-text-1" bindtap="detailIn">
+			<scroll-view class="pages" scroll-y="true" style="height:{{rightHeight}}" bindscrolltolower="scrollButton_Two">
+				<view id="demo1" class="scroll-view-item demo-text-1" data-id="{{item.goodsId}}" wx:for="{{commodityList}}" bindtap="detailIn">
 					<view class="c_02">
-						<view class="c_03 fl"><image src="../img/f011.png"></image></view>
+						<view class="c_03 fl"><image src="{{imgs[0]}}"></image></view>
 						<view class="c_04 fl">
-							<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
-							<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
+							<view class="c_05">{{item.goodsName}}</view>
+							<view class="c_06"><p><em>￥</em>{{item.shopPrice}}<span>￥{{item.marketPrice}}</span></p></view>
 							<view class="c_07">
-								<view class="c_09 fl">售出9999件</view>
-								<view class="c_08 fr">送货上门</view>
+								<view class="c_08 fl">送货上门</view>
+								<view class="c_09 fr">售出{{item.salesSum}}件</view>
 								<view class="w-clear"></view>
 							</view>
 						</view>
 						<view class="w-clear"></view>
 					</view>
 				</view>
-				<view id="demo2" class="scroll-view-item demo-text-2">
-					<view class="c_02">
-						<view class="c_03 fl"><image src="../img/f011.png"></image></view>
-						<view class="c_04 fl">
-							<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
-							<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
-							<view class="c_07">
-								<view class="c_09 fl">售出9999件</view>
-								<view class="c_08 fr">送货上门</view>
-								<view class="w-clear"></view>
-							</view>
-						</view>
-						<view class="w-clear"></view>
-					</view>
-				</view>
-				<view id="demo3" class="scroll-view-item demo-text-3">
-					<view class="c_02">
-						<view class="c_03 fl"><image src="../img/f011.png"></image></view>
-						<view class="c_04 fl">
-							<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
-							<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
-							<view class="c_07">
-								<view class="c_09 fl">售出9999件</view>
-								<view class="c_081 fr">物流配送</view>
-								<view class="w-clear"></view>
-							</view>
-						</view>
-						<view class="w-clear"></view>
-					</view>
-				</view>
-				<view id="demo4" class="scroll-view-item demo-text-4" wx:for="{{20}}">
-					<view class="c_02">
-						<view class="c_03 fl"><image src="../img/f011.png"></image></view>
-						<view class="c_04 fl">
-							<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
-							<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
-							<view class="c_07">
-								<view class="c_09 fl">售出9999件</view>
-								<view class="c_08 fr">送货上门</view>
-								<view class="w-clear"></view>
-							</view>
-						</view>
-						<view class="w-clear"></view>
-					</view>
-				</view>
-				<view id="demo3" class="scroll-view-item demo-text-3">
-					<view class="c_02">
-						<view class="c_03 fl"><image src="../img/f011.png"></image></view>
-						<view class="c_04 fl">
-							<view class="c_05">7c测试数据</view>
-							<view class="c_06"><p><em>￥</em>88.00<span>￥88.00</span></p></view>
-							<view class="c_07">
-								<view class="c_09 fl">售出9999件</view>
-								<view class="c_081 fr">物流配送</view>
-								<view class="w-clear"></view>
-							</view>
-						</view>
-						<view class="w-clear"></view>
-					</view>
-				</view>
+			
 			</scroll-view>
 		</view>
 	</view>
 </view>
+<view class="cartBot" bindtap="shopCart">购物车</view>
+
 <tabBar></tabBar>

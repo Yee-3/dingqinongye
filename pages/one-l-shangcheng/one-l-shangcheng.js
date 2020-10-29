@@ -13,6 +13,7 @@ Page({
     currentPage: 1,
     currentPage_Two: 1,
     loadingType: 0,
+    loadingType1: 0,
     classifyList: [],
     commodityList:[],
     keyword:'',
@@ -60,6 +61,11 @@ Page({
   detailIn(e){
     wx.navigateTo({
       url: '../g-shangpingxq/g-shangpingxq?id='+e.currentTarget.dataset.id,
+    })
+  },
+  shopCart(){
+    wx.navigateTo({
+      url: '../j-gouwuche/j-gouwuche',
     })
   },
   // 获取数据
@@ -144,16 +150,22 @@ Page({
       method: 'GET',
       data: data,
       success(res) {
+        if (res.data.data.goodsList.length > 0) {
+          var arr = res.data.data.goodsList
+          arr.map(function (val, i) {
+            val.imgs = val.goodsLogo.split(',')
+          })
+        }
         that.setData({
           commodityList:  res.data.data.goodsList
         })
         if ( res.data.data.goodsList.length <10) {
           that.setData({
-            loadingType: 2
+            loadingType1: 2
           })
         } else {
           that.setData({
-            loadingType: 0
+            loadingType1: 0
           })
         }
         wx.hideNavigationBarLoading();
@@ -167,12 +179,12 @@ Page({
     this.setData({
       currentPage_Two: that.data.currentPage_Two + 1
     })
-    if (this.data.loadingType != 0) {
+    if (this.data.loadingType1 != 0) {
       //loadingType!=0;直接返回
       return false;
     }
     this.setData({
-      loadingType: 1
+      loadingType1: 1
     })
     wx.showNavigationBarLoading()
     app.http({
@@ -181,17 +193,23 @@ Page({
       method: 'GET',
       data: data,
       success(res) {
+        if (res.data.data.goodsList.length > 0) {
+          var arr = res.data.data.goodsList
+          arr.map(function (val, i) {
+            val.imgs = val.goodsLogo.split(',')
+          })
+        }
         that.setData({
           commodityList: that.data.commodityList.concat( res.data.data.goodsList)
         })
         if ( res.data.data.goodsList.length <10) {
           that.setData({
-            loadingType: 2
+            loadingType1: 2
           })
           wx.hideNavigationBarLoading()
         } else {
           that.setData({
-            loadingType: 0
+            loadingType1: 0
           })
         }
         wx.hideNavigationBarLoading()

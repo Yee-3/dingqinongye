@@ -117,6 +117,13 @@
           "pathName": "pages/one-l-shangcheng/one-l-shangcheng",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/f-shangcheng/f-shangcheng",
+          "pathName": "pages/f-shangcheng/f-shangcheng",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -60,23 +60,29 @@ page {
 }
 
 .n_09 {
-  width: 180rpx;
+  position: relative;
+  /* min-width: 180rpx; */
   height: 56rpx;
   background: #f4f4f4;
   border-radius: 10rpx;
   padding: 0 16rpx;
   box-sizing: border-box;
   margin-top: 16rpx;
+  width: fit-content;
+  overflow: hidden;
 }
 
 .n_10 {
   line-height: 56rpx;
   font-size: 26rpx;
   color: #333333;
+  margin-right: 30rpx;
 }
 
 .n_11 {
   margin-top: 6rpx;
+  position: absolute;
+  right: 16rpx;
 }
 
 .n_11 image {
@@ -234,7 +240,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 
 .f_07 {
   position: fixed;
-  z-index: 99;
+  z-index: 999;
   width: 570rpx;
   height: 320rpx;
   background: #fff;
@@ -242,6 +248,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   border-radius: 50rpx;
   box-sizing: border-box;
   /* margin-top: 50%; */
+  top: 50%;
   left: 0;
   right: 0;
   margin-top: -160rpx;
@@ -269,6 +276,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   left: 0;
   right: 0;
   margin: 0 auto;
+  z-index: 99;
 }
 
 .e_22 {

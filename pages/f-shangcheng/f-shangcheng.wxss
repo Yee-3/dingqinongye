@@ -20,7 +20,7 @@
 .c_02{ width: 560rpx; margin: 0 auto; border-bottom: 1rpx dashed #bfbfbf; background: #fff; overflow: hidden; margin-bottom: 20rpx; padding-bottom: 20rpx;}
 .c_03{ border-radius: 20rpx; overflow: hidden; width: 200rpx;}
 .c_03 image{ width: 200rpx; height: 160rpx;}
-.c_04{ padding: 16rpx 0; width: 360rpx;}
+.c_04{ padding: 16rpx 15rpx; width: 360rpx; box-sizing: border-box;}
 .c_05{ font-size: 28rpx; color: #333; font-weight: 500;}
 .c_06{ padding-top: 10rpx;}
 .c_06 p{ font-size: 36rpx; font-weight: bold; color: #ff4e00;}
@@ -33,5 +33,22 @@
 
 .l_05{ overflow-y: hidden;}
 
+.cartBot {
+  position: absolute;
+  bottom: 130rpx;
+  right: 30rpx;
+  height: 100rpx;
+  width: 100rpx;
+  background: #008359;
+  box-sizing: border-box;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 100rpx;
+  font-size: 25rpx;
 
+}
 
+.pages .scroll-view-item:first-child .c_02{
+  margin-top: 20rpx;
+}

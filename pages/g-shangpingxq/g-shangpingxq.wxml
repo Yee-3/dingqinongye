@@ -27,7 +27,9 @@
 			<view class="fr m_06">
 				<view class="m_07 fl">送货上门</view>
 				<view class="m_08 fr" bindtap="showModal1">
-					<view class="fl m_09"><image src="../img/f020.png"></image></view>
+					<view class="fl m_09">
+						<image src="../img/f020.png"></image>
+					</view>
 					<view class="fl m_10">分享</view>
 				</view>
 			</view>
@@ -35,53 +37,69 @@
 		</view>
 		<view class="m_14">
 			<view class="cu-bar bg-white">
-			  <view class="action">
-			    <text class="cuIcon-title text-orange "></text>规格：
-			  </view>
-			  <view class="action m_11">
-			    <button class="cu-btn bg-green shadow" bindtap="showModal" data-target="bottomModal">
-					<view class="fl m_12">默认*1</view>
-					<view class="fr m_13"><image src="../img/f021.png"></image></view>
-				</button>
-			  </view>
+				<view class="action">
+					<text class="cuIcon-title text-orange "></text>规格：
+				</view>
+				<view class="action m_11">
+					<button class="cu-btn bg-green shadow" bindtap="showModal" data-type="3" data-target="bottomModal">
+						<view class="fl m_12">{{selectedCon.keyName?'已选：'+selectedCon.keyName:'请选择规格'}}</view>
+						<view class="fr m_13">
+							<image src="../img/f021.png"></image>
+						</view>
+					</button>
+				</view>
 			</view>
 			<!-- 购物车选项 -->
 			<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
-			  <view class="cu-dialog">
-			    <view class="cu-bar bg-white">
-			      <view class="text-blue" bindtap="hideModal"><image src="../img/f022.png"></image></view>
-			    </view>
-			    <view class="padding-xl">
-					<view class="m_15">
-						<view class="m_16 fl"><image src="../img/f023.png"></image></view>
-						<view class="m_17 fl">
-							<view class="m_18">{{cont.detail.goodsName}}</view>
-							<view class="c_06">
-								<p><em>￥</em>{{cont.detail.shopPrice}}<span>￥{{cont.detail.marketPrice}}</span></p>
+				<view class="cu-dialog">
+					<view class="cu-bar bg-white">
+						<view class="text-blue" bindtap="hideModal">
+							<image src="../img/f022.png"></image>
+						</view>
+					</view>
+					<view class="padding-xl">
+						<view class="m_15">
+							<view class="m_16 fl">
+								<image src="../img/f023.png"></image>
 							</view>
-						</view>
-						<view class="w-clear"></view>
-					</view>
-					<view class="m_19" wx:for="{{cont.specs}}">
-						<view class="m_20">{{item.name}}</view>
-						<view class="m_21">
-							<view class="m_22 {{togIndex==itm.itemId?'active':''}}" wx:for="{{item.value}}" data-index="{{itm.itemId}}" bindtap="toggle" wx:for-index="idx" wx:for-item="itm">{{itm.item}}</view>
+							<view class="m_17 fl">
+								<view class="m_18">{{cont.detail.goodsName}}</view>
+								<view class="c_06">
+									<p><em>￥</em>{{selectedCon.price?selectedCon.price:cont.detail.shopPrice}}<span>￥{{selectedCon.marketPrice?selectedCon.marketPrice:cont.detail.marketPrice}}</span></p>
+								</view>
+							</view>
 							<view class="w-clear"></view>
 						</view>
-					</view>
-					<view class="m_19">
-						<view class="m_20 fl">数量</view>
-						<view class="m_23 fr">
-							<view class="fl m_24" bindtap="bindMinus">-</view>
-							<input type="number" class="fl m_25" bindchange="bindManual" value="{{num}}"/>
-							<view class="fr m_24" bindtap="bindPlus">+</view>
+						<scroll-view class="scroll-view-Y" scroll-y="true" bindscroll="scroll" style="height:{{scr_height}}rpx">	
+							<view class="m_19" id="get_height" wx:for="{{cont.specs}}">
+								<view class="m_20">{{item.name}}</view>
+								<view class="m_21">
+									<view class="m_22 {{itm.status?'active':''}}" wx:for="{{item.value}}"
+										data-index="{{idx}}" data-ide="{{index}}" data-id="{{itm.itemId}}" bindtap="toggle" wx:for-index="idx" wx:for-item="itm">{{itm.item}}
+									</view>
+									<view class="w-clear"></view>
+								</view>
+							</view>
+						</scroll-view>
+
+						<view class="m_19"> 
+							<view class="m_20 fl">数量</view>
+							<view class="m_23 fr">
+								<view class="fl m_24" bindtap="bindMinus">-</view>
+								<input type="number" class="fl m_25" bindchange="bindManual" value="{{num}}" />
+								<view class="fr m_24" bindtap="bindPlus">+</view>
+								<view class="w-clear"></view>
+							</view>
 							<view class="w-clear"></view>
 						</view>
-						<view class="w-clear"></view>
+						<view class="m_26" bindtap="submit" wx:if="{{isTypes==1}}">确定</view>
+						<view class="m_26" bindtap="addCart" wx:if="{{isTypes==2}}">确定</view>
+						<view class="m_26_1" wx:if="{{isTypes==3}}">
+							<view class="b_1 fl" bindtap="addCart">加入购物车</view>
+							<view class="b_2 fr" bindtap="submit" >立即购买</view>
+						</view>
 					</view>
-					<view class="m_26" bindtap="submit">确定</view>
-			    </view>
-			  </view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -89,7 +107,9 @@
 
 <view class="m_27">
 	<view class="m_28 fl">
-		<view class="m_29 fl"><image src="../img/f024.png"></image></view>
+		<view class="m_29 fl">
+			<image src="../img/f024.png"></image>
+		</view>
 		<view class="m_30 fl">报业大厦供销社</view>
 		<view class="w-clear"></view>
 	</view>
@@ -104,7 +124,9 @@
 		<view class="m_34 fr"></view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="m_36"><image src="../img/f023.png"></image></view>
+	<view class="m_36">
+		<image src="../img/f023.png"></image>
+	</view>
 </view>
 
 <view class="e_15">
@@ -119,10 +141,10 @@
 		</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="e_19 fl" bindtap="showModal" data-target="bottomModal">
+	<view class="e_19 fl" bindtap="showModal" data-target="bottomModal" data-type="2">
 		<view class="fl e_21">加入购物车</view>
 	</view>
-	<view class="e_20 fr"  bindtap="showModal" data-target="bottomModal" data-type="1">
+	<view class="e_20 fr" bindtap="showModal" data-target="bottomModal" data-type="1">
 		<view class="fl e_21">立即购买</view>
 	</view>
 </view>
@@ -140,7 +162,7 @@
 			<view class="sh_5" catchtap="poster">
 				<image src="../img/share1.png"></image>
 				<view class="sh_6">生成海报</view>
-			</view>	
+			</view>
 		</view>
 	</view>
 </view>
@@ -162,5 +184,3 @@
 	</view>
 </view>
 <dengl isShow="{{isShow}}" bindGetInfo="bindGetUserInfo"></dengl>
-
-

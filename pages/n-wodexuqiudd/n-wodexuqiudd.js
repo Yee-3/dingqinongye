@@ -94,7 +94,6 @@ Page({
           var arr = res.data.data
           arr.map(function (val, i) {
             var time = val.workTime
-
             function format(x) {
               return x < 10 ? '0' + x : x
             }

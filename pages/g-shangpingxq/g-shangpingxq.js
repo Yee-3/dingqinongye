@@ -13,8 +13,11 @@ Page({
     goodsId: '',
     cont: {},
     isShow: false,
-    priceList:{},
-    togIndex:''
+    priceList: {},
+    togIndex: '',
+    scr_height: '',
+    selectedCon: {},
+    isTypes: ''
   },
   onLoad(options) {
     var that = this
@@ -30,6 +33,7 @@ Page({
       }, 500)
     } else {
       this.loading()
+
     }
 
   },
@@ -43,22 +47,35 @@ Page({
       method: 'GET',
       dengl: true,
       success(res) {
-        console.log(res)
-        var arr=[]
-        var list=res.data.data.specs
-        for(let i in list){
-          var obj={}
-          obj.name=i,
-          obj.value=list[i]
+        var arr = []
+        var list = res.data.data.specs
+        for (let i in list) {
+          var obj = {}
+          obj.name = i
+          obj.value = list[i]
+          obj.type = false
+          obj.value.map(function (val, ii) {
+            val.status = false
+          })
           arr.push(obj)
         }
-        res.data.data.specs=arr
+        res.data.data.specs = arr
         res.data.data.detail.imgs = res.data.data.detail.goodsLogo.split(',')
         that.setData({
           cont: res.data.data,
-          priceList:res.data.data.spec_price,
+          priceList: res.data.data.spec_price,
           isShow: false
         })
+        let query = wx.createSelectorQuery();
+        query.select('#get_height').boundingClientRect(rect => {
+          let clientHeight = rect.height;
+          let clientWidth = rect.width;
+          let ratio = 750 / clientWidth;
+          let height = clientHeight * ratio * 2;
+          that.setData({
+            scr_height: height
+          })
+        }).exec();
       }
     })
   },
@@ -67,12 +84,10 @@ Page({
     var that = this
     wx.login({
       success(res) {
-        console.log(res)
         var code = res.code
         wx.getUserInfo({
           success(resp) {
             if (code) {
-              console.log(resp)
               wx.setStorageSync('users', {
                 'nickName': resp.userInfo.nickName,
                 'avatarUrl': resp.userInfo.avatarUrl
@@ -106,11 +121,8 @@ Page({
                 }
               })
             }
-            console.log(resp)
           },
-          fail: function (err) {
-            console.log(err)
-          }
+          fail: function (err) {}
         })
       }
 
@@ -154,10 +166,52 @@ Page({
     })
   },
   // 切换
-  toggle(e){
-    console.log(e)
+  toggle(e) {
+    var list = this.data.cont,
+      index = e.currentTarget.dataset.ide,
+      ii = e.currentTarget.dataset.index,
+      that = this
+    list.specs[index].value.map(function (val, i) {
+      if (ii == i) {
+        val.status = !val.status
+        if (val.status) {
+          list.specs[index].type = true
+        } else {
+          list.specs[index].type = false
+        }
+      } else {
+        val.status = false
+      }
+    })
+    var arr = [],
+      chara = ''
+    list.specs.map(function (val, i) {
+      val.value.map(function (v, ii) {
+        if (v.status) {
+          arr.push(v.itemId)
+        }
+      })
+      arr = arr.sort(function (a, b) {
+        return a - b
+      })
+      chara = arr.join('_')
+    })
+    for (let key in list.spec_price) {
+      if (chara == key) {
+        that.setData({
+          selectedCon: list.spec_price[key]
+        })
+      }
+    }
+    list.specs.map(function (val, i) {
+      if (!val.type) {
+        that.setData({
+          selectedCon: {}
+        })
+      }
+    })
     this.setData({
-      togIndex:e.currentTarget.dataset.index
+      cont: list
     })
   },
   submit() {
@@ -173,13 +227,64 @@ Page({
       this.setData({
         isBuy: true,
         modalName: e.currentTarget.dataset.target,
+        isTypes: e.currentTarget.dataset.type
+      })
+    } else if (e.currentTarget.dataset.type == 2) {
+      this.setData({
+        modalName: e.currentTarget.dataset.target,
+        isBuy: false,
+        isTypes: e.currentTarget.dataset.type
       })
     } else {
       this.setData({
         modalName: e.currentTarget.dataset.target,
-        isBuy: false
+        isBuy: true,
+        isTypes: e.currentTarget.dataset.type
       })
     }
+  },
+  addCart() {
+    var list = this.data.cont.specs,
+      cot = this.data.selectedCon,
+      that = this
+    if (!cot.goodsId) {
+      list.map(function (val, i) {
+        if (!val.type) {
+          wx.showToast({
+            title: '请选择' + val.name + '分类',
+            icon: 'none'
+          })
+        }
+      })
+    } else {
+      app.http({
+        url: '/shop/mall-add-cart',
+        dengl: true,
+        method: 'POST',
+        header: true,
+        data: JSON.stringify({
+          cartAttr: [{
+            goodsNum: that.data.num,
+            specKey: cot.key
+          }],
+          goodsId: cot.goodsId
+        }),
+        success(res) {
+          console.log(res)
+          if(res.data.code==0){
+            wx.showToast({
+              title: '添加成功',
+            })
+             that.hideModal()
+          }else{
+            wx.showToast({
+              title: '添加失败',
+              icon:'none'
+            })
+          }
+        }
+      })
+    }   
   },
   hideModal(e) {
     this.setData({
@@ -274,7 +379,6 @@ Page({
           width: 250,
           height: 200,
           success(res) {
-            console.log(res.tempFilePath);
             that.setData({
               sharePicUrl: res.tempFilePath,
             });
