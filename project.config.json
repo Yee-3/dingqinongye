@@ -124,6 +124,12 @@
           "pathName": "pages/f-shangcheng/f-shangcheng",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/one-e-daijiedxqy/one-e-daijiedxqy",
+          "pathName": "pages/one-e-daijiedxqy/one-e-daijiedxqy",
+          "scene": null
         }
       ]
     }

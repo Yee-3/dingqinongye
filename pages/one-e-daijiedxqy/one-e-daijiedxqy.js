@@ -14,7 +14,12 @@ Page({
     status: '',
     hideFlag: true,
     animationData: {},
-    cateId:''
+    animationData_two: {},
+    cateId: '',
+    windowW: '',
+    windowH: '',
+    propic: '../img/bag.jpg',
+    hideCanvas: true
   },
 
   /**
@@ -27,7 +32,7 @@ Page({
       this.setData({
         id: options.id,
         status: options.status,
-        cateId:options.cateId
+        cateId: options.cateId
       })
     }
     if (!wx.getStorageSync('Authorization')) {
@@ -42,13 +47,49 @@ Page({
       }
       this.loading(data)
     }
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          windowW: res.windowWidth,
+          windowH: res.windowHeight,
+          rpx: res.windowWidth / 375,
+        })
+      },
+    })
+    this.drawCanvas()
+  },
+  drawCanvas() {
+    var that = this
+    var info = wx.getSystemInfoSync().windowWidth
+    var windowW = this.data.windowW
+    var windowH = this.data.windowH
+    var bagHeight = 1000 / 750 * info
+    var urll = this.data.propic
+    var rpx = this.data.rpx
+    var text = "小麦收割"
+    // var
+    var context = wx.createCanvasContext('myCanvas')
+    // 海报背景图
+
+    console.log(windowW * 0.8, info)
+    context.drawImage(urll, (windowW - windowW * 0.8 * rpx) / 2, (windowH - 65 - bagHeight * rpx) / 2, windowW * 0.8 * rpx, bagHeight * rpx)
+    context.setFontSize(19)
+    context.setFillStyle("#333333")
+    // context.font = "bold 19px Arial";
+    context.fillText(text, (windowW - windowW * 0.8 * rpx) / 2 + 20, (800 / 750 * info) * rpx + (windowW - windowW * 0.8 * rpx) / 2)
+    // 识别小程序二维码
+    // context.drawImage(that.data.qCord, (windowW - 180) / 2, (windowH + 289) / 2, 75, 75)
+    context.setFillStyle("#333333")
+    context.setFontSize(15)
+    context.fillText('长按识别图中小程序', (windowW - windowW * 0.8 * rpx) / 2 + 20, (800 / 750 * info) * rpx + (windowW - windowW * 0.8 * rpx) / 2 + (43 / 750 * info) * rpx)
+    context.draw()
 
   },
+
   zuzhi() {},
   // 显示遮罩层
   showModal: function () {
     var that = this;
-    console.log(2341234)
     this.setData({
       hideFlag: false
     })
@@ -94,6 +135,51 @@ Page({
     this.animation.translateY(300).step()
     this.setData({
       animationData: this.animation.export(),
+    })
+  },
+  // 显示遮罩层
+
+  poster: function () {
+    this.hideModal()
+    var that = this;
+    this.setData({
+      hideCanvas: false
+    })
+    var animation = wx.createAnimation({
+      duration: 600, //动画的持续时间 默认400ms 数值越大，动画越慢 数值越小，动画越快
+      timingFunction: 'ease', //动画的效果 默认值是linear
+    })
+    this.animation = animation
+    setTimeout(function () {
+      that.fadeIn(); //调用显示动画
+    }, 200)
+  },
+  // 隐藏遮罩层
+  posterCancel: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800, //动画的持续时间 默认400ms 数值越大，动画越慢 数值越小，动画越快
+      timingFunction: 'ease', //动画的效果 默认值是linear
+    })
+    this.animation = animation
+    this.fadeDown(); //调用隐藏动画
+    setTimeout(function () {
+        that.setData({
+          hideCanvas: true
+        })
+      },
+      320) //先执行下滑动画，再隐藏模块
+  },
+  fadeIn: function () {
+    this.animation.translateY(0).step()
+    this.setData({
+      animationData_two: this.animation.export() //动画实例的export方法导出动画数据传递给组件的animation属性
+    })
+  },
+  fadeDown: function () {
+    this.animation.translateY(400).step()
+    this.setData({
+      animationData_two: this.animation.export(),
     })
   },
 
@@ -235,8 +321,8 @@ Page({
           var pages = getCurrentPages();
           var prevPage = pages[pages.length - 2]; //上一个页面
           prevPage.setData({
-            cateId:that.data.cateId,
-            currentPage:1
+            cateId: that.data.cateId,
+            currentPage: 1
           })
           var data = {
             cateId: that.data.cateId,

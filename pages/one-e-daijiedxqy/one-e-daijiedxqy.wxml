@@ -65,10 +65,10 @@
 	<view class="e_19 fl" bindtap="showModal">
 		<view class="section">
 			<!-- <picker value="{{index}}" range="{{array}}"> -->
-				<view class="fl e_17" >
-					<image src="../img/f015.png"></image>
-				</view>
-				<view class="fl e_21">推荐给朋友</view>
+			<view class="fl e_17">
+				<image src="../img/f015.png"></image>
+			</view>
+			<view class="fl e_21">推荐给朋友</view>
 			<!-- </picker> -->
 		</view>
 	</view>
@@ -153,7 +153,36 @@
 			<view class="sh_5" catchtap="poster">
 				<image src="../img/share1.png"></image>
 				<view class="sh_6">生成海报</view>
-			</view>	
+			</view>
 		</view>
 	</view>
 </view>
+
+<view class="canvas " hidden="{{hideCanvas}}">
+	<view class="hide" bindtap="posterCancel">
+		<image src="../img/cancel.png"></image>
+	</view>
+	<view class="sile">
+		<view class="myCanvas bottom-positon" animation="{{animationData_two}}">
+			<image src="../img/bag.jpg"></image>
+			<view class="canvas_bot">
+				<view class="canvas_text fl">
+					<view class="text_one">水稻收割</view>
+					<view class="text_two">长按识别图中二维码</view>
+				</view>
+				<view class="can_right fr">
+					<image src="../img//erweima.jpeg"></image>
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+	<view class="bottom">
+		<view class="bot_but">
+			<image src="../img/download.png"></image>
+			<view class="tex">保存图片</view>
+		</view>
+	</view>
+</view>
+<!-- <canvas canvas-id="myCanvas" style="width:{{ windowW }}px; height:{{ windowH }}px;"></canvas> -->
