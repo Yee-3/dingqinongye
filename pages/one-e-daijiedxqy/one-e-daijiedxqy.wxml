@@ -171,7 +171,7 @@
 					<view class="text_two">长按识别图中二维码</view>
 				</view>
 				<view class="can_right fr">
-					<image src="../img//erweima.jpeg"></image>
+					<image src="../img/erweima.jpg"></image>
 				</view>
 			</view>
 
@@ -181,8 +181,10 @@
 	<view class="bottom">
 		<view class="bot_but">
 			<image src="../img/download.png"></image>
-			<view class="tex">保存图片</view>
+			<view class="tex" bindtap="keepPictrue" data-url="{{temporarycodeUrl}}">保存图片</view>
 		</view>
 	</view>
 </view>
-<!-- <canvas canvas-id="myCanvas" style="width:{{ windowW }}px; height:{{ windowH }}px;"></canvas> -->
+<view class="keepPic" style="width:{{windowW}}px;height:{{windowH}}px" >
+	<canvas canvas-id="myCanvas" style="width:{{windowW}}px;height:{{windowH}}px"></canvas>
+</view>

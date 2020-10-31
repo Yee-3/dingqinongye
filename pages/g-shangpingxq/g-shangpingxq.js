@@ -17,7 +17,13 @@ Page({
     togIndex: '',
     scr_height: '',
     selectedCon: {},
-    isTypes: ''
+    isTypes: '',
+    animationData_two: {},
+    windowW: '',
+    windowH: '',
+    propic: '../img/bag.jpg',
+    hideCanvas: true,
+    temporarycodeUrl: ''
   },
   onLoad(options) {
     var that = this
@@ -33,9 +39,15 @@ Page({
       }, 500)
     } else {
       this.loading()
-
     }
-
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          windowW: res.windowWidth,
+          windowH: res.windowHeight,
+        })
+      },
+    })
   },
   loading() {
     var that = this
@@ -362,6 +374,152 @@ Page({
     this.animation.translateY(300).step()
     this.setData({
       animationData: this.animation.export(),
+    })
+  },
+  // 绘图
+  drawCanvas() {
+    var that = this
+    var info = wx.getSystemInfoSync().windowWidth
+    var windowW = this.data.windowW
+    var windowH = this.data.windowH
+    var urll = this.data.propic
+    var text = "小麦收割"
+    // var
+    var context = wx.createCanvasContext('myCanvas')
+    // 海报背景图
+
+    console.log(windowW * 0.8, info)
+    context.drawImage(urll, (windowW - (750 / 750 * info)) / 2, (windowH - (1000 / 750 * info)) / 2, 750 / 750 * info, 725 / 750 * info)
+    context.fillStyle = "#ffffff";
+    context.fillRect((windowW - (750 / 750 * info)) / 2, (725 / 750 * info) + (windowH - (1000 / 750 * info)) / 2, 750 / 750 * info, 275 / 750 * info)
+    context.setFontSize(19)
+    context.setFillStyle("#333333")
+    context.fillText(text, (50 / 750 * info) + (windowW - (750 / 750 * info)) / 2, (800 / 750 * info) + (windowH - (1000 / 750 * info)) / 2)
+    // 识别小程序二维码
+    var pic = '../img/erweima.jpg'
+    context.drawImage(pic, (510 / 750 * info) + (windowW - (750 / 750 * info)) / 2, (750 / 750 * info) + (windowH - (1000 / 750 * info)) / 2, 200 / 750 * info, 200 / 750 * info)
+    context.setFillStyle("#333333")
+    context.setFontSize(15)
+    context.fillText('长按识别图中小程序', (50 / 750 * info) + (windowW - (750 / 750 * info)) / 2, (880 / 750 * info) + (windowH - (1000 / 750 * info)) / 2)
+    context.draw()
+    setTimeout(function () {
+      wx.canvasToTempFilePath({ // 把当前画布指定区域的内容导出生成指定大小的图片，并返回文件路径									
+        canvasId: 'myCanvas',
+        success: function (res) {
+          console.log(res)
+          let tempFilePath = res.tempFilePath;
+          that.setData({
+            temporarycodeUrl: tempFilePath
+          })
+          console.log(that.data.temporarycodeUrl)
+        },
+        fail: function (res) {
+          console.log(res);
+        }
+      });
+    }, 0)
+
+  },
+  keepPictrue(e) {
+    console.log(e)
+    var that = this
+    let url = e.currentTarget.dataset.url;
+    setTimeout(function () {
+      wx.showLoading({
+        title: '保存中',
+      })
+    }, 0)
+    wx.saveImageToPhotosAlbum({
+      filePath: url,
+      success(res) {
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 400)
+        setTimeout(function () {
+          wx.showToast({
+            title: '已保存到相册',
+            icon: 'success',
+            duration: 1500
+          })
+        }, 0)
+        that.posterCancel()
+        wx.showTabBar({})
+        console.log(res)
+      },
+      fail(res) {
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 400)
+        if (err.errMsg === "saveImageToPhotosAlbum:fail:auth denied" || err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
+          console.log("打开设置窗口");
+        }
+        setTimeout(function () {
+          wx.openSetting({
+            success(settingdata) {
+              console.log(settingdata)
+              if (settingdata.authSetting["scope.writePhotosAlbum"]) { // 授权成功
+                setTimeout(function () {
+                  wx.showToast({
+                    title: '再次点击保存',
+                    icon: 'none',
+                    duration: 1500
+                  })
+                }, 0)
+              } else {
+                console.log("获取权限失败")
+              }
+            }
+          })
+        }, 0)
+      }
+    })
+
+  },
+   // 显示遮罩层
+
+   poster: function () {
+    this.hideModal1()
+    var that = this;
+    this.setData({
+      hideCanvas: false
+    })
+    that.drawCanvas()
+    var animation = wx.createAnimation({
+      duration: 600, //动画的持续时间 默认400ms 数值越大，动画越慢 数值越小，动画越快
+      timingFunction: 'linear', //动画的效果 默认值是linear
+    })
+    this.animation = animation
+    setTimeout(function () {
+      that.fadeIn(); //调用显示动画
+    }, 150)
+  },
+  // 隐藏遮罩层
+  posterCancel: function () {
+    wx.hideLoading()
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800, //动画的持续时间 默认400ms 数值越大，动画越慢 数值越小，动画越快
+      timingFunction: 'ease', //动画的效果 默认值是linear
+    })
+    this.animation = animation
+    this.fadeDown(); //调用隐藏动画
+    setTimeout(function () {
+        that.setData({
+          hideCanvas: true
+        })
+      },
+      320) //先执行下滑动画，再隐藏模块
+  },
+  fadeIn: function () {
+    this.animation.translateY(0).step()
+    this.setData({
+      animationData_two: this.animation.export() //动画实例的export方法导出动画数据传递给组件的animation属性
+    })
+  },
+  fadeDown: function () {
+    this.animation.translateY(400).step()
+    this.setData({
+      animationData_two: this.animation.export(),
     })
   },
   // 分享
