@@ -18,7 +18,7 @@
 
 
 <view class="x_1">
-	<view class="z_2">
+	<view class="z_2" bindtap="orderDetail">
 		<view class="n_04 fl">
 			<image src="../img/f027.png"></image>
 		</view>
@@ -46,7 +46,7 @@
 		<view class="fr x_11">
 			<view class="fl x_13" wx:if="{{titleIndex==0||titleIndex==1}}">取消订单</view>
 			<view class="fr x_12" wx:if="{{titleIndex==0}}">立即支付</view>
-			<view class="fl x_13" wx:if="{{titleIndex==2}}">查看物流</view>
+			<view class="fl x_13" wx:if="{{titleIndex==2}}" bindtap="logistics">查看物流</view>
 			<view class="fr x_12" wx:if="{{titleIndex==2||titleIndex==1}}">确认收货</view>
 			<!-- <view class="fr s_01" wx:if="{{titleIndex==3}}">交易成功</view> -->
 			<view class="fr tr_2" wx:if="{{titleIndex==4||titleIndex==3}}">删除订单</view>
@@ -122,5 +122,31 @@
 			<view class="w-clear"></view>
 		</view>
 		<view class="w-clear"></view>
+	</view>
+</view>
+
+<!-- 物流信息弹框 -->
+<!--  -->
+<view class="wl_1" hidden="{{wlShow}}">
+	<view class="wl_2">
+		<view class="wl_3">提示</view>
+		<view class="wl_4">
+			<!-- <view class="loding" wx:if="{{isLoading}}">正在载入中...</view> -->
+        <scroll-view scroll-y="true" style="height:400rpx;">
+          <view class="scroll-view-item" wx:for="{{wlList}}">
+						<!-- 左边 -->
+						<view class="item_L">
+							<view class="item_dian {{index==0?'dian_on':''}}"></view>
+							<view class="item_shu" style="height:{{styHeight-15}}rpx"></view>
+						</view>
+						<!-- 右边 -->
+						<view class="item_R">
+							<view class="item_1 {{index==0?'item_on':''}}">{{item.context}}</view>
+							<view class="item_2">{{item.ftime}}</view>
+						</view>
+					</view>
+        </scroll-view>
+			</view>
+			<view class="wl_5" bindtap="logistics">确定</view>
 	</view>
 </view>

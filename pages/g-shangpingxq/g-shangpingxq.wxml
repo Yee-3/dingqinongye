@@ -156,12 +156,16 @@
 		<view class="sh_3">选择分享方式</view>
 		<view class="sh_4">
 			<view class="sh_5" catchtap="share">
-				<image src="../img/share2.png"></image>
-				<view class="sh_6">分享给朋友</view>
+				<button size="mini" open-type="share">
+					<image src="../img/share2.png"></image>
+					<view class="sh_6">分享给朋友</view>
+				</button>
 			</view>
 			<view class="sh_5" catchtap="poster">
-				<image src="../img/share1.png"></image>
-				<view class="sh_6">生成海报</view>
+				<button size="mini">
+					<image src="../img/share1.png"></image>
+					<view class="sh_6">生成海报</view>
+				</button>
 			</view>
 		</view>
 	</view>

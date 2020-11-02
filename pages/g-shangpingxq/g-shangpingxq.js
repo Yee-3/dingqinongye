@@ -1,6 +1,5 @@
 // const app = getApp();
 const app = getApp().globalData;
-const createSharePic = require('../../utils/createSharePic');
 Page({
   data: {
     CustomBar: app.CustomBar,
@@ -525,23 +524,17 @@ Page({
   // 分享
   onShareAppMessage: function () {
     var that = this
-    createSharePic.createSharePicUrl(this,
-      'https://img2018.cnblogs.com/blog/735803/201901/735803-20190118174652016-1046321986.png',
-      '名字',
-      '对加沙',
-      '发射点发生', () => {
-        wx.canvasToTempFilePath({
-          canvasId: 'shareCanvas',
-          x: 0,
-          y: 0,
-          width: 250,
-          height: 200,
-          success(res) {
-            that.setData({
-              sharePicUrl: res.tempFilePath,
-            });
-          },
-        }, that);
-      });
+    this.hideModal()
+    return {
+      title: 'biaoti',
+      path: '/pages/g-shangpingxq/g-shangpingxq?id='+this.data.goodsId,
+      imageUrl: '../img/bag.jpg',
+      success(res) {
+        console.log(res)
+        wx.showToast({
+          title: '转发成功',
+        })
+      }
+    }
   }
 })

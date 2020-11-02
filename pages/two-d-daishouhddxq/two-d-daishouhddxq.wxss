@@ -49,11 +49,93 @@ page{ background: #f4f4f4;}
 .e_18{ line-height: 110rpx; color: #333; font-size: 28rpx;}
 .e_21{ line-height: 110rpx; color: #fff; font-size: 28rpx;}
 
+.f_011{ width: 66.6666%; height: 110rpx; border-top: 1rpx solid #ddd; background: #fff; box-sizing: border-box; padding-left: 28rpx;}
+.f_011 p{ font-size: 28rpx; line-height: 110rpx; color: #333;}
+.f_011 span{ color: #008359; font-weight: 500; text-decoration: underline;}
 
 
 
+/*模态框*/
+.modal{position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000;}
+.modal-cancel{position:absolute; z-index:2000; top:0; right:0; bottom: 0; left:0; background:rgba(0,0,0,0.3);}
+.bottom-dialog-body{width:100%; position:absolute; z-index:3000; bottom:0; left:0;background:#fff;}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+ 
+ 
+/* 底部弹出框 */
+.bottom-positon{
+  text-align: center;
+  border-top-left-radius:45rpx;
+  border-top-right-radius:45rpx;
+  overflow: hidden;
+}
+.Mselect{
+  /* margin-bottom: 20rpx; */
+  background-color: #fff;
+}
+.title{
+  font-size: 32rpx;
+  font-weight: bold;
 
+}
+.Mselect .title{
+  padding: 40rpx 0;
+  background: #fff;
+}
 
+.Mcancel{
+  background: #008359;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+  font-size: 26rpx;
+  width: 694rpx;
+  margin: 0 auto;
+  border-radius: 35rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+.m_04 {
+  padding-bottom: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  
+}
+.Mcancel view{
+  width: 50%;
+
+}
+.r_01 {}
+
+.r_03 {
+  font-size: 26rpx;
+  color: #666;
+  float: left;
+}
+
+.r_04 {
+  float: right;
+}
+
+.r_02 {
+  overflow: hidden;
+  height: 80rpx;
+  line-height:80rpx;
+  margin: 0 30rpx;
+}
+
+.r_02 radio {
+  scale: 0.9;
+}
+.b_1{
+  background-color: #ffa900;
+  color:#fff;
+}
+.b_2{
+  background-color: #008359;
+  color: #fff;
+}
 
 
 

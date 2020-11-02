@@ -368,8 +368,13 @@ page {
 .sh_5 image {
   width: 100rpx;
   height: 100rpx;
+  display: block;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
-
+.sh_5 button{
+  background-color: #fff;
+}
 .sh_6 {
   margin-top: 20rpx;
   font-size: 26rpx;

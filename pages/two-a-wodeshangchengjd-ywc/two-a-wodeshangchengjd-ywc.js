@@ -1,24 +1,77 @@
 // pages/r-wodeshangcdd/r-wodeshangcdd.js
+const app = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    titleIndex: 0
+    titleIndex: 0,
+    styHeight: '',
+    wlShow: true,
+    wlList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     this.setData({
       titleIndex: options.id
     })
+
+    this.wlLoad()
+
   },
   toggleTitle(e) {
     this.setData({
       titleIndex: e.currentTarget.dataset.id
+    })
+  },
+  // 订单详情
+  orderDetail(e) {
+    wx.navigateTo({
+      url: '../two-d-daishouhddxq/two-d-daishouhddxq?index='+this.data.titleIndex,
+    })
+    // wx.navigateTo({
+    //   url:'../u-yiwanchengdd/u-yiwanchengdd'
+    //   url: '../two-d-daishouhddxq/two-d-daishouhddxq',
+    // })
+  },
+  // 物流信息
+  logistics() {
+  
+    this.wlLoad()
+    var show = this.data.wlShow
+    this.setData({
+      wlShow: !show
+    })
+  },
+  // 加载物流
+  wlLoad() {
+    var that=this
+    app.http({
+      url: '/api/shop/logistics-detail',
+      dengl: true,
+      method: 'GET',
+      data: {
+        logistics: '3104102516851'
+      },
+      success(res) {
+        console.log(res.data.data.data)
+        that.setData({
+          wlList: res.data.data.data
+        })
+        let query = wx.createSelectorQuery();
+        query.select('.item_R').boundingClientRect(rect => {
+          console.log(rect)
+          let height = rect.height * 750 / wx.getSystemInfoSync().windowWidth;
+          that.setData({
+            styHeight: height,
+          })
+        }).exec();
+      }
     })
   },
   /**

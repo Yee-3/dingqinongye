@@ -5,7 +5,8 @@
 			<image src="../img/f029.png"></image>
 		</view>
 		<view class="fl o_3">
-			<view class="o_4">姓名<view class="o_5">12345213645</view></view>
+			<view class="o_4">姓名<view class="o_5">12345213645</view>
+			</view>
 			<view class="o_6">山东省济南市槐荫区腊山河西交叉口报业大厦20层</view>
 		</view>
 		<view class="w-clear"></view>
@@ -16,7 +17,9 @@
 <view class="o_9">
 	<view class="o_10">报业大厦供销社</view>
 	<view class="">
-		<view class="n_04 fl"><image src="../img/f027.png"></image></view>
+		<view class="n_04 fl">
+			<image src="../img/f027.png"></image>
+		</view>
 		<view class="n_05 fl">
 			<view class="n_08">
 				<view class="fl o_15">70%吡虫啉20g杀虫剂农药</view>
@@ -47,12 +50,16 @@
 	</view>
 	<view class="o_21">
 		<view class="fl o_22">
-			<view class="o_23 fl"><image src="../img/f046.png"></image></view>
+			<view class="o_23 fl">
+				<image src="../img/f046.png"></image>
+			</view>
 			<view class="o_24 fl">联系客服</view>
 			<view class="w-clear"></view>
 		</view>
 		<view class="fl o_22">
-			<view class="o_23 fl"><image src="../img/f047.png"></image></view>
+			<view class="o_23 fl">
+				<image src="../img/f047.png"></image>
+			</view>
 			<view class="o_24 fl">拨打电话</view>
 			<view class="w-clear"></view>
 		</view>
@@ -63,21 +70,73 @@
 
 <view class="e_15">
 	<view class="e_16 fl">
-		<view class="fl e_17"><image src="../img/f048.png"></image></view>
+		<view class="fl e_17">
+			<image src="../img/f048.png"></image>
+		</view>
 		<view class="fl e_18">查看物流</view>
 	</view>
-	<view class="e_19 fl">
-		<view class="fl e_17"><image src="../img/f049.png"></image></view>
-		<view class="fl e_18">取消订单</view>
+	<view class="e_19 fl" wx:if="{{false}}">
+		<view class="fl e_17">
+			<image src="../img/f049.png"></image>
+		</view>
+		<view class="fl e_18" bindtap="showModal">取消订单</view>
 	</view>
 	<view class="e_20 fr">
-		<view class="fl e_17"><image src="../img/f050.png"></image></view>
+		<view class="fl e_17">
+			<image src="../img/f050.png"></image>
+		</view>
 		<view class="fl e_21">确认收货</view>
 	</view>
 </view>
 
+<!-- 已完成订单 -->
+<view class="e_15">
+	<view class="f_011 fl">
+		<p>如有疑问请<span>联系客服</span></p>
+	</view>
+	
+	<!-- 已完成订单 -->
+	<view class="e_20 fr">
+		<view class="fl e_17">
+			<image src="../img/f018.png"></image>
+		</view>
+		<view class="fl e_21">已完成</view>
+	</view>
+<!-- 已取消 -->
+	<view class="e_20 fr">
+		<view class="fl e_17">
+			<image src="../img/cancel.png"></image>
+		</view>
+		<view class="fl e_21">已完成</view>
+	</view>
+</view>
 
 
+<!-- 取消订单 -->
+<view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+	<view class="modal-cancel" bindtap="hideModal"></view>
+	<view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+		<!--  -->
+		<view class='Mselect'>
+			<view class="title">取消订单原因</view>
+			<view class="m_04">
+				<radio-group bindchange="modelCheck" wx:for="{{optionList}}" data-index="{{index}}">
+					<label class="r_01">
+						<view class="r_02">
+							<view class="r_03">{{item}}</view>
+							<radio class="r_04" color="#008359" value="{{item.modelName}}" checked="{{qxIndex==index}}" />
+						</view>
+					</label>
+				</radio-group>
+			</view>
+		</view>
+		<!-- <view></view> -->
+		<view class='Mcancel'>
+			<view class="b_1 fl" bindtap="mCancel">取消</view>
+			<view class="b_2 fr" bindtap="submit">确定</view>
+		</view>
+
+	</view>
 
 
-
+</view>

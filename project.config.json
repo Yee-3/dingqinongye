@@ -96,6 +96,26 @@
           "pathName": "pages/two-g-shangchuanzil/two-g-shangchuanzil",
           "query": "",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/one-e-daijiedxqy/one-e-daijiedxqy",
+          "pathName": "pages/one-e-daijiedxqy/one-e-daijiedxqy",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/two-a-wodeshangchengjd-ywc/two-a-wodeshangchengjd-ywc",
+          "pathName": "pages/two-a-wodeshangchengjd-ywc/two-a-wodeshangchengjd-ywc",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/two-d-daishouhddxq/two-d-daishouhddxq",
+          "pathName": "pages/two-d-daishouhddxq/two-d-daishouhddxq",
+          "scene": null
         }
       ]
     }

@@ -472,6 +472,18 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    var that = this
+    this.hideModal()
+    return {
+      title: 'biaoti',
+      path: '/pages/one-e-daijiedxqy/one-e-daijiedxqy?id=' + this.data.id,
+      imageUrl: '../img/bag.jpg',
+      success(res) {
+        console.log(res)
+        wx.showToast({
+          title: '转发成功',
+        })
+      }
+    }
   }
 })
