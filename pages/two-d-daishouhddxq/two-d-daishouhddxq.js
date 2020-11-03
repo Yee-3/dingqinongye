@@ -5,17 +5,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-    optionList: ['我不想要了', '信息填写错误', '其他'],
+    optionList: [{
+      value: '价格有点贵',
+      sta: 0
+    },
+    {
+      value: '余额不足',
+      sta: 1
+    },
+    {
+      value: '收货地址拍错',
+      sta: 3
+    },
+    {
+      value: '规格/款式/数量拍错',
+      sta: 4
+    },
+    {
+      value: '暂时不需要了',
+      sta: 5
+    },
+    {
+      value: '其他',
+      sta: 6
+    }],
     hideFlag: true,
     animationData: {},
     qxIndex: 0,
-    indType: ''
+    indType: '',
+    quSty: false,
+    isPhone: false,
+    wlShow:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.setData({
       indType: options.index
     })
@@ -83,6 +110,53 @@ Page({
       qxIndex: e.currentTarget.dataset.index,
     })
   },
+
+  // 物流信息
+   // 物流信息
+   logistics() {
+  
+    this.wlLoad()
+    var show = this.data.wlShow
+    this.setData({
+      wlShow: !show
+    })
+  },
+  // 加载物流
+  wlLoad() {
+    var that=this
+    app.http({
+      url: '/api/shop/logistics-detail',
+      dengl: true,
+      method: 'GET',
+      data: {
+        logistics: '3104102516851'
+      },
+      success(res) {
+        console.log(res.data.data.data)
+        that.setData({
+          wlList: res.data.data.data
+        })
+        let query = wx.createSelectorQuery();
+        query.select('.item_R').boundingClientRect(rect => {
+          console.log(rect)
+          let height = rect.height * 750 / wx.getSystemInfoSync().windowWidth;
+          that.setData({
+            styHeight: height,
+          })
+        }).exec();
+      }
+    })
+  },
+
+  // 打电话
+  // 打电话
+  callPhone(e) {
+    var show = this.data.isPhone
+    this.setData({
+      isPhone: !show,
+      phone:e.currentTarget.dataset.phone
+    })
+  }, 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

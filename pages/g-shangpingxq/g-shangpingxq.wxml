@@ -60,7 +60,7 @@
 					<view class="padding-xl">
 						<view class="m_15">
 							<view class="m_16 fl">
-								<image src="../img/f023.png"></image>
+								<image src="{{cont.detail.imgs[0]}}"></image>
 							</view>
 							<view class="m_17 fl">
 								<view class="m_18">{{cont.detail.goodsName}}</view>
@@ -110,10 +110,10 @@
 		<view class="m_29 fl">
 			<image src="../img/f024.png"></image>
 		</view>
-		<view class="m_30 fl">报业大厦供销社</view>
+		<view class="m_30 fl">{{cont.shopInfo.name}}</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="m_31 fr" bindtap="store">进店逛逛</view>
+	<view class="m_31 fr" bindtap="store" data-name="{{cont.shopInfo.name}}" data-shopId="{{cont.shopInfo.shopId}}">进店逛逛</view>
 	<view class="w-clear"></view>
 </view>
 
@@ -124,9 +124,10 @@
 		<view class="m_34 fr"></view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="m_36">
+	<!-- <view class="m_36">
 		<image src="../img/f023.png"></image>
-	</view>
+	</view> -->
+	<rich-text nodes="{{cont.detail.goodsContent}}"></rich-text>
 </view>
 
 <view class="e_15">
@@ -150,7 +151,7 @@
 </view>
 
 
-
+<!-- 分享 -->
 <view class="sh_1" hidden="{{hideFlag}}" bindtap="hideModal1">
 	<view class="sh_2 bottom-positon" animation="{{animationData}}">
 		<view class="sh_3">选择分享方式</view>

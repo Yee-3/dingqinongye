@@ -1,7 +1,20 @@
 <view class="d_1">
 	<view class="d_2">订单编号：21354123647</view>
+	<view class=" o_1" style="border-bottom:1rpx solid #eee" wx:if="{{indType!=0||indType!=4}}">
+		<view  class="fl wl_02">
+			<image src="../img/wuliu.png"></image>
+		</view>
+		<view class="fl o_3" style="margin-bottom:25rpx">
+			<view class="o_6" style="color:#1296db">山东省济南市槐荫区腊山河西交叉东方时空几何的撒回复就撒开的返回拉萨的口报业大厦20层</view>
+			<view class="o_5">2020-11-03 14.01.00</view>
+		</view>
+		<view  class="wl_01">
+			<image src="../img/f021.png"></image>
+		</view>
+		<view class="w-clear"></view>
+	</view>
 	<view class="o_1">
-		<view class="fl o_2">
+		<view class="fl wl_02">
 			<image src="../img/f029.png"></image>
 		</view>
 		<view class="fl o_3">
@@ -36,6 +49,7 @@
 				<view class="w-clear"></view>
 			</view>
 		</view>
+		<view class="fr bq_1">送货上门</view>
 		<view class="w-clear"></view>
 	</view>
 </view>
@@ -48,38 +62,40 @@
 		<view class="o_18">创建时间：2020-2-13 09:43:25</view>
 		<view class="o_18">创建时间：2020-2-13 09:43:25</view>
 	</view>
-	<view class="o_21">
+	<view class="o_21" wx:if="{{!(indType==3||indType==4)}}">
 		<view class="fl o_22">
+
 			<view class="o_23 fl">
 				<image src="../img/f046.png"></image>
 			</view>
 			<view class="o_24 fl">联系客服</view>
 			<view class="w-clear"></view>
 		</view>
-		<view class="fl o_22">
+		<!-- <view class="fl o_22">
 			<view class="o_23 fl">
 				<image src="../img/f047.png"></image>
 			</view>
 			<view class="o_24 fl">拨打电话</view>
 			<view class="w-clear"></view>
-		</view>
+		</view> -->
 		<view class="w-clear"></view>
 	</view>
 </view>
 
-
-<view class="e_15">
+<!-- 底部导航栏 -->
+<!-- 待收货 -->
+<view class="e_15" wx:if="{{indType==2}}">
 	<view class="e_16 fl">
 		<view class="fl e_17">
+			<image src="../img/f014.png"></image>
+		</view>
+		<view class="fl e_18">联系商家</view>
+	</view>
+	<view class="e_19 fl">
+		<view class="fl e_17" bindtap="logistics">
 			<image src="../img/f048.png"></image>
 		</view>
 		<view class="fl e_18">查看物流</view>
-	</view>
-	<view class="e_19 fl" wx:if="{{false}}">
-		<view class="fl e_17">
-			<image src="../img/f049.png"></image>
-		</view>
-		<view class="fl e_18" bindtap="showModal">取消订单</view>
 	</view>
 	<view class="e_20 fr">
 		<view class="fl e_17">
@@ -89,28 +105,67 @@
 	</view>
 </view>
 
-<!-- 已完成订单 -->
-<view class="e_15">
+<!-- 代发货 -->
+<view class="e_15" wx:if="{{indType==1}}">
+	<view class="e_161 fl" bindtap="callPhone">
+		<view class="fl e_17" style="padding-left:25%">
+			<image src="../img/f014.png"></image>
+		</view>
+		<view class="fl e_18">联系商家</view>
+	</view>
+	<view class="e_19 fr" style="background:#008359" bindtap="showModal">
+		<view class="fl e_17">
+			<image src="../img/cancelDD.png"></image>
+		</view>
+		<view class="fl e_18" style="color:#fff">取消订单</view>
+	</view>
+</view>
+
+
+<!-- 已完成订单/已取消 -->
+<view class="e_15" wx:if="{{indType==3||indType==4}}">
 	<view class="f_011 fl">
 		<p>如有疑问请<span>联系客服</span></p>
 	</view>
-	
+
 	<!-- 已完成订单 -->
-	<view class="e_20 fr">
+	<view class="e_20 fr" wx:if="{{indType==3}}" style="background:#8a8a8a">
 		<view class="fl e_17">
 			<image src="../img/f018.png"></image>
 		</view>
 		<view class="fl e_21">已完成</view>
 	</view>
-<!-- 已取消 -->
-	<view class="e_20 fr">
-		<view class="fl e_17">
-			<image src="../img/cancel.png"></image>
+	<!-- 已取消 -->
+	<view class="e_20 fr" wx:if="{{indType==4}}" style="background:#8a8a8a">
+		<view class="fl e_17" style="padding-top: 33rpx">
+			<image style="width:45rpx;height:45rpx;" src="../img/cancel.png"></image>
 		</view>
-		<view class="fl e_21">已完成</view>
+		<view class="fl e_21">已取消</view>
 	</view>
 </view>
 
+<!-- 待支付 -->
+<view class="e_15" wx:if="{{indType==0}}">
+	<view class="e_16 fl" bindtap="callPhone">
+		<view class="fl e_17">
+			<image src="../img/f014.png"></image>
+		</view>
+		<view class="fl e_18">联系商家</view>
+	</view>
+	<view class="e_19 fl"  bindtap="showModal">
+		<view class="fl e_17">
+			<image src="../img/f049.png"></image>
+		</view>
+		<view class="fl e_18">取消订单</view>
+	</view>
+	<view class="e_20 fr">
+		<view class="fl e_17">
+			<image src="../img/pay.png"></image>
+		</view>
+		<view class="fl e_21">立即支付</view>
+	</view>
+</view>
+<!-- -----------------------底部导航栏结束-------------------- -->
 
 <!-- 取消订单 -->
 <view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
@@ -123,7 +178,7 @@
 				<radio-group bindchange="modelCheck" wx:for="{{optionList}}" data-index="{{index}}">
 					<label class="r_01">
 						<view class="r_02">
-							<view class="r_03">{{item}}</view>
+							<view class="r_03">{{item.value}}</view>
 							<radio class="r_04" color="#008359" value="{{item.modelName}}" checked="{{qxIndex==index}}" />
 						</view>
 					</label>
@@ -135,8 +190,63 @@
 			<view class="b_1 fl" bindtap="mCancel">取消</view>
 			<view class="b_2 fr" bindtap="submit">确定</view>
 		</view>
-
 	</view>
+</view>
+
+<!-- 取消订单成功 -->
+<view class="f_08" wx:if="{{quSty}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>取消订单成功</span>
+		</view>
+		<view class="e_23">
+			<ul>
+				<li bindtap="confirmQ">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
+
+<!-- 电话 -->
+<view class="f_08" wx:if="{{isPhone}}">
+	<view class="f_07">
+		<view class="e_22">
+			<p>提示</p>
+			<span>您确定要拨打客服电话?</span>
+		</view>
+		<view class="lis_1">
+			<ul>
+				<li bindtap="callPhone">取消</li>
+				<li bindtap="makeCall">确定</li>
+			</ul>
+		</view>
+	</view>
+</view>
 
 
+<!-- 物流信息弹框 -->
+<!--  -->
+<view class="wl_1" hidden="{{wlShow}}">
+	<view class="wl_2">
+		<view class="wl_3">提示</view>
+		<view class="wl_4">
+			<!-- <view class="loding" wx:if="{{isLoading}}">正在载入中...</view> -->
+        <scroll-view scroll-y="true" style="height:400rpx;">
+          <view class="scroll-view-item" wx:for="{{wlList}}">
+						<!-- 左边 -->
+						<view class="item_L">
+							<view class="item_dian {{index==0?'dian_on':''}}"></view>
+							<view class="item_shu" style="height:{{styHeight-15}}rpx"></view>
+						</view>
+						<!-- 右边 -->
+						<view class="item_R">
+							<view class="item_1 {{index==0?'item_on':''}}">{{item.context}}</view>
+							<view class="item_2">{{item.ftime}}</view>
+						</view>
+					</view>
+        </scroll-view>
+			</view>
+			<view class="wl_5" bindtap="logistics">确定</view>
+	</view>
 </view>

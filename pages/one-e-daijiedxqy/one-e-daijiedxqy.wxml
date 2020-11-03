@@ -103,8 +103,8 @@
 		<view class="fl e_211">已完成</view>
 	</view>
 	<view class="e_20 fr" style="background: #8a8a8a" wx:if="{{status==4}}">
-		<view class="fl e_171">
-			<image src="../img/cancel.png"></image>
+		<view class="fl e_171" style="padding-top: 33rpx">
+			<image style="width:45rpx;height:45rpx" src="../img/cancel.png"></image>
 		</view>
 		<view class="fl e_211">已取消</view>
 	</view>

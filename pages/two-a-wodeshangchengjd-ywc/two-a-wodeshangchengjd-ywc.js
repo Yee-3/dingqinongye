@@ -17,11 +17,12 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    this.setData({
-      titleIndex: options.id
-    })
-
-    this.wlLoad()
+    if(options.id){
+      this.setData({
+        titleIndex: options.id
+      })
+    }
+    // this.wlLoad()
 
   },
   toggleTitle(e) {
@@ -31,13 +32,10 @@ Page({
   },
   // 订单详情
   orderDetail(e) {
+    var that=this
     wx.navigateTo({
-      url: '../two-d-daishouhddxq/two-d-daishouhddxq?index='+this.data.titleIndex,
+      url: '../two-d-daishouhddxq/two-d-daishouhddxq?index='+that.data.titleIndex,
     })
-    // wx.navigateTo({
-    //   url:'../u-yiwanchengdd/u-yiwanchengdd'
-    //   url: '../two-d-daishouhddxq/two-d-daishouhddxq',
-    // })
   },
   // 物流信息
   logistics() {

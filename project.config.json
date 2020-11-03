@@ -113,8 +113,23 @@
         },
         {
           "id": -1,
-          "name": "pages/two-d-daishouhddxq/two-d-daishouhddxq",
-          "pathName": "pages/two-d-daishouhddxq/two-d-daishouhddxq",
+          "name": "pages/one-w-wode/one-w-wode",
+          "pathName": "pages/one-w-wode/one-w-wode",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/one-l-shangcheng/one-l-shangcheng",
+          "pathName": "pages/one-l-shangcheng/one-l-shangcheng",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/one-k-gongxiaosxqy/one-k-gongxiaosxqy",
+          "pathName": "pages/one-k-gongxiaosxqy/one-k-gongxiaosxqy",
+          "query": "",
           "scene": null
         }
       ]

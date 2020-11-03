@@ -1,15 +1,12 @@
-<view class="k_01">我是店铺名称</view>
+<view class="k_01">{{shopName}}</view>
 <!-- 分类 -->
 <view class="page-section-spacing">
-	<scroll-view class="scroll-view_H j_01" scroll-x="true"  style="width: 750rpx">
-	<view class="scroll-view-item_H j_02 on"><p>分类一</p></view>
-	<view class="scroll-view-item_H j_02"><p>分类二</p></view>
-	<view class="scroll-view-item_H j_02"><p>分类三</p></view>
-	<view class="scroll-view-item_H j_02"><p>分类四</p></view>
-	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
-	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
-	<view class="scroll-view-item_H j_02"><p>分类五</p></view>
-</scroll-view>
+	<scroll-view class="scroll-view_H j_01" scroll-x="true" style="width: 750rpx" bindscrolltolower="scrollButton_One">
+		<view class="scroll-view-item_H j_02 {{titleIndex==index?'on':''}}" data-id="{{item.id}}" bindtap="toggleTitle" data-index="{{index}}"
+			wx:for="{{classifyList}}">
+			<p>{{item.cateTitle}}</p>
+		</view>
+	</scroll-view>
 </view>
 <view class="c_01">
 	<view class="c_02 fl" bindtap="detail">

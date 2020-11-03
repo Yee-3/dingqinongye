@@ -307,9 +307,10 @@ Page({
       url: '../j-gouwuche/j-gouwuche',
     })
   },
-  store() {
+  store(e) {
+    console.log(e)
     wx.navigateTo({
-      url: '../one-k-gongxiaosxqy/one-k-gongxiaosxqy',
+      url: '../one-k-gongxiaosxqy/one-k-gongxiaosxqy?shopId='+e.currentTarget.dataset.shopid+'&name='+e.currentTarget.dataset.name,
     })
   },
   ChooseCheckbox(e) {

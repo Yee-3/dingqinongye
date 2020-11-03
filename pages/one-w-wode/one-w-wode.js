@@ -122,8 +122,9 @@ Page({
     })
   },
   shopOrder(e) {
+    console.log(e)
     wx.navigateTo({
-      url: '../two-a-wodeshangchengjd-ywc/two-a-wodeshangchengjd-ywc',
+      url: '../two-a-wodeshangchengjd-ywc/two-a-wodeshangchengjd-ywc?id='+e.currentTarget.dataset.id,
     })
   },
   newsIn(){
