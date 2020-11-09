@@ -166,7 +166,7 @@ Page({
   // 搜索
   focus() {
     wx.navigateTo({
-      url: '../one-h-sousuo/one-h-sousuo',
+      url: '../one-h-sousuo/one-h-sousuo?type=0',
     })
   },
   gxsList(){

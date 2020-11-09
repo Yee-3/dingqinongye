@@ -344,6 +344,7 @@ page {
   font-size: 26rpx;
   float: left;
   margin-right: 30rpx;
+  margin-bottom: 20rpx;
 }
 
 .m_24 {

@@ -9,23 +9,23 @@
 	</scroll-view>
 </view>
 <view class="c_01">
-	<view class="c_02 fl" bindtap="detail">
+	<view class="c_02 fl" bindtap="detail" data-id="{{item.goodsId}}" wx:for="{{commodityList}}">
 		<view class="c_03">
-			<image src="../img/f011.png"></image>
+			<image src="{{item.imgs[0]}}"></image>
 		</view>
 		<view class="c_04">
-			<view class="c_05">70%吡虫啉20g杀虫剂农药</view>
+			<view class="c_05">{{item.goodsName}}</view>
 			<view class="c_06">
-				<p><em>￥</em>88.00<span>￥88.00</span></p>
+				<p><em>￥</em>{{item.shopPrice}}<span>￥{{item.marketPrice}}</span></p>
 			</view>
 			<view class="c_07">
-				<view class="c_08 fl">送货上门</view>
-				<view class="c_09 fr">售出9999件</view>
+				<view class="c_08 fl">{{item.goodsLabel=='0'?'快递配送':'送货上门'}}</view>
+				<view class="c_09 fr">售出{{item.salesSum}}件</view>
 				<view class="w-clear"></view>
 			</view>
 		</view>
 	</view>
-	<view class="c_02 fr">
+	<!-- <view class="c_02 fr">
 		<view class="c_03">
 			<image src="../img/f011.png"></image>
 		</view>
@@ -72,5 +72,5 @@
 				<view class="w-clear"></view>
 			</view>
 		</view>
-	</view>
+	</view> -->
 </view>

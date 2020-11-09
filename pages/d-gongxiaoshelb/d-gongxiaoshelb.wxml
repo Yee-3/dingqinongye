@@ -1,5 +1,5 @@
 <view class="d_03">
-	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-id="{{item.shopId}}">
+	<view class="a_19" wx:for="{{list}}" bindtap="gxsDetail" data-name="{{item.name}}" data-id="{{item.shopId}}">
 		<view class="a_20">
 			<image src="{{item.img}}"></image>
 		</view>

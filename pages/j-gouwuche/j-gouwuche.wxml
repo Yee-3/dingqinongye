@@ -7,10 +7,10 @@
 					<checkbox color="#ffffff"  checked="{{item.checkeds}}"/></label>
 			</checkbox-group>
 		</view>
-		<view class="n_03 fl">{{item.goodsName}}</view>
+		<view class="n_03 fl">{{item.name}}</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="n_06" bindlongtap="delCar" wx:for="{{item.specList}}"  wx:for-index="idx" wx:for-item="items">
+	<view class="n_06" bindlongtap="delCar" wx:for="{{item.cartMap[item.shopId]}}"  wx:for-index="idx" wx:for-item="items">
 		<view class="n_07 fl">
 			<checkbox-group name="checkbox" bindchange="checks" data-money="{{items.money}}" data-num="{{items.num}}" data-idex="{{index}}" data-index="{{idx}}">
 				<label>
@@ -21,7 +21,7 @@
 			<image src="../img/f027.png"></image>
 		</view>
 		<view class="n_05 fl">
-			<view class="n_08">{{items.name}}</view>
+			<view class="n_08">{{items.goodsName}}</view>
 			<view class="n_09" bindtap="showModal" data-target="bottomModal"> 
 				<view class="n_10 fl">{{items.specKeyName}}</view>
 				<view class="n_11">
@@ -31,7 +31,7 @@
 			<view class="n_12">
 				<view class="fl">
 					<view class="c_06">
-						<p><em>￥</em>{{items.money}}</p>
+						<p><em>￥</em>{{items.goodsPrice}}</p>
 					</view>
 				</view>
 				<view class="fr">

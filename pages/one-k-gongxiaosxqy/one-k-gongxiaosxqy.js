@@ -23,12 +23,12 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options.shopId)
-    // if(options.shopId){
-    //   this.setData({
-    //     shopId:options.shopId,
-    //     shopName:options.name
-    //   })
-    // }
+    if(options.shopId){
+      this.setData({
+        shopId:options.shopId,
+        shopName:options.name
+      })
+    }
      // 获取商品分类
      var data={
       limit:10,
@@ -36,9 +36,9 @@ Page({
     }
     this.itemList(data) 
   },
-  detail() {
+  detail(e) {
     wx.navigateTo({
-      url: '../g-shangpingxq/g-shangpingxq',
+      url: '../g-shangpingxq/g-shangpingxq?id='+e.currentTarget.dataset.id,
     })
   },
   // 切换
@@ -46,13 +46,15 @@ Page({
     var that=this
     this.setData({
       titleIndex: e.currentTarget.dataset.index,
-      cateId:e.currentTarget.dataset.id
+      cateId:e.currentTarget.dataset.id,
+      currentPage_Two:1
     })
     var data1={
       limit:10,
       page:that.data.currentPage_Two,
       cateId:e.currentTarget.dataset.id,
-      keywords:that.data.keyword?that.data.keyword:''
+      keywords:that.data.keyword?that.data.keyword:'',
+      shopId:that.data.shopId
     }
     this.getList(data1)
   },
@@ -74,7 +76,8 @@ Page({
           limit:10,
           page:that.data.currentPage_Two,
           cateId:that.data.cateId,
-          keywords:that.data.keyword?that.data.keyword:''
+          keywords:that.data.keyword?that.data.keyword:'',
+          shopId:that.data.shopId
         }
         that.getList(data1)
         if ( res.data.data.cateList.length < 10) {
@@ -250,7 +253,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var data1={
+      limit:10,
+      page:that.data.currentPage_Two+1,
+      cateId:e.currentTarget.dataset.id,
+      keywords:that.data.keyword?that.data.keyword:'',
+      shopId:that.data.shopId
+    }
+    this.getMoreList(data1)
   },
 
   /**

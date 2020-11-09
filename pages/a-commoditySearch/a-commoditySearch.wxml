@@ -1,0 +1,39 @@
+<!-- 分类 -->
+<view class="j_01">
+	<view class="scroll-view-item_H j_02 {{titleIndex==0?'on':''}}" data-index="0" bindtap="titleToggle">
+		<p>综合排序</p>
+	</view>
+	<view class="scroll-view-item_H j_02 {{titleIndex==1?'on':''}}" data-index="1" bindtap="titleToggle">
+		<p>销量排序</p>
+	</view>
+	<view class="scroll-view-item_H j_02 {{titleIndex==2?'on':''}}" data-index="2" bindtap="titleToggle">
+		<p>价格排序</p>
+		<view class="sort_1" wx:if="{{titleIndex!=2}}">
+			<image src="../img/sort_up.png"></image>
+		  <image src="../img/sort_down.png"></image>
+		</view>
+		<!-- 升序 -->
+		<image src="../img/sort_up.png" wx:if="{{isType&&titleIndex==2}}"></image>
+		<!-- 降序 -->
+		<image src="../img/sort_down.png" wx:if="{{!isType&&titleIndex==2}}"></image>
+	</view>
+</view>
+
+<view class="c_01">
+	<view class="c_02 fl" bindtap="detail" data-id="{{item.goodsId}}" wx:for="{{itemsList}}">
+		<view class="c_03">
+			<image src="{{item.imgs[0]}}"></image>
+		</view>
+		<view class="c_04">
+			<view class="c_05">{{item.goodsName}}</view>
+			<view class="c_06">
+				<p><em>￥</em>{{item.shopPrice}}<span>￥{{item.marketPrice}}</span></p>
+			</view>
+			<view class="c_07">
+				<view class="c_08 fl">{{item.goodsLabel=='0'?'快递配送':'送货上门'}}</view>
+				<view class="c_09 fr">售出{{item.salesSum}}件</view>
+				<view class="w-clear"></view>
+			</view>
+		</view>
+	</view>
+</view>

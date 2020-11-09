@@ -25,7 +25,7 @@
 				</view>
 			</view>
 			<view class="fr m_06">
-				<view class="m_07 fl">送货上门</view>
+				<view class="m_07 fl">{{cont.detail.goodsLabel=='0'?'快递配送':'送货上门'}}</view>
 				<view class="m_08 fr" bindtap="showModal1">
 					<view class="fl m_09">
 						<image src="../img/f020.png"></image>

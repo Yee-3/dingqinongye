@@ -46,7 +46,7 @@ Page({
   gxsDetail(e) {
     console.log(e)
     wx.navigateTo({
-      url: '../e-gongxiaoshexq/e-gongxiaoshexq?shopId=' + e.currentTarget.dataset.id,
+      url: '../one-k-gongxiaosxqy/one-k-gongxiaosxqy?shopId=' + e.currentTarget.dataset.id+'&name='+e.currentTarget.dataset.name,
     })
   },
   /**

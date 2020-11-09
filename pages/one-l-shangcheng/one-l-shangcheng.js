@@ -48,7 +48,8 @@ Page({
     var that=this
     this.setData({
       itemIndex: e.currentTarget.dataset.index,
-      cateId:e.currentTarget.dataset.id
+      cateId:e.currentTarget.dataset.id,
+      currentPage_Two:1
     })
     var data1={
       limit:10,
@@ -231,6 +232,11 @@ Page({
       page:this.data.currentPage+1
     }
     this.jiazai(data)
+  },
+  focus(){
+    wx.navigateTo({
+      url: '../one-h-sousuo/one-h-sousuo?type=1',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

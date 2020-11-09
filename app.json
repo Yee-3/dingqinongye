@@ -67,7 +67,8 @@
     "pages/b-fabuxuqiu/b-fabuxuqiu",
     "pages/a-index/a-index",
     "pages/a-wodesjh/wodesjh",
-    "pages/one-news/one-news"
+    "pages/one-news/one-news",
+    "pages/a-commoditySearch/a-commoditySearch"
   ],
   "window": {
     "backgroundTextStyle": "light",

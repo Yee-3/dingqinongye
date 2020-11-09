@@ -12,7 +12,7 @@
 	<view class="fr l_03">
 		<view class="top_c">
 			<view class="top_e"><image src="../img/f019.png"></image></view>
-			<view class="top_d"><input placeholder="搜索产品、商家或关键词" /></view>
+			<view class="top_d"><input placeholder="搜索产品、商家或关键词" bindfocus="focus"/></view>
 		</view>
 		<view class="page-section-spacing l_05">
 			<scroll-view scroll-y="true" style="height:{{rightHeight}}" bindscrolltolower="scrollButton_Two">
@@ -23,7 +23,7 @@
 							<view class="c_05">{{item.goodsName}}</view>
 							<view class="c_06"><p><em>￥</em>{{item.shopPrice}}<span>￥{{item.marketPrice}}</span></p></view>
 							<view class="c_07">
-								<view class="c_08 fl">送货上门</view>
+								<view class="c_08 fl">{{item.goodsLabel=='0'?'快递配送':'送货上门'}}</view>
 								<view class="c_09 fr">售出{{item.salesSum}}件</view>
 								<view class="w-clear"></view>
 							</view>

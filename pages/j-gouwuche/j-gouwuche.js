@@ -42,20 +42,20 @@ Page({
 
   },
   // 加载
-  loading() {
-    app.http({
-      url: '/shop/mall-cart-list',
-      dengl: true,
-      method: 'GET',
-      data: {
-        page: 1,
-        page_num: 10
-      },
-      success(res) {
-        console.log(res.data.data)
-      }
-    })
-  },
+  // loading() {
+  //   app.http({
+  //     url: '/shop/mall-cart-list',
+  //     dengl: true,
+  //     method: 'GET',
+  //     data: {
+  //       page: 1,
+  //       page_num: 10
+  //     },
+  //     success(res) {
+  //       console.log(res.data.data)
+  //     }
+  //   })
+  // },
   // 获取数据
   load(data) {
     var that = this
@@ -66,16 +66,31 @@ Page({
       method: 'GET',
       data: data,
       success(res) {
+        console.log(res.data.data)
+        // 店铺
         if(res.data.data.length>0){
           res.data.data.map(function (val, i) {
-            val.specList.map(function (vals, iis) {
+            // 店铺商品
+            var arrs=[]
+            var arr=val.cartMap[val.shopId]
+            arr.map(function (vals, iis) {
+              var objs={}
+              var nu=vals.specList
+              nu.map(function(item,index){
+                var obj=Object.assign(vals)
+               obj.addCart=item
+               arrs.push(obj)
+              })
               vals.checked = false
+              console.log(vals)
             })
+            val.cartMap.guige=arrs
           })
         }
         that.setData({
           list:  res.data.data,
         })
+        console.log(res.data.data)
         if ( res.data.data.length < 10) {
           that.setData({
             loadingType: 2
