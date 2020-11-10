@@ -4,17 +4,18 @@
 			<!-- 修改选框颜色 -->
 			<checkbox-group name="checkbox" data-index="{{index}}" bindchange="checkAll">
 				<label>
-					<checkbox color="#ffffff"  checked="{{item.checkeds}}"/></label>
+					<checkbox color="#ffffff" checked="{{item.checkeds}}" /></label>
 			</checkbox-group>
 		</view>
 		<view class="n_03 fl">{{item.name}}</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="n_06" bindlongtap="delCar" wx:for="{{item.cartMap[item.shopId]}}"  wx:for-index="idx" wx:for-item="items">
+	<view class="n_06" bindlongtap="delCar" data-id="{{}}" wx:for="{{item.carts}}" wx:for-index="idx" wx:for-item="items">
 		<view class="n_07 fl">
-			<checkbox-group name="checkbox" bindchange="checks" data-money="{{items.money}}" data-num="{{items.num}}" data-idex="{{index}}" data-index="{{idx}}">
+			<checkbox-group name="checkbox" bindchange="checks" data-money="{{items.addCart.goodsPrice}}"
+				data-num="{{items.addCart.goodsNum}}" data-idex="{{index}}" data-index="{{idx}}">
 				<label>
-					<checkbox color="#ffffff" value="{{item.checked}}"  checked="{{items.checked}}"/></label>
+					<checkbox color="#ffffff" value="{{items.checked}}" wx:key="{{idx}}" checked="{{items.checked}}" /></label>
 			</checkbox-group>
 		</view>
 		<view class="n_04 fl">
@@ -22,8 +23,8 @@
 		</view>
 		<view class="n_05 fl">
 			<view class="n_08">{{items.goodsName}}</view>
-			<view class="n_09" bindtap="showModal" data-target="bottomModal"> 
-				<view class="n_10 fl">{{items.specKeyName}}</view>
+			<view class="n_09" bindtap="showModal" data-id="{{items.goodsId}}" data-target="bottomModal">
+				<view class="n_10 fl">{{items.addCart.specKeyName}}</view>
 				<view class="n_11">
 					<image src="../img/f028.png"></image>
 				</view>
@@ -31,14 +32,18 @@
 			<view class="n_12">
 				<view class="fl">
 					<view class="c_06">
-						<p><em>￥</em>{{items.goodsPrice}}</p>
+						<p><em>￥</em>{{items.addCart.goodsPrice}}</p>
 					</view>
 				</view>
 				<view class="fr">
 					<view class="m_23 fr">
-						<view class="fl m_24 Left" bindtap="bindMinus" data-index="{{index}}" data-indexs="{{idx}}">-</view>
-						<input type="number" class="fl m_25" bindchange="bindManual" value="{{items.num}}"  data-index="{{index}}" data-indexs="{{idx}}" data-val="{{items.num}}"/>
-						<view class="fr m_24 Right" bindtap="bindPlus"  data-index="{{index}}" data-indexs="{{idx}}">+</view>
+						<view class="fl m_24 Left" bindtap="bindMinus" data-index="{{index}}" data-indexs="{{idx}}"
+							data-num="{{items.addCart.goodsNum}}" data-id="{{items.addCart.id}}">-</view>
+						<input type="number" class="fl m_25" bindchange="bindManual" value="{{items.addCart.goodsNum}}"
+							data-id="{{items.addCart.id}}" data-index="{{index}}" data-indexs="{{idx}}"
+							data-val="{{items.addCart.goodsNum}}" />
+						<view class="fr m_24 Right" bindtap="bindPlus" data-index="{{index}}" data-id="{{items.addCart.id}}"
+							data-num="{{items.addCart.goodsNum}}" data-indexs="{{idx}}">+</view>
 						<view class="w-clear"></view>
 					</view>
 				</view>
@@ -109,25 +114,18 @@
 				</view>
 				<view class="w-clear"></view>
 			</view>
-			<view class="m_19">
-				<view class="m_20">规格</view>
-				<view class="m_21">
-					<view class="m_22">规格1</view>
-					<view class="m_22">规格1</view>
-					<view class="m_22">规格1</view>
-					<view class="w-clear"></view>
+			<scroll-view class="scroll-view-Y" scroll-y="true" bindscroll="scroll" style="height:550rpx">
+				<view class="m_19" id="get_height" wx:for="{{cont.specs}}">
+					<view class="m_20">{{item.name}}</view>
+					<view class="m_21">
+						<view class="m_22 {{itm.status?'active':''}}" wx:for="{{item.value}}" data-index="{{idx}}"
+							data-ide="{{index}}" data-id="{{itm.itemId}}" bindtap="toggle" wx:for-index="idx" wx:for-item="itm">
+							{{itm.item}}
+						</view>
+						<view class="w-clear"></view>
+					</view>
 				</view>
-			</view>
-			<!-- <view class="m_19">
-				<view class="m_20 fl">数量</view>
-				<view class="m_23 fr">
-					<view class="fl m_24" bindtap="bindMinus">-</view>
-					<input type="number" class="fl m_25" bindchange="bindManual" value="{{num}}" />
-					<view class="fr m_24" bindtap="bindPlus">+</view>
-					<view class="w-clear"></view>
-				</view>
-				<view class="w-clear"></view>
-			</view> -->
+			</scroll-view>
 			<view class="m_26" bindtap="submit">确定</view>
 		</view>
 	</view>

@@ -16,6 +16,9 @@ Page({
     isShow: false,
     currentPage: 1,
     loadingType: 0,
+    cont: {},
+    scr_height: '',
+    selectedCon:{}
   },
 
   /**
@@ -30,9 +33,9 @@ Page({
         })
       }, 500)
     } else {
-      var data={
-        page:1,
-        page_num:10
+      var data = {
+        page: that.data.currentPage,
+        page_num: 10
       }
       this.load(data)
       that.setData({
@@ -41,21 +44,61 @@ Page({
     }
 
   },
+  addCart(data) {
+    var list = this.data.cont.specs,
+    cot = this.data.selectedCon,
+    that = this
+  if (!cot.goodsId) {
+    list.map(function (val, i) {
+      if (!val.type) {
+        wx.showToast({
+          title: '请选择' + val.name + '分类',
+          icon: 'none'
+        })
+      }
+    })
+  } else {
+    app.http({
+      url: '/shop/mall-add-cart',
+      dengl: true,
+      method: 'POST',
+      header: true,
+      data: JSON.stringify(data),
+      success(res) {
+        console.log(res)
+        if(res.data.code==0){
+          wx.showToast({
+            title: '添加成功',
+          })
+           that.hideModal()
+        }else{
+          wx.showToast({
+            title: '添加失败',
+            icon:'none'
+          })
+        }
+      }
+    })
+  } 
+  },
+  // 修改购物车数字
+  alterCart(data) {
+    app.http({
+      url: '/shop/mall-update-cart-num',
+      dengl: true,
+      method: 'POST',
+      data: data,
+      success(res) {
+        if (res.data.code == 0) {} else {
+          wx.showToast({
+            title: '修改失败',
+            icon: 'none'
+          })
+        }
+      }
+    })
+  },
   // 加载
-  // loading() {
-  //   app.http({
-  //     url: '/shop/mall-cart-list',
-  //     dengl: true,
-  //     method: 'GET',
-  //     data: {
-  //       page: 1,
-  //       page_num: 10
-  //     },
-  //     success(res) {
-  //       console.log(res.data.data)
-  //     }
-  //   })
-  // },
   // 获取数据
   load(data) {
     var that = this
@@ -66,32 +109,33 @@ Page({
       method: 'GET',
       data: data,
       success(res) {
-        console.log(res.data.data)
         // 店铺
-        if(res.data.data.length>0){
+        if (res.data.data.length > 0) {
           res.data.data.map(function (val, i) {
             // 店铺商品
-            var arrs=[]
-            var arr=val.cartMap[val.shopId]
+            var arrs = []
+            var arr = val.cartMap[val.shopId]
             arr.map(function (vals, iis) {
-              var objs={}
-              var nu=vals.specList
-              nu.map(function(item,index){
-                var obj=Object.assign(vals)
-               obj.addCart=item
-               arrs.push(obj)
+              var nu = vals.specList
+              nu.map(function (item, index) {
+                var obj = {}
+                obj.goodsId = vals.goodsId
+                obj.goodsLogo = vals.goodsLogo
+                obj.goodsName = vals.goodsName
+                obj.goodsSn = vals.goodsSn
+                obj.shopId = vals.shopId
+                obj.addCart = item
+                obj.checked = false
+                arrs.push(obj)
               })
-              vals.checked = false
-              console.log(vals)
             })
-            val.cartMap.guige=arrs
+            val.carts = arrs
           })
         }
         that.setData({
-          list:  res.data.data,
+          list: res.data.data,
         })
-        console.log(res.data.data)
-        if ( res.data.data.length < 10) {
+        if (res.data.data.length < 10) {
           that.setData({
             loadingType: 2
           })
@@ -125,17 +169,33 @@ Page({
       method: 'GET',
       data: data,
       success(res) {
-        if(res.data.data.length>0){
+        // 店铺
+        if (res.data.data.length > 0) {
           res.data.data.map(function (val, i) {
-            val.specList.map(function (vals, iis) {
-              vals.checked = false
+            // 店铺商品
+            var arrs = []
+            var arr = val.cartMap[val.shopId]
+            arr.map(function (vals, iis) {
+              var nu = vals.specList
+              nu.map(function (item, index) {
+                var obj = {}
+                obj.goodsId = vals.goodsId
+                obj.goodsLogo = vals.goodsLogo
+                obj.goodsName = vals.goodsName
+                obj.goodsSn = vals.goodsSn
+                obj.shopId = vals.shopId
+                obj.addCart = item
+                obj.checked = false
+                arrs.push(obj)
+              })
             })
+            val.carts = arrs
           })
         }
         that.setData({
-          list: that.data.list.concat( res.data.data)
+          list: that.data.list.concat(res.data.data)
         })
-        if ( res.data.data.length < 10) {
+        if (res.data.data.length < 10) {
           that.setData({
             loadingType: 2
           })
@@ -179,7 +239,7 @@ Page({
     list.map(function (val, i) {
       if (ii == i) {
         val.checkeds = !val.checkeds
-        val.specList.map(function (v, ii) {
+        val.carts.map(function (v, ii) {
           v.checked = val.checkeds
         })
       }
@@ -206,7 +266,7 @@ Page({
       ii = e.currentTarget.dataset.index,
       list = this.data.list,
       that = this
-    list[i].specList[ii].checked = !list[i].specList[ii].checked
+    list[i].carts[ii].checked = !list[i].carts[ii].checked
     // 计算数字
     this.setData({
       list: list
@@ -222,10 +282,10 @@ Page({
     let total = 0;
     // 循环列表得到每个数据
     list.map(function (val, i) {
-      for (let j = 0; j < val.specList.length; j++) {
-        if (val.specList[j].checked) {
+      for (let j = 0; j < val.carts.length; j++) {
+        if (val.carts[j].checked) {
           // 所有价格加起来 count_money
-          total += val.specList[j].num * val.specList[j].money;
+          total += val.carts[j].addCart.goodsNum * val.carts[j].addCart.goodsPrice;
         }
       }
     })
@@ -239,12 +299,12 @@ Page({
   // 检验是否全选
   checkout: function (index) {
     var list = this.data.list,
-      len = this.data.list[index].specList.length,
+      len = this.data.list[index].carts.length,
       lens = this.data.list.length,
       lenIndex = 0,
       lensIndex = 0,
       that = this
-    list[index].specList.map(function (val, i) {
+    list[index].carts.map(function (val, i) {
       if (val.checked) {
         lenIndex++
       }
@@ -276,24 +336,93 @@ Page({
   checkAllOut: function () {
     var list = this.data.list
     list.map(function (val, i) {
-      val.specList.map(function (va, ii) {
+      val.carts.map(function (va, ii) {
         va.checked = val.checkeds
       })
 
     })
   },
   showModal(e) {
-    if (e.currentTarget.dataset.type == 1) {
-      this.setData({
-        isBuy: true,
-        modalName: e.currentTarget.dataset.target,
+    var that = this
+    this.setData({
+      modalName: e.currentTarget.dataset.target,
+    })
+    app.http({
+      url: '/shop/mall-goods-detail',
+      method: 'GET',
+      data: {
+        goods_id: e.currentTarget.dataset.id
+      },
+      dengl: true,
+      success(res) {
+        var arr = []
+        var list = res.data.data.specs
+        for (let i in list) {
+          var obj = {}
+          obj.name = i
+          obj.value = list[i]
+          obj.type = false
+          obj.value.map(function (val, ii) {
+            val.status = false
+          })
+          arr.push(obj)
+        }
+        res.data.data.specs = arr
+        console.log(res, res.data.data)
+        that.setData({
+          cont: res.data.data,
+        })
+      }
+    })
+  },
+  // 切换
+  toggle(e) {
+    var list = this.data.cont,
+      index = e.currentTarget.dataset.ide,
+      ii = e.currentTarget.dataset.index,
+      that = this
+    list.specs[index].value.map(function (val, i) {
+      if (ii == i) {
+        val.status = !val.status
+        if (val.status) {
+          list.specs[index].type = true
+        } else {
+          list.specs[index].type = false
+        }
+      } else {
+        val.status = false
+      }
+    })
+    var arr = [],
+      chara = ''
+    list.specs.map(function (val, i) {
+      val.value.map(function (v, ii) {
+        if (v.status) {
+          arr.push(v.itemId)
+        }
       })
-    } else {
-      this.setData({
-        modalName: e.currentTarget.dataset.target,
-        isBuy: false
+      arr = arr.sort(function (a, b) {
+        return a - b
       })
+      chara = arr.join('_')
+    })
+    for (let key in list.spec_price) {
+      if (chara == key) {
+        that.setData({
+          selectedCon: list.spec_price[key]
+        })
+      }
     }
+    list.specs.map(function (val, i) {
+      if (!val.type) {
+        that.setData({
+          selectedCon: {}
+        })
+      }
+    })
+    this.setData({
+      cont: list
+    })
   },
   hideModal(e) {
     this.setData({
@@ -308,9 +437,17 @@ Page({
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list,
-      num = list[index].specList[indexs].num
+      num = list[index].carts[indexs].addCart.goodsNum,
+      that = this
+    console.log(list, e)
     if (num > 1) {
-      list[index].specList[indexs].num--
+      list[index].carts[indexs].addCart.goodsNum--
+      console.log(e.currentTarget.dataset.num - 1, list[index].carts[indexs].addCart.goodsNum)
+      var data = {
+        num: e.currentTarget.dataset.num - 1,
+        cartId: e.currentTarget.dataset.id
+      }
+      that.alterCart(data)
     } else {
       num = 1
       wx.showToast({
@@ -321,13 +458,19 @@ Page({
     this.setData({
       list: list
     })
+
   },
   // 修改
   bindManual: function (e) {
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list
-    list[index].specList[indexs].num = e.detail.value
+    list[index].carts[indexs].addCart.goodsNum = e.detail.value
+    var data = {
+      num: e.detail.value,
+      cartId: e.currentTarget.dataset.id
+    }
+    this.alterCart(data)
     this.setData({
       list: list
     })
@@ -337,7 +480,12 @@ Page({
     var index = e.currentTarget.dataset.index,
       indexs = e.currentTarget.dataset.indexs,
       list = this.data.list
-    list[index].specList[indexs].num++
+    list[index].carts[indexs].addCart.goodsNum++
+    var data = {
+      num: e.currentTarget.dataset.num + 1,
+      cartId: e.currentTarget.dataset.id
+    }
+    this.alterCart(data)
     this.setData({
       list: list
     })
@@ -347,6 +495,7 @@ Page({
     this.setData({
       isDel: !del
     })
+    
   },
   // 登录
   bindGetUserInfo() {
@@ -438,7 +587,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var data = {
+      page: this.data.currentPage + 1,
+      page_num: 10
+    }
+    this.loading(data)
   },
 
   /**

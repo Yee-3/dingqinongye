@@ -82,6 +82,11 @@
           "pathName": "pages/one-l-shangcheng/one-l-shangcheng",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/j-gouwuche/j-gouwuche",
+          "pathName": "pages/j-gouwuche/j-gouwuche",
+          "scene": null
         }
       ]
     }
