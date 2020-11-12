@@ -18,7 +18,8 @@ Page({
     loadingType: 0,
     cont: {},
     scr_height: '',
-    selectedCon:{}
+    selectedCon: {},
+    sKeyId: ''
   },
 
   /**
@@ -44,42 +45,52 @@ Page({
     }
 
   },
-  addCart(data) {
+  addCarts(data) {
     var list = this.data.cont.specs,
-    cot = this.data.selectedCon,
-    that = this
-  if (!cot.goodsId) {
-    list.map(function (val, i) {
-      if (!val.type) {
-        wx.showToast({
-          title: '请选择' + val.name + '分类',
-          icon: 'none'
-        })
-      }
-    })
-  } else {
-    app.http({
-      url: '/shop/mall-add-cart',
-      dengl: true,
-      method: 'POST',
-      header: true,
-      data: JSON.stringify(data),
-      success(res) {
-        console.log(res)
-        if(res.data.code==0){
+      cot = this.data.selectedCon,
+      that = this
+    if (!cot.goodsId) {
+      list.map(function (val, i) {
+        if (!val.type) {
           wx.showToast({
-            title: '添加成功',
-          })
-           that.hideModal()
-        }else{
-          wx.showToast({
-            title: '添加失败',
-            icon:'none'
+            title: '请选择' + val.name + '分类',
+            icon: 'none'
           })
         }
-      }
-    })
-  } 
+      })
+    } else {
+      app.http({
+        url: '/shop/mall-add-cart',
+        dengl: true,
+        method: 'POST',
+        header: true,
+        data: JSON.stringify({
+          cartAttr: [{
+            goodsNum: that.data.num,
+            specKey: cot.key
+          }],
+          goodsId: cot.goodsId
+        }),
+        success(res) {
+          if (res.data.code == 0) {
+            that.hideModal()
+            that.setData({
+              currentPage: 1
+            })
+            var data = {
+              page: that.data.currentPage,
+              page_num: 10
+            }
+            that.load(data)
+          } else {
+            wx.showToast({
+              title: '添加失败',
+              icon: 'none'
+            })
+          }
+        }
+      })
+    }
   },
   // 修改购物车数字
   alterCart(data) {
@@ -344,6 +355,8 @@ Page({
   },
   showModal(e) {
     var that = this
+    var types = e.currentTarget.dataset.type.split('_')
+    console.log(types)
     this.setData({
       modalName: e.currentTarget.dataset.target,
     })
@@ -364,11 +377,25 @@ Page({
           obj.type = false
           obj.value.map(function (val, ii) {
             val.status = false
+            console.log(val, types)
+            types.map(function (item, index) {
+              if (val.itemId == item) {
+                val.status = true
+                obj.type = true
+              }
+            })
           })
           arr.push(obj)
         }
         res.data.data.specs = arr
-        console.log(res, res.data.data)
+        var specsList = res.data.data.spec_price
+        for (let key in specsList) {
+          if (e.currentTarget.dataset.type == key) {
+            that.setData({
+              selectedCon: specsList[key]
+            })
+          }
+        }
         that.setData({
           cont: res.data.data,
         })
@@ -384,11 +411,12 @@ Page({
     list.specs[index].value.map(function (val, i) {
       if (ii == i) {
         val.status = !val.status
-        if (val.status) {
-          list.specs[index].type = true
-        } else {
-          list.specs[index].type = false
-        }
+        list.specs[index].type = val.status
+        // if (val.status) {
+        //   list.specs[index].type = true
+        // } else {
+        //   list.specs[index].type = false
+        // }
       } else {
         val.status = false
       }
@@ -397,6 +425,7 @@ Page({
       chara = ''
     list.specs.map(function (val, i) {
       val.value.map(function (v, ii) {
+        console.log(val, v)
         if (v.status) {
           arr.push(v.itemId)
         }
@@ -407,13 +436,15 @@ Page({
       chara = arr.join('_')
     })
     for (let key in list.spec_price) {
-      if (chara == key) {
+      if (key == chara) {
         that.setData({
           selectedCon: list.spec_price[key]
         })
       }
     }
+    console.log(this.data.selectedCon)
     list.specs.map(function (val, i) {
+      console.log(val, 867)
       if (!val.type) {
         that.setData({
           selectedCon: {}
@@ -430,7 +461,7 @@ Page({
     })
   },
   submit() {
-
+    this.addCarts()
   },
   // 减
   bindMinus: function (e) {
@@ -439,10 +470,8 @@ Page({
       list = this.data.list,
       num = list[index].carts[indexs].addCart.goodsNum,
       that = this
-    console.log(list, e)
     if (num > 1) {
       list[index].carts[indexs].addCart.goodsNum--
-      console.log(e.currentTarget.dataset.num - 1, list[index].carts[indexs].addCart.goodsNum)
       var data = {
         num: e.currentTarget.dataset.num - 1,
         cartId: e.currentTarget.dataset.id
@@ -490,12 +519,45 @@ Page({
       list: list
     })
   },
-  delCar() {
+  delCar(e) {
     var del = this.data.isDel
     this.setData({
-      isDel: !del
+      isDel: !del,
+      sKeyId: e.currentTarget.dataset.id
     })
-    
+  },
+  confirmT() {
+    var that = this
+    app.http({
+      url: '/shop/mall-cart-del',
+      data: {
+        specKeyId: this.data.sKeyId
+      },
+      method: 'GET',
+      dengl: true,
+      success(res) {
+        if (res.data.code == 0) {
+          that.setData({
+            isDel: false
+          })
+          that.setData({
+            currentPage: 1
+          })
+          var data = {
+            page: that.data.currentPage,
+            page_num: 10
+          }
+          that.load(data)
+        }
+      }
+    })
+    // this.delCar()
+  },
+  // 取消删除
+  delCancel() {
+    this.setData({
+      isDel: false
+    })
   },
   // 登录
   bindGetUserInfo() {

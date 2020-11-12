@@ -10,7 +10,7 @@
 		<view class="n_03 fl">{{item.name}}</view>
 		<view class="w-clear"></view>
 	</view>
-	<view class="n_06" bindlongtap="delCar" data-id="{{}}" wx:for="{{item.carts}}" wx:for-index="idx" wx:for-item="items">
+	<view class="n_06" bindlongtap="delCar" data-id="{{items.addCart.id}}" wx:for="{{item.carts}}" wx:for-index="idx" wx:for-item="items">
 		<view class="n_07 fl">
 			<checkbox-group name="checkbox" bindchange="checks" data-money="{{items.addCart.goodsPrice}}"
 				data-num="{{items.addCart.goodsNum}}" data-idex="{{index}}" data-index="{{idx}}">
@@ -23,7 +23,7 @@
 		</view>
 		<view class="n_05 fl">
 			<view class="n_08">{{items.goodsName}}</view>
-			<view class="n_09" bindtap="showModal" data-id="{{items.goodsId}}" data-target="bottomModal">
+			<view class="n_09" bindtap="showModal" data-type="{{items.addCart.specKey}}" data-id="{{items.goodsId}}" data-target="bottomModal">
 				<view class="n_10 fl">{{items.addCart.specKeyName}}</view>
 				<view class="n_11">
 					<image src="../img/f028.png"></image>
@@ -86,7 +86,7 @@
 		</view>
 		<view class="e_23">
 			<ul>
-				<li bindtap="delCar">取消</li>
+				<li bindtap="delCancel">取消</li>
 				<li bindtap="confirmT">确定</li>
 			</ul>
 		</view>
@@ -107,9 +107,9 @@
 					<image src="../img/f023.png"></image>
 				</view>
 				<view class="m_17 fl">
-					<view class="m_18">70%吡虫啉20g杀虫剂农药</view>
+					<view class="m_18">{{cont.detail.goodsName}}</view>
 					<view class="c_06">
-						<p><em>￥</em>88.00<span>￥88.00</span></p>
+						<p><em>￥</em>{{selectedCon.price?selectedCon.price:cont.detail.shopPrice}}<span>￥{{selectedCon.marketPrice?selectedCon.marketPrice:cont.detail.marketPrice}}</span></p>
 					</view>
 				</view>
 				<view class="w-clear"></view>
